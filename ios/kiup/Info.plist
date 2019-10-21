@@ -55,30 +55,6 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Hack-Bold.ttf</string>
-		<string>Hack-BoldItalic.ttf</string>
-		<string>Hack-Italic.ttf</string>
-		<string>Hack-Regular.ttf</string>
-		<string>OpenSans-Bold.ttf</string>
-		<string>OpenSans-BoldItalic.ttf</string>
-		<string>OpenSans-ExtraBold.ttf</string>
-		<string>OpenSans-ExtraBoldItalic.ttf</string>
-		<string>OpenSans-Italic.ttf</string>
-		<string>OpenSans-Light.ttf</string>
-		<string>OpenSans-LightItalic.ttf</string>
-		<string>OpenSans-Regular.ttf</string>
-		<string>OpenSans-SemiBold.ttf</string>
-		<string>OpenSans-SemiBoldItalic.ttf</string>
-		<string>Roboto Mono Bold for Powerline.ttf</string>
-		<string>Roboto Mono Bold Italic for Powerline.ttf</string>
-		<string>Roboto Mono for Powerline.ttf</string>
-		<string>Roboto Mono Italic for Powerline.ttf</string>
-		<string>Roboto Mono Light for Powerline.ttf</string>
-		<string>Roboto Mono Light Italic for Powerline.ttf</string>
-		<string>Roboto Mono Medium for Powerline.ttf</string>
-		<string>Roboto Mono Medium Italic for Powerline.ttf</string>
-		<string>Roboto Mono Thin for Powerline.ttf</string>
-		<string>Roboto Mono Thin Italic for Powerline.ttf</string>
 		<string>AntDesign.ttf</string>
 		<string>Entypo.ttf</string>
 		<string>EvilIcons.ttf</string>

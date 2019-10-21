@@ -25,7 +25,6 @@ const error = {
   color: colors.error,
   alignSelf: 'flex-start',
   fontSize: moderateScale(11),
-  fontFamily: 'Hack',
   textAlign: 'left',
 };
 

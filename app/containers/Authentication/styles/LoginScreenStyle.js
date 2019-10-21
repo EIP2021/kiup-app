@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontFamily: 'Hack',
     fontWeight: 'bold',
     marginTop: moderateScale(20),
     marginBottom: moderateScale(15),

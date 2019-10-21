@@ -9,13 +9,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   welcome: {
-    fontFamily: 'OpenSans-ExtraBold',
     fontSize: moderateScale(32),
     color: colors.secondary,
     textAlign: 'center',
   },
   delimiter: {
-    fontFamily: 'OpenSans-Regular',
     fontSize: moderateScale(18),
     color: colors.secondary,
     paddingBottom: 5,

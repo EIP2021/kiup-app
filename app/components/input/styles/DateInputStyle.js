@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingVertical: moderateScale(12),
     fontSize: moderateScale(12),
-    fontFamily: 'Hack',
     fontWeight: 'bold',
     color: colors.dark_white,
   },
@@ -47,7 +46,6 @@ const styles = StyleSheet.create({
   datePickerIOSBorderText: {
     marginRight: moderateScale(10),
     color: colors.primary,
-    fontFamily: 'OpenSans-Regular',
     fontSize: moderateScale(14),
     // fontWeight: 'bold',
   },
@@ -57,7 +55,6 @@ const styles = StyleSheet.create({
     color: colors.error,
     alignSelf: 'flex-start',
     fontSize: moderateScale(11),
-    fontFamily: 'Roboto',
     textAlign: 'left',
   },
 });
