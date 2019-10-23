@@ -50,7 +50,6 @@ export const styles = StyleSheet.create({
     color: colors.error,
     alignSelf: 'flex-start',
     fontSize: moderateScale(11),
-    fontFamily: 'Hack',
     textAlign: 'left',
   },
   datePickerIOSContainer: {
@@ -72,7 +71,6 @@ export const styles = StyleSheet.create({
   datePickerIOSBorderText: {
     marginRight: moderateScale(10),
     color: colors.primary,
-    fontFamily: 'OpenSans-Regular',
     fontSize: moderateScale(14),
     // fontWeight: 'bold',
   },
