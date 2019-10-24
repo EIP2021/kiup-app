@@ -1,11 +1,11 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import { colors } from '../../../themes';
 
 export const pickerStyles = StyleSheet.create({
   inputIOS: {
-    fontSize: moderateScale(12),
-    paddingBottom: moderateScale(10),
+    fontSize: moderateScale(13),
+    paddingBottom: moderateScale(13),
     borderBottomWidth: 1,
     paddingLeft: 0,
     borderColor: colors.dark_white,
@@ -27,7 +27,14 @@ export const pickerStyles = StyleSheet.create({
     width: '100%',
   },
   viewContainer: {
-    width: '85%',
+    ...Platform.select({
+      ios: {
+        width: '100%',
+      },
+      android: {
+        width: '85%',
+      },
+    }),
     alignSelf: 'center',
     marginTop: moderateScale(15),
   },
@@ -35,8 +42,16 @@ export const pickerStyles = StyleSheet.create({
     color: colors.dark_white,
   },
   iconContainer: {
-    top: 15,
-    right: 10,
+    ...Platform.select({
+      ios: {
+        top: 0,
+        right: 10,
+      },
+      android: {
+        top: 15,
+        right: 10,
+      },
+    }),
   },
 });
 
@@ -53,11 +68,8 @@ export const styles = StyleSheet.create({
     textAlign: 'left',
   },
   datePickerIOSContainer: {
-    position: 'absolute',
     width: '100%',
     alignItems: 'center',
-    bottom: 0,
-    left: 0,
     backgroundColor: colors.ios_grey,
   },
   datePickerIOSBorder: {
@@ -69,9 +81,9 @@ export const styles = StyleSheet.create({
     height: 45,
   },
   datePickerIOSBorderText: {
-    marginRight: moderateScale(10),
+    marginHorizontal: moderateScale(10),
     color: colors.primary,
     fontSize: moderateScale(14),
-    // fontWeight: 'bold',
+    fontWeight: 'bold',
   },
 });

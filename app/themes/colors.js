@@ -8,7 +8,7 @@ const palette = {
   grey_30: 'rgba(0,0,0,0.3)',
   dark_grey: 'rgba(31, 51, 61, 0.3)',
   ios_grey: '#d0d2db',
-  ios_white: '#d0d2db',
+  ios_white: '#f0f0f3',
   red: '#D8000C',
 };
 
