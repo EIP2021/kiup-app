@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { ScrollView, View, Text } from 'react-native';
+import { ScrollView, View, Text, Platform } from 'react-native';
 import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
 import { connect } from 'react-redux';
@@ -76,7 +76,7 @@ const RegisterScreen = ({ handleSubmit }) => {
         <Field
           name="weight"
           variant="secondary"
-          returnKeyType="send"
+          returnKeyType={Platform.OS === 'ios' ? 'done' : 'send'}
           iconColor={colors.light_grey}
           placeholder="Entrez votre poids (kg)"
           keyboardType="numeric"
