@@ -1,4 +1,4 @@
-import { AUTH_SUCCESS, AUTH_RESET } from '../actions';
+import { AUTH_SUCCESS, AUTH_RESET, LOGOUT_REQUEST } from '../actions';
 
 export const defaultState = {
   email: '',
@@ -15,6 +15,8 @@ export default (state = defaultState, action = {}) => {
         isLogged: true,
       };
     case AUTH_RESET:
+      return defaultState;
+    case LOGOUT_REQUEST:
       return defaultState;
     default:
       return state;

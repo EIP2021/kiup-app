@@ -5,6 +5,8 @@ import storage from 'redux-persist/lib/storage';
 import autoMergeLevel1 from 'redux-persist/lib/stateReconciler/autoMergeLevel1';
 
 import authenticationReducer from './authenticationReducer';
+import scanProductReducer from './scanProductReducer';
+import statisticsReducer from './statisticsReducer';
 import errorReducer from './errorReducer';
 import fetchReducer from './fetchReducer';
 
@@ -16,6 +18,8 @@ const authenticationPersistConfig = {
 
 const rootReducers = combineReducers({
   auth: persistReducer(authenticationPersistConfig, authenticationReducer),
+  scanner: scanProductReducer,
+  statistics: statisticsReducer,
   error: errorReducer,
   fetch: fetchReducer,
   form: formReducer,
