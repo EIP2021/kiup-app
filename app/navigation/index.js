@@ -7,9 +7,11 @@ import {
 import AuthenticationNavigation from './AuthenticationNavigation';
 import AuthLoadingScreen from '../containers/Authentication/AuthLoadingScreen';
 import ScannerNavigation from './ScannerNavigation';
+import NonScanProductNavigation from './NonScanProductNavigation';
 
 const BottomTabNavigator = createBottomTabNavigator({
   Scanner: ScannerNavigation,
+  Products: NonScanProductNavigation,
 });
 
 const AppSwitch = createSwitchNavigator({

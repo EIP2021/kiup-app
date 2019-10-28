@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     top: moderateScale(15),
   },
   text: {
-    fontSize: moderateScale(24),
+    fontSize: moderateScale(20),
     top: moderateScale(28),
     left: moderateScale(25),
   },

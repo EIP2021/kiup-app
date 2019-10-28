@@ -27,7 +27,7 @@ const NonScanProductNavigation = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'Scanner',
+    initialRouteName: 'NonScanProduct',
     defaultNavigationOptions: {
       ...defaultNavigationOptions,
     },
