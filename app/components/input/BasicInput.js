@@ -42,7 +42,9 @@ const BasicInput = forwardRef(
         <Input
           {...restInput}
           ref={ref}
-          selectionColor="white"
+          selectionColor={
+            variant === 'primary' ? colors.primary : colors.secondary
+          }
           errorMessage={submitFailed && error ? error : ''}
           onChangeText={debounce(onChange, 100)}
           containerStyle={[styles.container, containerStyle]}

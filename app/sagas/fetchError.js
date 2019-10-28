@@ -4,7 +4,12 @@ import { takeLatest, put } from 'redux-saga/effects';
 import { FETCH_ERROR, errorDetails } from '../actions';
 import NavigationService from '../services/navigation';
 
-export function* fetchErrorHandler({ title, description, error, redirectRoute = '' }) {
+export function* fetchErrorHandler({
+  title,
+  description,
+  error,
+  redirectRoute = '',
+}) {
   Alert.alert(
     title,
     `${description}, veuillez réessayer ultérieurement.`,

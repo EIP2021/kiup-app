@@ -6,13 +6,14 @@ import {
   fetchError,
   authSuccess,
   setError,
+  retrieveStatistics,
   LOGIN_REQUEST,
 } from '../actions';
-import serverUrl from '../config/serverUrl';
+import { kiupURL } from '../config/apisURL';
 import NavigationService from '../services/navigation';
 
 export const loginRequest = async payload => {
-  const response = await fetch(`${serverUrl}/login`, {
+  const response = await fetch(`${kiupURL}/login`, {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -21,7 +22,7 @@ export const loginRequest = async payload => {
     body: JSON.stringify(payload),
   });
 
-  if (response.status < 200 || response.status >= 300) {
+  if (response < 200 || response.status >= 500) {
     throw new Error(response.statusText);
   }
   return response.json();
@@ -32,11 +33,12 @@ export function* loginHandler({ payload }) {
     yield put(fetchStart());
     const response = yield call(loginRequest, payload);
     yield put(fetchEnd());
-    if (response.success) {
-      yield put(setError(`${response.error}, veuillez réessayer.`));
+    if (response.error) {
+      yield put(setError(`${response.message}, veuillez réessayer.`));
       return;
     }
-    yield put(authSuccess(payload.email));
+    yield put(authSuccess(response.email, response.token));
+    yield put(retrieveStatistics());
     NavigationService.navigate('App');
   } catch (error) {
     yield put(

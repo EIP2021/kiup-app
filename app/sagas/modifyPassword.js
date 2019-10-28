@@ -7,11 +7,11 @@ import {
   fetchError,
   MODIFY_PASSWORD_REQUEST,
 } from '../actions';
-import serverUrl from '../config/serverUrl';
+import { kiupURL } from '../config/apisURL';
 import NavigationService from '../services/navigation';
 
 const modifyPasswordRequest = async payload => {
-  const response = await fetch(`${serverUrl}/modify_password`, {
+  const response = await fetch(`${kiupURL}/modify_password`, {
     header: {
       Accept: 'application/json',
       'Content-Type': 'application/json',

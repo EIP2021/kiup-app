@@ -30,7 +30,7 @@ const RegisterScreen = ({ handleSubmit }) => {
         <View style={styles.doubleInputContainer}>
           <View style={styles.leftInput}>
             <Field
-              name="name"
+              name="firstName"
               returnKeyType="next"
               variant="secondary"
               placeholder="Prenom"
@@ -46,7 +46,7 @@ const RegisterScreen = ({ handleSubmit }) => {
           </View>
           <View style={styles.rightInput}>
             <Field
-              name="last_name"
+              name="lastName"
               ref={lastNameRef}
               variant="secondary"
               placeholder="Nom"
@@ -61,10 +61,10 @@ const RegisterScreen = ({ handleSubmit }) => {
           placeholder="Indiquez votre date de naissance"
         />
         <Field
-          name="sexe"
+          name="gender"
           items={[
-            { label: 'Homme', value: 'Homme' },
-            { label: 'Femme', value: 'Femme' },
+            { label: 'Homme', value: 'male' },
+            { label: 'Femme', value: 'female' },
           ]}
           placeholder={{
             label: 'Indiquez votre sexe',
@@ -106,10 +106,10 @@ RegisterScreen.defaultProps = {
 const mapDispatchToProps = dispatch => ({
   onSubmit: values => {
     if (
-      !values.name ||
-      !values.last_name ||
+      !values.firstName ||
+      !values.lastName ||
       !values.birthdate ||
-      !values.sexe ||
+      !values.gender ||
       !values.weight
     ) {
       dispatch(setError('Veuillez remplir toutes les informations demandées.'));
@@ -117,8 +117,18 @@ const mapDispatchToProps = dispatch => ({
         _error: 'Empty field',
       });
     }
-
-    dispatch(register(values));
+    const payload = {
+      email: values.email,
+      password: values.password,
+      info: {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        gender: values.gender,
+        weight: values.weight,
+        birthdate: values.birthdate,
+      },
+    };
+    dispatch(register(payload));
   },
 });
 

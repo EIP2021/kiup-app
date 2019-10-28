@@ -16,7 +16,10 @@ const AppRoot = () => {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <>
-          <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
+          <StatusBar
+            barStyle="light-content"
+            backgroundColor={colors.primary}
+          />
           <NavigationAppRoot
             ref={navigatorRef => {
               NavigationService.setTopLevelNavigator(navigatorRef);
