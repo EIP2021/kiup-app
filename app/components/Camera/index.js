@@ -5,56 +5,37 @@ import React, {
   useRef,
   useEffect,
 } from 'react';
-import { View, StatusBar, Platform, Alert } from 'react-native';
+import { View, StatusBar, Platform } from 'react-native';
 import PropTypes from 'prop-types';
 import { Icon } from 'react-native-elements';
 import { RNCamera } from 'react-native-camera';
 import { moderateScale } from 'react-native-size-matters';
-import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 
 import styles from './styles/CameraStyle';
 import { colors } from '../../themes';
-
-const checkPermission = response => {
-  switch (response) {
-    case RESULTS.UNAVAILABLE:
-      Alert.alert(
-        'Aucune camera disponible',
-        "Afin de pouvoir utiliser l'application une camera est necessaire."
-      );
-      break;
-    case RESULTS.BLOCKED:
-      Alert.alert(
-        'Camera non autoriser',
-        "Afin de pouvoir utiliser l'application a besoin d'acceder a votre camera."
-      );
-      break;
-    default:
-      break;
-  }
-};
 
 const Camera = ({ navigation, children, ...props }) => {
   const [flashmode, setFlashMode] = useState(false);
   const cameraRef = useRef(null);
 
   useEffect(() => {
-    StatusBar.setTranslucent(true);
-    StatusBar.setBackgroundColor('transparent');
-    const didFocusSubscription = navigation.addListener('willFocus', () => {
+    if (Platform.OS === 'android') {
       StatusBar.setTranslucent(true);
       StatusBar.setBackgroundColor('transparent');
+    }
+    const didFocusSubscription = navigation.addListener('willFocus', () => {
+      if (Platform.OS === 'android') {
+        StatusBar.setTranslucent(true);
+        StatusBar.setBackgroundColor('transparent');
+      }
     });
     const didBlurSubscription = navigation.addListener('willBlur', () => {
-      StatusBar.setTranslucent(false);
-      StatusBar.setBackgroundColor(colors.primary);
+      if (Platform.OS === 'android') {
+        StatusBar.setTranslucent(false);
+        StatusBar.setBackgroundColor(colors.primary);
+      }
       setFlashMode(false);
     });
-    if (Platform.OS === 'android') {
-      check(PERMISSIONS.ANDROID.CAMERA).then(checkPermission);
-    } else {
-      check(PERMISSIONS.IOS.CAMERA).then(checkPermission);
-    }
     return () => {
       didFocusSubscription.remove();
       didBlurSubscription.remove();

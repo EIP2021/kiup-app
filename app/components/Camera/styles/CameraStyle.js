@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,8 +14,16 @@ const styles = StyleSheet.create({
   iconContainer: {
     backgroundColor: 'transparent',
     position: 'absolute',
-    right: 0,
-    top: 25,
+    ...Platform.select({
+      ios: {
+        right: 10,
+        top: 40,
+      },
+      android: {
+        right: 0,
+        top: 25,
+      },
+    }),
   },
 });
 
