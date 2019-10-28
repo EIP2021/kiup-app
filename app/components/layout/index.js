@@ -1,2 +1,2 @@
-/* eslint-disable import/prefer-default-export */
 export { default as ErrorMessageAlert } from './ErrorMessageAlert';
+export { default as TabBarIcon } from './TabBarIcon';
