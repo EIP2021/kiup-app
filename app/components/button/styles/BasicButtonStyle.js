@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { moderateScale, verticalScale } from 'react-native-size-matters';
+import { moderateScale } from 'react-native-size-matters';
 import { colors } from '../../../themes';
 
 const buttonStyle = {
   borderWidth: 1,
   borderRadius: 4,
-  height: verticalScale(35),
+  height: moderateScale(40),
 };
 
 const titleStyle = {
