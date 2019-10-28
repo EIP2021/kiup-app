@@ -8,11 +8,11 @@ import {
   setError,
   REGISTER_REQUEST,
 } from '../actions';
-import serverUrl from '../config/serverUrl';
+import { kiupURL } from '../config/apisURL';
 import NavigationService from '../services/navigation';
 
 export const registerRequest = async payload => {
-  const response = await fetch(`${serverUrl}/register`, {
+  const response = await fetch(`${kiupURL}/register`, {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -33,12 +33,11 @@ export function* registerHandler({ payload }) {
     yield put(fetchStart());
     const response = yield call(registerRequest, payload);
     yield put(fetchEnd());
-    if (response.success) {
-      yield put(setError(`${response.error}, veuillez réessayer.`));
-      NavigationService.navigate('Register');
+    if (response.error) {
+      yield put(setError(`${response.message}, veuillez réessayer.`));
       return;
     }
-    yield put(authSuccess(payload.email));
+    yield put(authSuccess(payload.email, payload.token));
     NavigationService.navigate('App');
   } catch (error) {
     yield put(

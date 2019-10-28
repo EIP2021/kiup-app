@@ -1,12 +1,17 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
 import { Alert } from 'react-native';
 
-import { fetchStart, fetchEnd, fetchError, REINITIALIZE_PASSWORD_REQUEST } from '../actions';
-import serverUrl from '../config/serverUrl';
+import {
+  fetchStart,
+  fetchEnd,
+  fetchError,
+  REINITIALIZE_PASSWORD_REQUEST,
+} from '../actions';
+import { kiupURL } from '../config/apisURL';
 import NavigationService from '../services/navigation';
 
 const reinitializePasswordRequest = async payload => {
-  const response = await fetch(`${serverUrl}/reinitialize`, {
+  const response = await fetch(`${kiupURL}/reinitialize`, {
     header: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
