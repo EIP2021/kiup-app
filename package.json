@@ -9,6 +9,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.6.2",
     "lodash.debounce": "^4.0.8",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
@@ -20,15 +21,18 @@
     "react-native-permissions": "^2.0.3",
     "react-native-picker-select": "^6.3.2",
     "react-native-reanimated": "^1.2.0",
+    "react-native-screens": "^1.0.0-alpha.23",
     "react-native-size-matters": "^0.2.1",
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^3.11.1",
+    "react-navigation-stack": "^1.10.3",
+    "react-navigation-tabs": "^2.5.6",
     "react-redux": "^7.1.0",
     "recompose": "^0.30.0",
     "redux": "^4.0.4",
     "redux-form": "^8.2.6",
     "redux-logger": "^3.0.6",
-    "redux-persist": "^5.10.0",
+    "redux-persist": "6.0.0",
     "redux-saga": "^1.0.5",
     "reselect": "^4.0.0"
   },

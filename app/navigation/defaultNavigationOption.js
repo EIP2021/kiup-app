@@ -8,8 +8,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0,
     elevation: 0,
     height: moderateScale(45),
-    borderBottomWidth: 1,
-    borderColor: colors.separator,
   },
   title: {
     color: colors.secondary,

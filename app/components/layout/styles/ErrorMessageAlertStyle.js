@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
   transitionContainer: {
     position: 'absolute',
     left: 0,
-    bottom: -1,
     width: '100%',
     height: moderateScale(55),
   },

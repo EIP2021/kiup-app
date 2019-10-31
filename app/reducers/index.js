@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 import autoMergeLevel1 from 'redux-persist/lib/stateReconciler/autoMergeLevel1';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import authenticationReducer from './authenticationReducer';
 import scanProductReducer from './scanProductReducer';
@@ -12,7 +12,7 @@ import fetchReducer from './fetchReducer';
 
 const authenticationPersistConfig = {
   key: 'auth',
-  storage,
+  storage: AsyncStorage,
   stateReconciler: autoMergeLevel1,
 };
 

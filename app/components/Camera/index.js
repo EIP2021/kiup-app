@@ -16,6 +16,7 @@ import { colors } from '../../themes';
 
 const Camera = ({ navigation, children, ...props }) => {
   const [flashmode, setFlashMode] = useState(false);
+  const [focused, setFocused] = useState(true);
   const cameraRef = useRef(null);
 
   useEffect(() => {
@@ -24,12 +25,14 @@ const Camera = ({ navigation, children, ...props }) => {
       StatusBar.setBackgroundColor('transparent');
     }
     const didFocusSubscription = navigation.addListener('willFocus', () => {
+      setFocused(true);
       if (Platform.OS === 'android') {
         StatusBar.setTranslucent(true);
         StatusBar.setBackgroundColor('transparent');
       }
     });
     const didBlurSubscription = navigation.addListener('willBlur', () => {
+      setFocused(false);
       if (Platform.OS === 'android') {
         StatusBar.setTranslucent(false);
         StatusBar.setBackgroundColor(colors.primary);
@@ -44,25 +47,27 @@ const Camera = ({ navigation, children, ...props }) => {
 
   return (
     <View style={styles.container}>
-      <RNCamera
-        {...props}
-        ref={cameraRef}
-        type={RNCamera.Constants.Type.back}
-        style={styles.preview}
-        flashMode={
-          flashmode
-            ? RNCamera.Constants.FlashMode.torch
-            : RNCamera.Constants.FlashMode.off
-        }
-        captureAudio={false}
-        androidCameraPermissionOptions={{
-          title: "Permission d'utiliser la camera",
-          message:
-            "Nous avons besoin de votre permision afin d'utiliser la camera",
-          buttonPositive: 'Accepter',
-          buttonNegative: 'Refuser',
-        }}
-      />
+      {focused && (
+        <RNCamera
+          {...props}
+          ref={cameraRef}
+          type={RNCamera.Constants.Type.back}
+          style={styles.preview}
+          flashMode={
+            flashmode
+              ? RNCamera.Constants.FlashMode.torch
+              : RNCamera.Constants.FlashMode.off
+          }
+          captureAudio={false}
+          androidCameraPermissionOptions={{
+            title: "Permission d'utiliser la camera",
+            message:
+              "Nous avons besoin de votre permision afin d'utiliser la camera",
+            buttonPositive: 'Accepter',
+            buttonNegative: 'Refuser',
+          }}
+        />
+      )}
       <Icon
         name={flashmode ? 'flash-off' : 'flash'}
         color="black"

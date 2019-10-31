@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import NonScanProductScreen from '../containers/NonScanProduct/NonScanProductScreen';
 import NonScanProductListScreen from '../containers/NonScanProduct/NonScanProductListScreen';
@@ -10,20 +10,10 @@ const NonScanProductNavigation = createStackNavigator(
       screen: NonScanProductScreen,
       navigationOptions: {
         title: 'Catégorie',
-        headerStyle: {
-          ...defaultNavigationOptions.headerStyle,
-          borderBottomWidth: 0,
-        },
       },
     },
     NonScanProductList: {
       screen: NonScanProductListScreen,
-      navigationOptions: {
-        headerStyle: {
-          ...defaultNavigationOptions.headerStyle,
-          borderBottomWidth: 0,
-        },
-      },
     },
   },
   {

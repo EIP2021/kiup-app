@@ -36,7 +36,11 @@ const ErrorMessageAlert = ({ error, clearError }) => {
     <Transitioning.View
       transition={transition}
       ref={ref}
-      style={styles.transitionContainer}
+      style={
+        show
+          ? [styles.transitionContainer, { bottom: -1 }]
+          : [styles.transitionContainer, { bottom: -55 }]
+      }
     >
       {show && (
         <View style={styles.container}>
