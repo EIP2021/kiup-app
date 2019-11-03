@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const routeIcon = {
   Products: 'search',
-  Scanner: 'camera',
+  Scanner: 'barcode',
   Profile: 'person',
 };
 

@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import ScannerScreen from '../containers/Scanner/ScannerScreen';
 import ProductScreen from '../containers/Scanner/ProductScreen';
@@ -10,16 +10,13 @@ const ScannerNavigation = createStackNavigator(
       screen: ScannerScreen,
       navigationOptions: {
         header: null,
+        title: 'Scan',
       },
     },
     Product: {
       screen: ProductScreen,
       navigationOptions: {
         title: 'Produit',
-        headerStyle: {
-          ...defaultNavigationOptions.headerStyle,
-          borderBottomWidth: 0,
-        },
       },
     },
   },

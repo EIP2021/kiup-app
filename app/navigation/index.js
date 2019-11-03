@@ -1,9 +1,6 @@
 import React from 'react';
-import {
-  createBottomTabNavigator,
-  createSwitchNavigator,
-  createAppContainer,
-} from 'react-navigation';
+import { createSwitchNavigator, createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { moderateScale } from 'react-native-size-matters';
 
 import { TabBarIcon } from '../components';
@@ -15,16 +12,30 @@ import { colors } from '../themes';
 
 const BottomTabNavigator = createBottomTabNavigator(
   {
-    Scanner: ScannerNavigation,
-    Products: ProductsNavigation,
+    Scanner: {
+      screen: ScannerNavigation,
+      navigationOptions: {
+        title: 'Scan',
+      },
+    },
+    Products: {
+      screen: ProductsNavigation,
+      navigationOptions: {
+        title: 'Rechercher',
+      },
+    },
+    Profile: {
+      screen: () => null,
+      navigationOptions: {
+        title: 'Profil',
+        tabBarOnPress: () => {},
+      },
+    },
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ tintColor }) => (
-        <TabBarIcon
-          routeName={navigation.state.routeName}
-          tintColor={tintColor}
-        />
+      tabBarIcon: props => (
+        <TabBarIcon {...props} routeName={navigation.state.routeName} />
       ),
       tabBarOptions: {
         activeTintColor: colors.primary,
@@ -43,6 +54,4 @@ const AppSwitch = createSwitchNavigator({
   App: BottomTabNavigator,
 });
 
-const NavigationAppRoot = createAppContainer(AppSwitch);
-
-export default NavigationAppRoot;
+export default createAppContainer(AppSwitch);

@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import WelcomeScreen from '../containers/Authentication/WelcomeScreen';
 import LoginScreen from '../containers/Authentication/LoginScreen';
@@ -7,6 +7,7 @@ import RegisterInformationScreen from '../containers/Authentication/RegisterInfo
 import ForgottenScreen from '../containers/Authentication/ForgottenScreen';
 import ReinitializeScreen from '../containers/Authentication/ReinitializeScreen';
 import defaultNavigationOptions from './defaultNavigationOption';
+import { colors } from '../themes';
 
 const AuthenticationNavigation = createStackNavigator(
   {
@@ -14,49 +15,31 @@ const AuthenticationNavigation = createStackNavigator(
       screen: WelcomeScreen,
       navigationOptions: {
         header: null,
+        title: 'Bienvenue',
       },
     },
     Login: {
       screen: LoginScreen,
       navigationOptions: {
         title: 'Connexion',
+        headerStyle: {
+          ...defaultNavigationOptions.headerStyle,
+          borderBottomWidth: 1,
+          borderColor: colors.separator,
+        },
       },
     },
     Register: {
       screen: RegisterScreen,
-      navigationOptions: {
-        headerStyle: {
-          ...defaultNavigationOptions.headerStyle,
-          borderBottomWidth: 0,
-        },
-      },
     },
     RegisterInformation: {
       screen: RegisterInformationScreen,
-      navigationOptions: {
-        headerStyle: {
-          ...defaultNavigationOptions.headerStyle,
-          borderBottomWidth: 0,
-        },
-      },
     },
     Forgotten: {
       screen: ForgottenScreen,
-      navigationOptions: {
-        headerStyle: {
-          ...defaultNavigationOptions.headerStyle,
-          borderBottomWidth: 0,
-        },
-      },
     },
     Reinitialize: {
       screen: ReinitializeScreen,
-      navigationOptions: {
-        headerStyle: {
-          ...defaultNavigationOptions.headerStyle,
-          borderBottomWidth: 0,
-        },
-      },
     },
   },
   {

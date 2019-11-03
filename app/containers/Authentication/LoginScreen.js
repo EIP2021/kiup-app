@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
 import {
-  BasicButton,
+  FetchButton,
   NavigateTextButton,
   BasicInput,
   SecureInput,
@@ -57,7 +57,7 @@ const LoginScreen = ({ handleSubmit }) => {
             onSubmitEditing={handleSubmit}
             forwardRef
           />
-          <BasicButton
+          <FetchButton
             title="Se connecter"
             variant="secondary"
             containerStyle={styles.button}
