@@ -8,7 +8,8 @@ import spice from '../images/spice.png';
 import fruit from '../images/fruit.png';
 import vegetable from '../images/vegetable.png';
 import fish from '../images/fish.png';
-import poultry from '../images/poultry.png';
+import bread from '../images/bread.png';
+import herb from '../images/herb.png';
 import starchy from '../images/starchy.png';
 import charcuterie from '../images/charcuterie.png';
 import cereal from '../images/cereal.png';
@@ -46,7 +47,8 @@ const images = {
   fruit,
   fish,
   vegetable,
-  poultry,
+  bread,
+  herb,
   starchy,
   charcuterie,
   cereal,

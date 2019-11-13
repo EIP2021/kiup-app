@@ -43,7 +43,6 @@ const getContentToDisplay = title => {
 
 const NonScanProductListScreen = ({ navigation }) => {
   const title = navigation.getParam('title');
-  // navigation.setParams({ title });
 
   return (
     <View style={styles.container}>
@@ -53,6 +52,10 @@ const NonScanProductListScreen = ({ navigation }) => {
       </ScrollView>
     </View>
   );
+};
+
+NonScanProductListScreen.navigationOptions = ({ navigation }) => {
+  return { title: navigation.getParam('title') };
 };
 
 export default NonScanProductListScreen;

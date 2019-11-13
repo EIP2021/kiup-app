@@ -7,11 +7,13 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flex: 1,
-    marginLeft: moderateScale(17),
   },
-  rowContainer: {
+  listContainer: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
     flex: 1,
+    margin: moderateScale(5),
   },
 });
 
