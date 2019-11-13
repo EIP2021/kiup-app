@@ -6,14 +6,15 @@ const styles = StyleSheet.create({
     width: '45%',
     height: moderateScale(110),
     backgroundColor: 'black',
-    borderRadius: moderateScale(10),
+    borderRadius: 5,
     margin: moderateScale(5),
+    flexGrow: 1,
   },
   image: {
     width: '100%',
     height: '100%',
     opacity: 0.8,
-    borderRadius: 10,
+    borderRadius: 5,
   },
   textContainer: {
     position: 'absolute',

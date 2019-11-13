@@ -7,6 +7,7 @@ import styles from './styles/NavigateImageButtonStyle';
 import NavigationService from '../../services/navigation';
 
 const NavigateImageButton = ({ title, screenName, image }) => {
+  console.log(title)
   return (
     <TouchableOpacity
       style={styles.container}

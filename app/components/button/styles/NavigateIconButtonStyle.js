@@ -3,24 +3,26 @@ import { moderateScale } from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   container: {
-    position: 'relative',
-    width: '100%',
-    height: 80,
-    borderBottomWidth: 2,
+    borderBottomWidth: 1,
+    borderBottomColor: '#C8C8C8',
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: moderateScale(8),
+    paddingVertical: moderateScale(6),
+  },
+  leftContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   icon: {
-    width: 50,
-    height: 50,
-    left: moderateScale(15),
-    top: moderateScale(15),
+    width: 40,
+    height: 40,
   },
   text: {
-    fontSize: moderateScale(20),
-    top: moderateScale(28),
-    left: moderateScale(25),
+    fontSize: moderateScale(18),
+    marginLeft: moderateScale(5),
   },
-  next: { position: 'absolute', width: 30, height: 30, top: 25, right: 5 },
 });
 
 export default styles;
