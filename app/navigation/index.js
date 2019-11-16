@@ -12,16 +12,23 @@ import { colors } from '../themes';
 
 const BottomTabNavigator = createBottomTabNavigator(
   {
-    Scanner: {
-      screen: ScannerNavigation,
+    Recipe: {
+      screen: () => null,
       navigationOptions: {
-        title: 'Scan',
+        title: 'Recette',
+        tabBarOnPress: () => {},
       },
     },
     Products: {
       screen: ProductsNavigation,
       navigationOptions: {
         title: 'Rechercher',
+      },
+    },
+    Scanner: {
+      screen: ScannerNavigation,
+      navigationOptions: {
+        title: 'Scan',
       },
     },
     Profile: {
@@ -37,9 +44,13 @@ const BottomTabNavigator = createBottomTabNavigator(
       tabBarIcon: props => (
         <TabBarIcon {...props} routeName={navigation.state.routeName} />
       ),
+      initialRouteName: 'Scanner',
       tabBarOptions: {
         activeTintColor: colors.primary,
         inactiveTintColor: colors.light_grey,
+        style: {
+          paddingTop: 3,
+        },
         labelStyle: {
           fontSize: moderateScale(10),
         },

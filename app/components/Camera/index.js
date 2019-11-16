@@ -10,44 +10,32 @@ import PropTypes from 'prop-types';
 import { Icon } from 'react-native-elements';
 import { RNCamera } from 'react-native-camera';
 import { moderateScale } from 'react-native-size-matters';
+import { withNavigationFocus } from 'react-navigation';
 
 import styles from './styles/CameraStyle';
 import { colors } from '../../themes';
 
-const Camera = ({ navigation, children, ...props }) => {
+const Camera = ({ navigation, children, isFocused, ...props }) => {
   const [flashmode, setFlashMode] = useState(false);
-  const [focused, setFocused] = useState(true);
   const cameraRef = useRef(null);
 
   useEffect(() => {
-    if (Platform.OS === 'android') {
+    if (!isFocused) {
+      setFlashMode(false);
+    }
+    if (Platform.OS === 'android' && isFocused) {
       StatusBar.setTranslucent(true);
       StatusBar.setBackgroundColor('transparent');
     }
-    const didFocusSubscription = navigation.addListener('willFocus', () => {
-      setFocused(true);
-      if (Platform.OS === 'android') {
-        StatusBar.setTranslucent(true);
-        StatusBar.setBackgroundColor('transparent');
-      }
-    });
-    const didBlurSubscription = navigation.addListener('willBlur', () => {
-      setFocused(false);
-      if (Platform.OS === 'android') {
-        StatusBar.setTranslucent(false);
-        StatusBar.setBackgroundColor(colors.primary);
-      }
-      setFlashMode(false);
-    });
-    return () => {
-      didFocusSubscription.remove();
-      didBlurSubscription.remove();
-    };
-  }, []);
+    if (Platform.OS === 'android' && !isFocused) {
+      StatusBar.setTranslucent(false);
+      StatusBar.setBackgroundColor(colors.primary);
+    }
+  }, [isFocused]);
 
   return (
     <View style={styles.container}>
-      {focused && (
+      {isFocused && (
         <RNCamera
           {...props}
           ref={cameraRef}
@@ -88,10 +76,12 @@ const Camera = ({ navigation, children, ...props }) => {
 Camera.propTypes = {
   navigation: PropTypes.object.isRequired,
   children: PropTypes.node,
+  isFocused: PropTypes.bool,
 };
 
 Camera.defaultProps = {
   children: undefined,
+  isFocused: false,
 };
 
-export default Camera;
+export default withNavigationFocus(Camera);

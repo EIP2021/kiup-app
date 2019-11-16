@@ -3,10 +3,8 @@ import { moderateScale } from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   container: {
-    height: '100%',
-  },
-  scrollView: {
-    height: '100%',
+    flex: 1,
+    backgroundColor: '#f2f2f2',
   },
   noDataContainer: {
     position: 'relative',

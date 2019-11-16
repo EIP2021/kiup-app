@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
+import { moderateScale } from 'react-native-size-matters';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import NavigationService from '../../services/navigation';
 
@@ -16,23 +17,27 @@ const NavigateIconButton = ({ title, screenName, image }) => {
       }}
     >
       <View style={styles.leftContainer}>
-        <Image source={images[image]} style={styles.icon} />
-        <Text style={styles.text}> {title} </Text>
+        <Image
+          source={images[image]}
+          style={styles.icon}
+          resizeMode="contain"
+        />
+        <Text style={styles.text}>{title}</Text>
       </View>
-      <Icon name="chevron-right" color="grey" size={20} />
+      <Icon name="chevron-right" color="grey" size={moderateScale(12)} />
     </TouchableOpacity>
   );
 };
 
-NavigateIconButton.propsType = {
+NavigateIconButton.propTypes = {
   image: PropTypes.string.isRequired,
   screenName: PropTypes.string,
   title: PropTypes.string,
 };
 
 NavigateIconButton.defaultProps = {
-  title: '',
   screenName: '',
+  title: '',
 };
 
 export default NavigateIconButton;

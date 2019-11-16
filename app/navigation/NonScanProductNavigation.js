@@ -9,11 +9,14 @@ const NonScanProductNavigation = createStackNavigator(
     NonScanProduct: {
       screen: NonScanProductScreen,
       navigationOptions: {
-        title: 'Catégorie',
+        header: null,
       },
     },
     NonScanProductList: {
       screen: NonScanProductListScreen,
+      navigationOptions: {
+        header: null,
+      },
     },
   },
   {
