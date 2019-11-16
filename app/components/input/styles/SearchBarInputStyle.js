@@ -4,12 +4,19 @@ import { moderateScale } from 'react-native-size-matters';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    borderBottomWidth: moderateScale(0),
-    borderTopWidth: moderateScale(0),
-    marginTop: moderateScale(5),
+    borderBottomWidth: 0,
+    borderTopWidth: 0,
+    height: moderateScale(45),
+    width: '97%',
+  },
+  inputContainer: {
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    paddingTop: moderateScale(1),
   },
   input: {
-    backgroundColor: 'rgb(204,204,204)',
+    fontSize: moderateScale(15),
+    color: 'black',
   },
 });
 

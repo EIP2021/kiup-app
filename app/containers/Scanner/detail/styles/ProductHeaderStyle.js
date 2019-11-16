@@ -9,16 +9,21 @@ const styles = StyleSheet.create({
     marginLeft: moderateScale(16),
   },
   image: {
+    marginTop: 8,
     width: moderateScale(80),
     height: moderateScale(140),
   },
   name: {
-    fontSize: moderateScale(18),
+    fontSize: moderateScale(20),
     fontWeight: 'bold',
   },
   brand: {
     fontSize: moderateScale(13),
     color: 'rgb(110, 110, 110)',
+  },
+  titleContainer: {
+    paddingLeft: moderateScale(18),
+    width: '70%',
   },
 });
 

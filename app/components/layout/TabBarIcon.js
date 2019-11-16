@@ -1,12 +1,14 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import PropTypes from 'prop-types';
+import { moderateScale } from 'react-native-size-matters';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const routeIcon = {
   Products: 'search',
   Scanner: 'barcode',
   Profile: 'person',
+  Recipe: 'book',
 };
 
 const TabBarIcon = ({ routeName, tintColor, size }) => {
@@ -27,7 +29,7 @@ TabBarIcon.propTypes = {
 };
 
 TabBarIcon.defaultProps = {
-  size: 30,
+  size: moderateScale(25),
 };
 
 export default TabBarIcon;

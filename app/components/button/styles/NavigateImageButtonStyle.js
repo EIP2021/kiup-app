@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
     height: moderateScale(110),
     backgroundColor: 'black',
     borderRadius: 5,
-    margin: moderateScale(5),
+    marginHorizontal: moderateScale(5),
+    marginBottom: moderateScale(10),
     flexGrow: 1,
   },
   image: {
@@ -27,7 +28,6 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
-    fontFamily: 'Avenir',
     fontWeight: 'bold',
     fontSize: moderateScale(23),
   },

@@ -9,12 +9,11 @@ const ProductHeader = ({ image, name, brand }) => {
   return (
     <View style={styles.container}>
       <Image
-        resizeMode="contain"
         style={styles.image}
         source={{ uri: image }}
         PlaceholderContent={<ActivityIndicator />}
       />
-      <View style={{ paddingLeft: 20, width: '70%' }}>
+      <View style={styles.titleContainer}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.brand}>{brand}</Text>
       </View>
