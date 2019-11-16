@@ -4,3 +4,4 @@ export * from './statistics';
 export * from './consumption';
 export * from './error';
 export * from './fetch';
+export * from './researchProduct';

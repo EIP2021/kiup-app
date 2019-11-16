@@ -7,7 +7,7 @@ import { TabBarIcon } from '../components';
 import AuthenticationNavigation from './AuthenticationNavigation';
 import AuthLoadingScreen from '../containers/Authentication/AuthLoadingScreen';
 import ScannerNavigation from './ScannerNavigation';
-import ProductsNavigation from './NonScanProductNavigation';
+import SearchNavigation from './SearchNavigation';
 import ProfileNavigation from './ProfileNavigation';
 import { colors } from '../themes';
 
@@ -20,8 +20,8 @@ const BottomTabNavigator = createBottomTabNavigator(
         tabBarOnPress: () => {},
       },
     },
-    Products: {
-      screen: ProductsNavigation,
+    Search: {
+      screen: SearchNavigation,
       navigationOptions: {
         title: 'Rechercher',
       },

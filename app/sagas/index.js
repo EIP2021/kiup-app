@@ -7,6 +7,7 @@ import reinitializePassword from './reinitializePassword';
 import modifyPassword from './modifyPassword';
 import scanProduct from './scanProduct';
 import getStatistics from './getStatistics';
+import { searchProducts, loadMoreProducts } from './researchProduct';
 
 export default function* rootSaga() {
   yield all([
@@ -18,5 +19,7 @@ export default function* rootSaga() {
     reinitializePassword(),
     getStatistics(),
     scanProduct(),
+    searchProducts(),
+    loadMoreProducts(),
   ]);
 }

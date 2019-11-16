@@ -1,9 +1,12 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform, Dimensions } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
+
+const { height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    height,
     backgroundColor: '#f2f2f2',
   },
   noDataContainer: {

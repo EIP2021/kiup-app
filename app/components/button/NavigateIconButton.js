@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { moderateScale } from 'react-native-size-matters';
@@ -22,7 +22,9 @@ const NavigateIconButton = ({ title, screenName, image }) => {
           style={styles.icon}
           resizeMode="contain"
         />
-        <Text style={styles.text}>{title}</Text>
+        <Text style={styles.text}>
+          {title.length > 35 ? `${title.substring(0, 32)}...` : title}
+        </Text>
       </View>
       <Icon name="chevron-right" color="grey" size={moderateScale(12)} />
     </TouchableOpacity>
@@ -40,4 +42,4 @@ NavigateIconButton.defaultProps = {
   title: '',
 };
 
-export default NavigateIconButton;
+export default memo(NavigateIconButton);

@@ -39,6 +39,7 @@ import orange from '../images/orange.png';
 import peach from '../images/peach.png';
 import arrowRight from '../images/arrow-point-to-right.png';
 import alcohol from '../images/alcohol.png';
+import noPhoto from '../images/noPhoto.png'
 
 const images = {
   redBookmark,
@@ -82,6 +83,7 @@ const images = {
   peach,
   arrowRight,
   alcohol,
+  noPhoto,
 };
 
 export default images;
