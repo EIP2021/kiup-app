@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 
-import { NavigateIconButton } from '../../components/button';
-import { SearchBarInput } from '../../components/input';
+import { NavigateIconButton } from '../../components';
+import SearchBarHeader from './detail/SearchBarHeader';
+import ListTitle from './detail/ListTitle';
 import styles from './styles/NonScanProductListScreenStyle';
 
 const getContentToDisplay = title => {
@@ -20,7 +21,10 @@ const getContentToDisplay = title => {
           <NavigateIconButton image="pineapple" title="Ananas" />
           <NavigateIconButton image="waterMelon" title="Pastèque" />
           <NavigateIconButton image="lychee" title="Litchi" />
-          <NavigateIconButton image="tomato" title="Tomate" />
+          <NavigateIconButton
+            image="tomato"
+            title="Petit pot fruit avec banane pour bébé Petit pot fruit avec banane pour bébé"
+          />
           <NavigateIconButton image="apricot" title="Abricot" />
           <NavigateIconButton image="lemon" title="Citron Jaune" />
           <NavigateIconButton image="melon" title="Melon" />
@@ -46,10 +50,9 @@ const NonScanProductListScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <SearchBarInput />
-      <ScrollView style={styles.scrollView}>
-        {getContentToDisplay(title)}
-      </ScrollView>
+      <SearchBarHeader navigation={navigation} title={title} />
+      <ListTitle title="Fruit" />
+      <ScrollView>{getContentToDisplay(title)}</ScrollView>
     </View>
   );
 };

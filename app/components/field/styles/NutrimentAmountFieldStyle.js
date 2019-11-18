@@ -6,18 +6,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingRight: moderateScale(9),
-    paddingVertical: moderateScale(9),
+    paddingVertical: moderateScale(9.5),
     borderColor: '#C8C8C8',
+    backgroundColor: 'white',
   },
   leftContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   image: {
-    width: moderateScale(24),
-    height: moderateScale(24),
+    width: moderateScale(20),
+    height: moderateScale(20),
     alignSelf: 'flex-start',
-    marginHorizontal: moderateScale(8),
+    marginHorizontal: moderateScale(15),
   },
   leftText: {
     textAlign: 'left',

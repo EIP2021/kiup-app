@@ -13,7 +13,7 @@ import { kiupURL } from '../config/apisURL';
 
 export const getStatisticsRequest = async token => {
   const date = moment().format('YYYY-MM-DD', token);
-  const response = await fetch(`${kiupURL}/stats?scope=day&date=${date}`, {
+  const response = await fetch(`${kiupURL}/user/stats?scope=day&date=${date}`, {
     headers: {
       Accept: 'application/json',
       Authorization: `Bearer ${token}`,

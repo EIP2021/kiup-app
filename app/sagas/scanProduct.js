@@ -1,14 +1,9 @@
 import { takeLeading, put, call } from 'redux-saga/effects';
 
-import {
-  fetchStart,
-  fetchEnd,
-  fetchError,
-  scanSuccess,
-  SCAN_REQUEST,
-} from '../actions';
+import { fetchStart, fetchEnd, fetchError, SCAN_REQUEST } from '../actions';
 import { openFoodFactURL } from '../config/apisURL';
 import NavigationService from '../services/navigation';
+import { parseOpenFoodFactNutriments } from '../helpers';
 
 export const scanProductRequest = async barcode => {
   const response = await fetch(`${openFoodFactURL}/produit/${barcode}.json`, {
@@ -32,15 +27,13 @@ export function* scanProductHandler({ barcode }) {
       throw new Error(response.status_verbose);
     }
     const { product } = response;
-    yield put(
-      scanSuccess({
-        brands: product.brands,
-        name: product.product_name,
-        image: product.image_front_url,
-        nutriments: product.nutriments,
-      })
-    );
-    NavigationService.navigate('Product');
+    const { nutriments } = product;
+    NavigationService.navigate('ProductInformation', {
+      brands: product.brands,
+      image: product.image_front_url,
+      nutriments: parseOpenFoodFactNutriments(nutriments),
+      title: product.product_name,
+    });
   } catch (error) {
     yield put(
       fetchError(

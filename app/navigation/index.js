@@ -40,11 +40,11 @@ const BottomTabNavigator = createBottomTabNavigator(
     },
   },
   {
+    initialRouteName: 'Scanner',
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: props => (
         <TabBarIcon {...props} routeName={navigation.state.routeName} />
       ),
-      initialRouteName: 'Scanner',
       tabBarOptions: {
         activeTintColor: colors.primary,
         inactiveTintColor: colors.light_grey,

@@ -2,6 +2,10 @@ import redBanner from '../images/banner_red.png';
 import blueBanner from '../images/banner_blue.png';
 import orangeBanner from '../images/banner_orange.png';
 import greenBanner from '../images/banner_green.png';
+import redBookmark from '../images/bookmark_red.png';
+import greenBookmark from '../images/bookmark_green.png';
+import pinkBookmark from '../images/bookmark_pink.png';
+import yellowBookmark from '../images/bookmark_yellow.png';
 import meat from '../images/meat.png';
 import cheese from '../images/cheese.png';
 import spice from '../images/spice.png';
@@ -37,6 +41,10 @@ import arrowRight from '../images/arrow-point-to-right.png';
 import alcohol from '../images/alcohol.png';
 
 const images = {
+  redBookmark,
+  greenBookmark,
+  pinkBookmark,
+  yellowBookmark,
   redBanner,
   blueBanner,
   orangeBanner,

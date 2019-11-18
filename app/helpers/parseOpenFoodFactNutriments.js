@@ -1,9 +1,4 @@
-import { SCAN_SUCCESS } from '../actions';
-
-export const defaultState = {};
-
-const getNutrimentsValue = ({ product }) => {
-  const { nutriments } = product;
+const parseOpenFoodFactNutriments = nutriments => {
   return {
     potassium: {
       amount: nutriments.potassium_100g ? nutriments.potassium_100g : 0,
@@ -24,16 +19,4 @@ const getNutrimentsValue = ({ product }) => {
   };
 };
 
-export default (state = defaultState, action = {}) => {
-  switch (action.type) {
-    case SCAN_SUCCESS:
-      return {
-        brand: action.product.brands,
-        name: action.product.name,
-        image: action.product.image,
-        nutriments: getNutrimentsValue(action),
-      };
-    default:
-      return state;
-  }
-};
+export default parseOpenFoodFactNutriments;

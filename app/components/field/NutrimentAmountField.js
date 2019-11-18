@@ -11,20 +11,22 @@ const NutrimentAmountField = ({ name, amount, unit, color, lastItem }) => {
     <>
       <View style={styles.container}>
         <View style={styles.leftContainer}>
-          <Image source={images[`${color}Banner`]} style={styles.image} />
+          <Image source={images[`${color}Bookmark`]} style={styles.image} />
           <Text style={styles.leftText}>{name}</Text>
         </View>
         <Text style={styles.rightText}>
           {amount} {unit}
         </Text>
       </View>
-      <Divider
-        style={{
-          width: lastItem ? '100%' : '90%',
-          alignSelf: 'flex-end',
-          backgroundColor: '#C8C8C8',
-        }}
-      />
+      {!lastItem && (
+        <Divider
+          style={{
+            width: '87.5%',
+            alignSelf: 'flex-end',
+            backgroundColor: '#C8C8C8',
+          }}
+        />
+      )}
     </>
   );
 };
@@ -33,7 +35,7 @@ NutrimentAmountField.propTypes = {
   name: PropTypes.string.isRequired,
   amount: PropTypes.number.isRequired,
   unit: PropTypes.string.isRequired,
-  color: PropTypes.oneOf(['blue', 'red', 'orange', 'green']).isRequired,
+  color: PropTypes.oneOf(['green', 'red', 'yellow', 'pink']).isRequired,
   lastItem: PropTypes.bool,
 };
 

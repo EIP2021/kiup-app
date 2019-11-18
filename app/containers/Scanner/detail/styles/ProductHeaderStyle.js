@@ -1,28 +1,34 @@
 import { StyleSheet } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
+import { colors } from '../../../../themes';
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    marginVertical: moderateScale(8),
     marginBottom: moderateScale(16),
-    marginLeft: moderateScale(16),
+  },
+  rowContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: moderateScale(10),
+    paddingBottom: moderateScale(8),
+    backgroundColor: colors.secondary,
   },
   image: {
-    marginTop: 8,
-    width: moderateScale(80),
-    height: moderateScale(140),
+    borderRadius: 100,
+    width: moderateScale(50),
+    height: moderateScale(50),
   },
   name: {
     fontSize: moderateScale(20),
     fontWeight: 'bold',
+    color: colors.primary,
   },
   brand: {
     fontSize: moderateScale(13),
     color: 'rgb(110, 110, 110)',
   },
   titleContainer: {
-    paddingLeft: moderateScale(18),
+    paddingLeft: moderateScale(14),
     width: '70%',
   },
 });

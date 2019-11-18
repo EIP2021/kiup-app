@@ -13,11 +13,8 @@ const ScannerNavigation = createStackNavigator(
         title: 'Scan',
       },
     },
-    Product: {
+    ProductInformation: {
       screen: ProductScreen,
-      navigationOptions: {
-        title: 'Produit',
-      },
     },
   },
   {

@@ -1,2 +1,2 @@
-export { default as ErrorMessageAlert } from './ErrorMessageAlert';
+export { default as HeaderWithImage } from './HeaderWithImage';
 export { default as TabBarIcon } from './TabBarIcon';

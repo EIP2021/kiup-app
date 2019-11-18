@@ -5,25 +5,30 @@ import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { Field, reduxForm } from 'redux-form';
 
-import { BasicButton, BasicInput } from '../../components';
+import {
+  BasicButton,
+  BasicInput,
+  HeaderWithImage,
+  FavoriteButton,
+} from '../../components';
 import { setError, consumeProduct } from '../../actions';
 import styles from './styles/ProductScreenStyle';
 import NutrimentsInfo from './detail/NutrimentsInfo';
-import ProductHeader from './detail/ProductHeader';
 
-const ProductScreen = ({ image, name, brand, nutriments, handleSubmit }) => {
+const ProductScreen = ({ navigation, handleSubmit }) => {
+  const nutriments = navigation.getParam('nutriments');
   return (
-    <ScrollView style={styles.container}>
-      <ProductHeader image={image} name={name} brand={brand} />
+    <ScrollView style={styles.container} keyboardShouldPersistTaps="always">
       {Object.entries(nutriments).length !== 0 && (
         <>
           <NutrimentsInfo nutriments={nutriments} />
           <View style={styles.form}>
             <Field
               name="quantity"
-              placeholder="Entrez la quantitée en gramme"
+              placeholder="Entrez la quantité en gramme"
               returnKeyType="send"
               keyboardType="numeric"
+              onSubmitEditingEditing={handleSubmit}
               inputContainerStyle={styles.inputContainer}
               inputStyle={styles.input}
               component={BasicInput}
@@ -33,7 +38,7 @@ const ProductScreen = ({ image, name, brand, nutriments, handleSubmit }) => {
               onPress={handleSubmit}
               title="Consommer"
               variant="secondary"
-              containerStyle={{ marginTop: 10, marginBottom: 20 }}
+              containerStyle={styles.button}
             />
           </View>
         </>
@@ -43,42 +48,42 @@ const ProductScreen = ({ image, name, brand, nutriments, handleSubmit }) => {
 };
 
 ProductScreen.propTypes = {
-  image: PropTypes.string,
-  name: PropTypes.string,
-  brand: PropTypes.string,
-  nutriments: PropTypes.object,
+  navigation: PropTypes.object,
   handleSubmit: PropTypes.func,
 };
 
 ProductScreen.defaultProps = {
-  image: '',
-  name: '',
-  brand: '',
-  nutriments: {},
+  navigation: {},
   handleSubmit: () => {},
 };
 
-const mapStateToProps = state => {
+ProductScreen.navigationOptions = ({ navigation }) => {
+  const title = navigation.getParam('title');
+  const image = navigation.getParam('image');
   return {
-    ...state.scanner,
+    headerTitle: <HeaderWithImage image={image} title={title} />,
+    headerRight: <FavoriteButton iconStyle={styles.headerRight} />,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onSubmit: values => {
+      const { navigation } = ownProps;
       if (!values.quantity) {
         dispatch(setError('Veuillez entrer une quantitée.'));
         return;
       }
-      dispatch(consumeProduct(values.quantity));
+      dispatch(
+        consumeProduct(values.quantity, navigation.getParam('nutriments'))
+      );
     },
   };
 };
 
 const enhance = compose(
   connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
   ),
   reduxForm({
