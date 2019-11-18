@@ -13,7 +13,7 @@ import { kiupURL } from '../config/apisURL';
 import NavigationService from '../services/navigation';
 
 export const loginRequest = async payload => {
-  const response = await fetch(`${kiupURL}/login`, {
+  const response = await fetch(`${kiupURL}/user/login`, {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ export const loginRequest = async payload => {
     body: JSON.stringify(payload),
   });
 
-  if (response < 200 || response.status >= 500) {
+  if (response.status < 200 || response.status >= 500) {
     throw new Error(response.statusText);
   }
   return response.json();

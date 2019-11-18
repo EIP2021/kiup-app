@@ -7,7 +7,7 @@ import configureStore from './store';
 import NavigationService from './services/navigation';
 import NavigationAppRoot from './navigation';
 import { colors } from './themes';
-import { ErrorMessageAlert } from './components';
+import { ErrorModal } from './components';
 
 const { store, persistor } = configureStore();
 
@@ -25,7 +25,7 @@ const AppRoot = () => {
               NavigationService.setTopLevelNavigator(navigatorRef);
             }}
           />
-          <ErrorMessageAlert />
+          <ErrorModal />
         </View>
       </PersistGate>
     </Provider>

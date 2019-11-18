@@ -1,30 +1,34 @@
 import { StyleSheet } from 'react-native';
+import { moderateScale } from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 10,
+    backgroundColor: '#f2f2f2',
   },
   form: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: moderateScale(9),
   },
   inputContainer: {
-    borderWidth: 2,
-    borderBottomWidth: 2,
-    borderRadius: 2,
+    borderWidth: 1,
+    borderRadius: 5,
     justifyContent: 'center',
     borderColor: 'rgb(130, 130, 130)',
-    height: 44,
+    backgroundColor: 'white',
   },
   input: {
-    paddingLeft: 5,
+    paddingLeft: moderateScale(4),
     alignSelf: 'center',
     textAlign: 'center',
   },
   button: {
-    marginTop: 10,
+    marginTop: moderateScale(9),
+    marginBottom: moderateScale(17),
+  },
+  headerRight: {
+    marginRight: moderateScale(13),
   },
 });
 

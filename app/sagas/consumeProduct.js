@@ -10,10 +10,11 @@ import {
   CONSUME_PRODUCT,
 } from '../actions';
 import { kiupURL } from '../config/apisURL';
+import { calculAllNutrimentsQuantity } from '../helpers';
 import NavigationService from '../services/navigation';
 
 export const consumptionRequest = async (payload, token) => {
-  const response = await fetch(`${kiupURL}/stats`, {
+  const response = await fetch(`${kiupURL}/user/stats`, {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -29,29 +30,12 @@ export const consumptionRequest = async (payload, token) => {
   return response.json();
 };
 
-export function* consumeHandler({ quantity }) {
+export function* consumeHandler({ quantity, nutriments }) {
   try {
-    const nutriments = yield select(state => state.scanner.nutriments);
     const token = yield select(state => state.auth.token);
     const payload = {
       date: moment().format('YYYY-MM-DD'),
-      stats: {
-        potassium: nutriments.potassium.amount
-          ? Math.round((nutriments.potassium.amount / 100) * quantity * 100) /
-            100
-          : 0,
-        phosphorus: nutriments.phosphorus.amount
-          ? Math.round((nutriments.phosphorus.amount / 100) * quantity * 100) /
-            100
-          : 0,
-        salt: nutriments.salt.amount
-          ? Math.round((nutriments.salt.amount / 100) * quantity * 100) / 100
-          : 0,
-        proteins: nutriments.proteins.amount
-          ? Math.round((nutriments.proteins.amount / 100) * quantity * 100) /
-            100
-          : 0,
-      },
+      stats: calculAllNutrimentsQuantity(quantity, nutriments),
     };
     yield put(fetchStart());
     const response = yield call(consumptionRequest, payload, token);
