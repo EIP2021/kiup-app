@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button } from 'react-native';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -20,7 +20,6 @@ const ScannerScreen = ({ navigation, scanProduct, pending }) => {
         }}
       >
         <View style={styles.barcodeContainer}>
-          <Button title="lol" onPress={() => scanProduct('3387390406849')} />
           <View style={styles.barcode} />
         </View>
       </Camera>
