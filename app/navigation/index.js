@@ -8,6 +8,7 @@ import AuthenticationNavigation from './AuthenticationNavigation';
 import AuthLoadingScreen from '../containers/Authentication/AuthLoadingScreen';
 import ScannerNavigation from './ScannerNavigation';
 import ProductsNavigation from './NonScanProductNavigation';
+import ProfileNavigation from './ProfileNavigation';
 import { colors } from '../themes';
 
 const BottomTabNavigator = createBottomTabNavigator(
@@ -32,15 +33,14 @@ const BottomTabNavigator = createBottomTabNavigator(
       },
     },
     Profile: {
-      screen: () => null,
+      screen: ProfileNavigation,
       navigationOptions: {
         title: 'Profil',
-        tabBarOnPress: () => {},
       },
     },
   },
   {
-    initialRouteName: 'Scanner',
+    initialRouteName: 'Profile',
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: props => (
         <TabBarIcon {...props} routeName={navigation.state.routeName} />

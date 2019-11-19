@@ -32,3 +32,10 @@ export const addAllNutrimentsQuantity = (nutriments, addNutriments) => {
     },
   };
 };
+
+export const getPercentage = (value, maximum) => {
+  if (!value || !maximum) {
+    return 0;
+  }
+  return Math.round((value / maximum) * 100);
+};
