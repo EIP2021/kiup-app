@@ -6,7 +6,7 @@ import NavigationService from '../services/navigation';
 import { parseOpenFoodFactNutriments } from '../helpers';
 
 export const scanProductRequest = async barcode => {
-  const response = await fetch(`${openFoodFactURL}/produit/${barcode}.json`, {
+  const response = await fetch(`${openFoodFactURL}/user/produit/${barcode}.json`, {
     header: {
       Accept: 'application/json',
     },

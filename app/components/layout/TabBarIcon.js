@@ -5,7 +5,7 @@ import { moderateScale } from 'react-native-size-matters';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const routeIcon = {
-  Products: 'search',
+  Search: 'search',
   Scanner: 'barcode',
   Profile: 'person',
   Recipe: 'book',

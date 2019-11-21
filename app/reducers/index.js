@@ -8,6 +8,7 @@ import authenticationReducer from './authenticationReducer';
 import statisticsReducer from './statisticsReducer';
 import errorReducer from './errorReducer';
 import fetchReducer from './fetchReducer';
+import researchProductReducer from './researchProduct';
 
 const authenticationPersistConfig = {
   key: 'auth',
@@ -21,6 +22,7 @@ const rootReducers = combineReducers({
   error: errorReducer,
   fetch: fetchReducer,
   form: formReducer,
+  researchProduct: researchProductReducer,
 });
 
 export default rootReducers;

@@ -3,9 +3,7 @@ import { moderateScale } from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   container: {
-    borderBottomWidth: 1,
     backgroundColor: 'white',
-    borderBottomColor: '#C8C8C8',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

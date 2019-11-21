@@ -7,22 +7,20 @@ import { moderateScale } from 'react-native-size-matters';
 
 import { SearchBarInput } from '../../../components';
 import styles from './styles/SearchBarHeaderStyle';
+import { colors } from '../../../themes';
 
-const SearchBarHeader = ({ title, navigation, ...props }) => {
+const SearchBarHeader = ({ placeholder, onBack, ...props }) => {
   return (
     <View>
       <View style={styles.rowContainer}>
         <Icon
           size={moderateScale(16)}
           name="chevron-left"
-          color="#2ecc71"
-          onPress={() => navigation.pop()}
+          color={colors.primary}
+          onPress={() => onBack()}
           style={styles.icon}
         />
-        <SearchBarInput
-          {...props}
-          placeholder={`Rechercher un ${title.toLowerCase()}`}
-        />
+        <SearchBarInput {...props} placeholder={placeholder} />
       </View>
       <LinearGradient
         colors={['#BBBBBB', '#F2F2F2']}
@@ -33,13 +31,13 @@ const SearchBarHeader = ({ title, navigation, ...props }) => {
 };
 
 SearchBarHeader.propTypes = {
-  title: PropTypes.string,
-  navigation: PropTypes.object,
+  placeholder: PropTypes.string,
+  onBack: PropTypes.func,
 };
 
 SearchBarHeader.defaultProps = {
-  title: '',
-  navigation: {},
+  placeholder: '',
+  onBack: /* istanbul ignore next */ () => {},
 };
 
 export default SearchBarHeader;

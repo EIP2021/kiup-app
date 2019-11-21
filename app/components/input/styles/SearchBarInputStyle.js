@@ -6,15 +6,16 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderBottomWidth: 0,
     borderTopWidth: 0,
+    justifyContent: 'center',
     height: moderateScale(45),
     width: '97%',
   },
   inputContainer: {
     backgroundColor: 'white',
     justifyContent: 'center',
-    paddingTop: moderateScale(1),
   },
   input: {
+    paddingVertical: 0,
     fontSize: moderateScale(15),
     color: 'black',
   },

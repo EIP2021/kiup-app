@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withNavigationFocus } from 'react-navigation';
 import { SearchBar } from 'react-native-elements';
 import PropTypes from 'prop-types';
@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import styles from './styles/SearchBarInputStyle';
 
 const SearchBarInput = ({ updateSearch, isFocused, ...props }) => {
-  const searchBar = useRef();
   const [query, setQuery] = useState('');
 
   useEffect(() => {
@@ -15,18 +14,11 @@ const SearchBarInput = ({ updateSearch, isFocused, ...props }) => {
     }
   }, [query]);
 
-  useEffect(() => {
-    if (searchBar) {
-      searchBar.current.focus();
-    }
-  }, []);
-
   return (
     <SearchBar
-      ref={searchBar}
-      placeholder="Rechercher un produit"
+      placeholder="Rechercher"
       {...props}
-      focus
+      autoFocus
       searchIcon={null}
       onChangeText={text => setQuery(text)}
       onClear={() => setQuery('')}

@@ -11,7 +11,7 @@ import { kiupURL } from '../config/apisURL';
 import NavigationService from '../services/navigation';
 
 const reinitializePasswordRequest = async payload => {
-  const response = await fetch(`${kiupURL}/reinitialize`, {
+  const response = await fetch(`${kiupURL}/user/reinitialize`, {
     header: {
       Accept: 'application/json',
       'Content-Type': 'application/json',

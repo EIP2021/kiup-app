@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    flex: 1,
     margin: moderateScale(5),
   },
 });

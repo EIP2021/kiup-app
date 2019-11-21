@@ -6,12 +6,12 @@ import { images } from '../../themes';
 import styles from './styles/NavigateImageButtonStyle';
 import NavigationService from '../../services/navigation';
 
-const NavigateImageButton = ({ title, screenName, image }) => {
+const NavigateImageButton = ({ title, screenName, image, params }) => {
   return (
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
-        NavigationService.navigate(screenName, { title });
+        NavigationService.navigate(screenName, params);
       }}
     >
       <Image source={images[image]} style={styles.image} resizeMode="cover" />
@@ -26,10 +26,12 @@ NavigateImageButton.propTypes = {
   image: PropTypes.string.isRequired,
   screenName: PropTypes.string.isRequired,
   title: PropTypes.string,
+  params: PropTypes.object,
 };
 
 NavigateImageButton.defaultProps = {
   title: '',
+  params: {},
 };
 
 export default NavigateImageButton;
