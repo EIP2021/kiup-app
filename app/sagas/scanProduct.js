@@ -6,12 +6,15 @@ import NavigationService from '../services/navigation';
 import { parseOpenFoodFactNutriments } from '../helpers';
 
 export const scanProductRequest = async barcode => {
-  const response = await fetch(`${openFoodFactURL}/user/produit/${barcode}.json`, {
-    header: {
-      Accept: 'application/json',
-    },
-    method: 'GET',
-  });
+  const response = await fetch(
+    `${openFoodFactURL}/user/produit/${barcode}.json`,
+    {
+      header: {
+        Accept: 'application/json',
+      },
+      method: 'GET',
+    }
+  );
   if (response.status < 200 || response.status >= 300) {
     throw new Error(response.statusText);
   }

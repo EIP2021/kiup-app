@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { StatusBar, Platform } from 'react-native';
 import PropTypes from 'prop-types';
 import { moderateScale } from 'react-native-size-matters';
-import compose from 'recompose/compose';
 import { withNavigationFocus } from 'react-navigation';
 
 const handleStatusBar = (
@@ -48,13 +47,8 @@ const handleStatusBar = (
     Handler.defaultProps = {
       isFocused: false,
     };
-    return Handler;
+    return withNavigationFocus(Handler);
   };
 };
 
-export default (statusBarStyle, backgroundColor, withHeader = true) => {
-  return compose(
-    withNavigationFocus,
-    handleStatusBar(statusBarStyle, backgroundColor, withHeader)
-  );
-};
+export default handleStatusBar;
