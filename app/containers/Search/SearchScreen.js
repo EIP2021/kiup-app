@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import SearchBarButton from './detail/SearchBarButton';
 import styles from './styles/SearchScreenStyle';
 import ProductCategorieList from './detail/ProductCategorieList';
+import { handleStatusBar } from '../../helpers';
 
 const SearchScreen = ({ navigation }) => {
   return (
@@ -32,4 +33,4 @@ SearchScreen.defaultProps = {
   navigation: /* istanbul ignore next */ () => {},
 };
 
-export default SearchScreen;
+export default handleStatusBar('dark-content', 'white', false)(SearchScreen);

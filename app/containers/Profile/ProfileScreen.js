@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import styles from './styles/ProfileScreenStyle';
 import { Header, TitleField } from '../../components';
 import NutrimentsStats from './detail/NutrimentsStats';
+import { handleStatusBar } from '../../helpers';
 
 const ProfileScreen = () => {
   return (
@@ -19,4 +20,4 @@ const ProfileScreen = () => {
   );
 };
 
-export default ProfileScreen;
+export default handleStatusBar('dark-content', '#f2f2f2', false)(ProfileScreen);
