@@ -2,11 +2,13 @@ import React from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import compose from 'recompose/compose';
 
 import { scan } from '../../actions';
 import { Camera } from '../../components';
 import { getPendingStatus } from '../../selectors';
 import styles from './styles/ScannerScreenStyle';
+import { handleStatusBar } from '../../helpers';
 
 const ScannerScreen = ({ navigation, scanProduct, pending }) => {
   return (
@@ -35,7 +37,7 @@ ScannerScreen.propTypes = {
 
 ScannerScreen.defaultProps = {
   navigation: {},
-  scanProduct: /* istanbul ignore next */ () => {},
+  scanProduct: () => {},
   pending: false,
 };
 
@@ -51,7 +53,12 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ScannerScreen);
+const enhance = compose(
+  handleStatusBar('light-content', 'transparent', false),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )
+);
+
+export default enhance(ScannerScreen);

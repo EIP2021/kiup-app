@@ -5,7 +5,7 @@ import React, {
   useRef,
   useEffect,
 } from 'react';
-import { View, StatusBar, Platform } from 'react-native';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Icon } from 'react-native-elements';
 import { RNCamera } from 'react-native-camera';
@@ -13,7 +13,6 @@ import { moderateScale } from 'react-native-size-matters';
 import { withNavigationFocus } from 'react-navigation';
 
 import styles from './styles/CameraStyle';
-import { colors } from '../../themes';
 
 const Camera = ({ navigation, children, isFocused, ...props }) => {
   const [flashmode, setFlashMode] = useState(false);
@@ -22,14 +21,6 @@ const Camera = ({ navigation, children, isFocused, ...props }) => {
   useEffect(() => {
     if (!isFocused) {
       setFlashMode(false);
-    }
-    if (Platform.OS === 'android' && isFocused) {
-      StatusBar.setTranslucent(true);
-      StatusBar.setBackgroundColor('transparent');
-    }
-    if (Platform.OS === 'android' && !isFocused) {
-      StatusBar.setTranslucent(false);
-      StatusBar.setBackgroundColor(colors.primary);
     }
   }, [isFocused]);
 
