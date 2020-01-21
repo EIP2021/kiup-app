@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
-import { withNavigationFocus } from 'react-navigation';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { moderateScale } from 'react-native-size-matters';
+import { useIsFocused, useFocusEffect } from 'react-navigation-hooks';
 
 import styles from './styles/ProgressCircleFieldStyle';
 import { getPercentage } from '../../helpers';
@@ -16,18 +16,12 @@ const circleAmount = (value, maximum, unit) => {
   );
 };
 
-const ProgressCircleField = ({
-  title,
-  value,
-  maximum,
-  color,
-  unit,
-  isFocused,
-}) => {
+const ProgressCircleField = ({ title, value, maximum, color, unit }) => {
   const didMountRef = useRef(false);
   const animatedCircularProgressRef = useRef(false);
+  const isFocused = useIsFocused();
 
-  useEffect(() => {
+  useFocusEffect(() => {
     if (didMountRef.current) {
       if (isFocused) {
         animatedCircularProgressRef.current.reAnimate(
@@ -38,7 +32,7 @@ const ProgressCircleField = ({
     } else {
       didMountRef.current = true;
     }
-  }, [isFocused]);
+  });
 
   return (
     <View style={styles.container}>
@@ -65,7 +59,6 @@ ProgressCircleField.propTypes = {
   maximum: PropTypes.number,
   color: PropTypes.string,
   unit: PropTypes.string,
-  isFocused: PropTypes.bool,
 };
 
 ProgressCircleField.defaultProps = {
@@ -74,7 +67,6 @@ ProgressCircleField.defaultProps = {
   maximum: 0,
   color: '',
   unit: '',
-  isFocused: false,
 };
 
-export default withNavigationFocus(ProgressCircleField);
+export default ProgressCircleField;

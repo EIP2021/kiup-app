@@ -5,7 +5,8 @@ import compose from 'recompose/compose';
 import { connect } from 'react-redux';
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 
-import { modifyPassword, setError } from '../../actions';
+import { setError } from '../../actions';
+import { modifyPassword } from '../../requests';
 import { SecureInput, FetchButton } from '../../components';
 import { validatePasswordRegister } from '../../helpers';
 import styles from './styles/ReinitializeScreenStyle';
@@ -52,6 +53,7 @@ const ReinitializeScreen = ({ handleSubmit }) => {
           blurOnSubmit={false}
         />
         <FetchButton
+          type="auth"
           title="Réinitialiser"
           onPress={handleSubmit}
           containerStyle={styles.button}

@@ -12,7 +12,7 @@ import {
   SecureInput,
 } from '../../components';
 import { required, validateEmail, validatePasswordLogin } from '../../helpers';
-import { login } from '../../actions';
+import { login } from '../../requests';
 import styles from './styles/LoginScreenStyle';
 
 const LoginScreen = ({ handleSubmit }) => {
@@ -58,6 +58,7 @@ const LoginScreen = ({ handleSubmit }) => {
             forwardRef
           />
           <FetchButton
+            type="auth"
             title="Se connecter"
             variant="secondary"
             containerStyle={styles.button}

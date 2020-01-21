@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import SearchBarHeader from './detail/SearchBarHeader';
-import { searchProduct, clearProductsResearch } from '../../actions';
+import { clearData, searchProduct } from '../../actions';
+// import { searchProduct } from '../../requests';
 import styles from './styles/SearchListScreenStyle';
 import ProductList from './detail/ProductList';
 
@@ -47,11 +48,11 @@ SearchListScreen.defaultProps = {
 const mapDispatchToProps = (dispatch, ownProps) => {
   const categoryId = ownProps.navigation.getParam('id');
   return {
-    search: (query = '') => {
+    search: query => {
       dispatch(searchProduct(categoryId, query));
     },
     clearList: () => {
-      dispatch(clearProductsResearch());
+      dispatch(clearData('searchProduct'));
     },
   };
 };

@@ -5,7 +5,8 @@ import compose from 'recompose/compose';
 import { connect } from 'react-redux';
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 
-import { reinitializePassword, setError } from '../../actions';
+import { setError } from '../../actions';
+import { reinitializePassword } from '../../requests';
 import { BasicInput, FetchButton } from '../../components';
 import { validateEmail } from '../../helpers';
 import styles from './styles/ForgottenScreenStyle';
@@ -28,6 +29,7 @@ const ForgottenScreen = ({ handleSubmit }) => {
         autoFocus
       />
       <FetchButton
+        type="auth"
         title="Réinitialiser"
         onPress={handleSubmit}
         containerStyle={styles.button}
