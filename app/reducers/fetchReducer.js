@@ -1,25 +1,30 @@
-import { FETCH_START, FETCH_END, ERROR_DETAILS } from '../actions';
+import { FETCH_START, FETCH_END, FETCH_ERROR } from '../actions';
 
-export const defaultState = {
-  pending: false,
-  error: {},
-};
-
-export default (state = defaultState, action = {}) => {
+export default (state = {}, action = {}) => {
   switch (action.type) {
     case FETCH_START:
       return {
-        pending: true,
-        error: {},
+        ...state,
+        [action.name]: {
+          pending: true,
+          error: '',
+        },
       };
     case FETCH_END:
       return {
-        pending: false,
+        ...state,
+        [action.name]: {
+          pending: false,
+          error: '',
+        },
       };
-    case ERROR_DETAILS:
+    case FETCH_ERROR:
       return {
-        pending: false,
-        error: { title: action.title, error: action.error },
+        ...state,
+        [action.name]: {
+          pending: false,
+          error: action.errorMessage,
+        },
       };
     default:
       return state;

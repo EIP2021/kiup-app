@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import styles from './styles/AuthLoadingScreenStyle';
-import { retrieveStatistics } from '../../actions';
+import { getConsumption } from '../../requests';
 import { getAuth } from '../../selectors';
 import { colors } from '../../themes';
 
@@ -47,7 +47,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getStatistics: () => dispatch(retrieveStatistics()),
+  getStatistics: () => {
+    dispatch(getConsumption());
+  },
 });
 
 export default connect(

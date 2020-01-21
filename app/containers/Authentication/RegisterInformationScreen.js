@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 import { moderateScale } from 'react-native-size-matters';
 
-import { register, setError } from '../../actions';
+import { setError } from '../../actions';
+import { register } from '../../requests';
 import {
   BasicInput,
   FetchButton,
@@ -85,6 +86,7 @@ const RegisterScreen = ({ handleSubmit }) => {
           blurOnSubmit={false}
         />
         <FetchButton
+          type="auth"
           title="Créer un compte"
           onPress={handleSubmit}
           variant="primary"

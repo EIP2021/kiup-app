@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { Divider } from 'react-native-elements';
 
 import styles from './styles/ProductListStyle';
-import { loadMoreProducts } from '../../../actions';
+import { getPendingStatus } from '../../../selectors';
+import { getSearchedProduct } from '../../../requests';
 import { NavigateIconButton } from '../../../components/button';
 
 const ProductList = ({ title, productList, loadMore }) => {
@@ -47,16 +48,26 @@ ProductList.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  productList: state.researchProduct.products,
+  productList: state.searchProduct.data,
+  isPending: getPendingStatus(state, 'searchProduct'),
 });
 
 const mapDispatchToProps = dispatch => ({
-  loadMore: () => {
-    dispatch(loadMoreProducts());
+  loadMore: isPending => {
+    if (!isPending) {
+      dispatch(getSearchedProduct());
+    }
   },
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  (stateProps, dispatchProps, ownProps) => {
+    return {
+      ...ownProps,
+      ...stateProps,
+      loadMore: () => dispatchProps.loadMore(stateProps.isPending),
+    };
+  }
 )(ProductList);

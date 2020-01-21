@@ -1,11 +1,11 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Button } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { scan } from '../../actions';
 import { Camera } from '../../components';
 import { getPendingStatus } from '../../selectors';
+import { getScannedProduct } from '../../requests';
 import styles from './styles/ScannerScreenStyle';
 
 const ScannerScreen = ({ navigation, scanProduct, pending }) => {
@@ -21,6 +21,7 @@ const ScannerScreen = ({ navigation, scanProduct, pending }) => {
       >
         <View style={styles.barcodeContainer}>
           <View style={styles.barcode} />
+          <Button title="TEST" onPress={() => scanProduct('7613036012249')} />
         </View>
       </Camera>
     </View>
@@ -40,13 +41,14 @@ ScannerScreen.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  pending: getPendingStatus(state),
+  pending: getPendingStatus(state, 'scan'),
 });
 
 const mapDispatchToProps = dispatch => {
   return {
     scanProduct: barcode => {
-      dispatch(scan(barcode));
+      console.log(barcode);
+      dispatch(getScannedProduct(barcode));
     },
   };
 };

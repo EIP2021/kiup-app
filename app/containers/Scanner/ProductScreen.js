@@ -11,7 +11,9 @@ import {
   HeaderWithImage,
   FavoriteButton,
 } from '../../components';
-import { setError, consumeProduct } from '../../actions';
+import { calculAllNutrimentsQuantity } from '../../helpers';
+import { setError } from '../../actions';
+import { postConsumption } from '../../requests';
 import styles from './styles/ProductScreenStyle';
 import NutrimentsInfo from './detail/NutrimentsInfo';
 
@@ -74,9 +76,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         dispatch(setError('Veuillez entrer une quantitée.'));
         return;
       }
-      dispatch(
-        consumeProduct(values.quantity, navigation.getParam('nutriments'))
+      const stats = calculAllNutrimentsQuantity(
+        values.quantity,
+        navigation.getParam('nutriments')
       );
+      dispatch(postConsumption(stats));
     },
   };
 };
