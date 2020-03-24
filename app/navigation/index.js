@@ -9,6 +9,7 @@ import AuthLoadingScreen from '../containers/Authentication/AuthLoadingScreen';
 import ScannerNavigation from './ScannerNavigation';
 import SearchNavigation from './SearchNavigation';
 import ProfileNavigation from './ProfileNavigation';
+import RecipeNavigation from './RecipeNavigation';
 import { colors } from '../themes';
 import SearchScreen from '../containers/Search/SearchScreen';
 import RecipesSearchScreen from '../containers/Search/RecipesSearchScreen';
@@ -16,7 +17,7 @@ import RecipesSearchScreen from '../containers/Search/RecipesSearchScreen';
 const BottomTabNavigator = createBottomTabNavigator(
   {
     Recipe: {
-      screen: RecipesSearchScreen,
+      screen: RecipeNavigation,
       navigationOptions: {
         title: 'Recette',
       },
