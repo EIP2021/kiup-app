@@ -5,7 +5,7 @@ import { colors } from '../../../themes';
 const styles = StyleSheet.create({
   container: {
     height: 200,
-    borderBottomColor: colors.very_glight_grey,
+    borderBottomColor: colors.very_light_grey,
     borderBottomWidth: 1,
     marginLeft: 10,
     marginRight: 10,
