@@ -10,14 +10,15 @@ import ScannerNavigation from './ScannerNavigation';
 import SearchNavigation from './SearchNavigation';
 import ProfileNavigation from './ProfileNavigation';
 import { colors } from '../themes';
+import SearchScreen from '../containers/Search/SearchScreen';
+import RecipesSearchScreen from '../containers/Search/RecipesSearchScreen';
 
 const BottomTabNavigator = createBottomTabNavigator(
   {
     Recipe: {
-      screen: () => null,
+      screen: RecipesSearchScreen,
       navigationOptions: {
         title: 'Recette',
-        tabBarOnPress: () => {},
       },
     },
     Search: {
