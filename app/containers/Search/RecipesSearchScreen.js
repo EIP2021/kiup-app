@@ -4,15 +4,16 @@ import PropTypes from 'prop-types';
 
 import SearchBarButton from './detail/SearchBarButton';
 import styles from './styles/SearchScreenStyle';
-// import ProductCategorieList from './detail/ProductCategorieList';
+import TempRecipesList from './detail/TempRecipesList';
 
 const RecipesSearchScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <SearchBarButton
-        placeholder="Rechercher un produit"
+        placeholder="Rechercher une recette"
         onPress={() => navigation.navigate('SearchList')}
       />
+      <TempRecipesList/>
     </View>
   );
 };
