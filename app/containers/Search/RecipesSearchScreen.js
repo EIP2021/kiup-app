@@ -1,10 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 
 import SearchBarButton from './detail/SearchBarButton';
 import styles from './styles/SearchScreenStyle';
-import TempRecipesList from './detail/TempRecipesList';
+import RecipesList from './detail/RecipesList';
 
 const RecipesSearchScreen = ({ navigation }) => {
   return (
@@ -13,7 +13,9 @@ const RecipesSearchScreen = ({ navigation }) => {
         placeholder="Rechercher une recette"
         onPress={() => navigation.navigate('SearchList')}
       />
-      <TempRecipesList/>
+      <ScrollView>
+        <RecipesList />
+      </ScrollView>
     </View>
   );
 };
