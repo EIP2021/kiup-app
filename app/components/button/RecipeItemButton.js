@@ -16,14 +16,19 @@ const RecipeItemButton = ({
   return (
     <TouchableOpacity>
       <View style={styles.container}>
-        <Text style={styles.text}>{title}</Text>
+        <Text style={styles.text} numberOfLines={2}>
+          {title}
+        </Text>
+        <View style={styles.imageContainer} />
         <View style={styles.bottomContainer}>
           <Text style={styles.markData}>
             {mark} {markLabel}
+          </Text>
+          <View style={styles.cookingContainer}>
             <Text style={styles.cookingData}>
               {cookingTime} {nbCutleries}
             </Text>
-          </Text>
+          </View>
         </View>
       </View>
     </TouchableOpacity>
