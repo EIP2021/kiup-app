@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
+import { colors } from '../../../themes';
 
 const styles = StyleSheet.create({
   container: {
     height: 200,
-    borderBottomColor: 'grey',
+    borderBottomColor: colors.very_glight_grey,
     borderBottomWidth: 1,
     marginLeft: 10,
     marginRight: 10,
@@ -17,13 +18,13 @@ const styles = StyleSheet.create({
   },
   bottomContainer: {
     position: 'relative',
-    bottom: 0
+    bottom: 0,
   },
   markData: {
-    color: 'green',
+    color: colors.primary,
   },
   cookingData: {
-    color: 'grey',
+    color: colors.grey,
   },
 });
 
