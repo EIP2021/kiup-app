@@ -5,6 +5,7 @@ import { colors } from '../../../themes';
 const styles = StyleSheet.create({
   container: {
     height: 200,
+    position: 'relative',
     borderBottomColor: colors.very_light_grey,
     borderBottomWidth: 1,
     marginLeft: 10,
@@ -16,8 +17,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: moderateScale(16),
   },
-  bottomContainer: {
-    position: 'relative',
+  imageContainer: {
+    height: 130,
+    backgroundColor: colors.very_light_grey,
+  },
+  bottomContainer: {},
+  cookingContainer: {
+    position: 'absolute',
+    right: 0,
     bottom: 0,
   },
   markData: {
