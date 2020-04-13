@@ -7,7 +7,6 @@ const recipesList = {
     id: '0',
     title: 'Pommes de terre façon arrabbiata et gambas au basilic',
     mark: 4.5,
-    markLabel: 'Excellent',
     cookingTime: '1h45min',
     nbCutleries: '1 à 2',
     favByUser: true,
@@ -16,7 +15,6 @@ const recipesList = {
     id: '1',
     title: 'Pommes de terre façon arrabbiata et gambas au basilic',
     mark: 3.5,
-    markLabel: 'Bon',
     cookingTime: '1h',
     nbCutleries: '2 à 3',
     favByUser: false,
@@ -24,8 +22,7 @@ const recipesList = {
   recipe2: {
     id: '2',
     title: 'Pommes de terre façon arrabbiata et gambas au basilic',
-    mark: 3.5,
-    markLabel: 'Bon',
+    mark: 2.5,
     cookingTime: '1h',
     nbCutleries: '2 à 3',
     favByUser: false,
@@ -33,8 +30,7 @@ const recipesList = {
   recipe3: {
     id: '3',
     title: 'Pommes de terre façon arrabbiata et gambas au basilic',
-    mark: 3.5,
-    markLabel: 'Bon',
+    mark: 1.5,
     cookingTime: '1h',
     nbCutleries: '2 à 3',
     favByUser: false,
@@ -42,8 +38,7 @@ const recipesList = {
   recipe4: {
     id: '4',
     title: 'Pommes de terre façon arrabbiata et gambas au basilic',
-    mark: 4.5,
-    markLabel: 'Excellent',
+    mark: 0.5,
     cookingTime: '1h45min',
     nbCutleries: '1 à 2',
     favByUser: true,
@@ -52,7 +47,6 @@ const recipesList = {
     id: '5',
     title: 'Pommes de terre façon arrabbiata et gambas au basilic',
     mark: 3.5,
-    markLabel: 'Bon',
     cookingTime: '1h',
     nbCutleries: '2 à 3',
     favByUser: false,
@@ -61,7 +55,6 @@ const recipesList = {
     id: '6',
     title: 'Pommes de terre façon arrabbiata et gambas au basilic',
     mark: 4.5,
-    markLabel: 'Excellent',
     cookingTime: '1h45min',
     nbCutleries: '1 à 2',
     favByUser: true,
@@ -70,7 +63,6 @@ const recipesList = {
     id: '7',
     title: 'Pommes de terre façon arrabbiata et gambas au basilic',
     mark: 3.5,
-    markLabel: 'Bon',
     cookingTime: '1h',
     nbCutleries: '2 à 3',
     favByUser: false,
@@ -79,16 +71,14 @@ const recipesList = {
     id: '8',
     title: 'Pommes de terre façon arrabbiata et gambas au basilic',
     mark: 3.5,
-    markLabel: 'Bon',
     cookingTime: '1h',
     nbCutleries: '2 à 3',
     favByUser: false,
   },
   recipe9: {
     id: '9',
-    title: 'Pommes de terre façon arrabbiata et gambas au basilic',
+    title: 'Pommes de terre façon arrabbiata et gambas au basilic avec sa sauce aux choux de brussels',
     mark: 3.5,
-    markLabel: 'Bon',
     cookingTime: '1h',
     nbCutleries: '2 à 3',
     favByUser: false,
@@ -102,7 +92,6 @@ const RecipesList = () => {
         key={key}
         title={recipesList[key].title}
         mark={recipesList[key].mark}
-        markLabel={recipesList[key].markLabel}
         cookingTime={recipesList[key].cookingTime}
         nbCutleries={recipesList[key].nbCutleries}
         favByUser={recipesList[key].favByUser}

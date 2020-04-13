@@ -10,6 +10,10 @@ const palette = {
   ios_grey: '#d0d2db',
   ios_white: '#f0f0f3',
   red: '#D8000C',
+  very_good_rating: '#1D547C',
+  good_rating: '#41A2E9',
+  bad_rating: '#DB5454',
+  very_bad_rating: '#FBA036',
 };
 
 const colors = {
@@ -24,6 +28,10 @@ const colors = {
   dark_white: palette.dark_white,
   ios_grey: palette.ios_grey,
   ios_white: palette.ios_white,
+  very_good_rating: palette.very_good_rating,
+  good_rating: palette.good_rating,
+  bad_rating: palette.bad_rating,
+  very_bad_rating: palette.very_bad_rating,
 };
 
 export default colors;
