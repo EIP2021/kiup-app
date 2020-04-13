@@ -1,38 +1,41 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { Text, Image, View } from 'react-native';
 import PropTypes from 'prop-types';
-import { images } from '../../themes';
-
+import { colors, images } from '../../themes';
 import styles from './styles/TextwithLogoStyle';
-// import NavigationService from '../../services/navigation';
 
-const TextWithLogo = ({ text, textColor, logo, isLogoBefore = true }) => {
-  if (!isLogoBefore) {
+const TextWithLogo = ({ text, textColor, logo, isLogoBefore }) => {
+  if (isLogoBefore) {
     return (
-      <Text style={{ color: textColor }}>
-        <Image source={images[logo]} />
+      <Text style={{ color: colors[textColor] }}>
+        <View>
+          <Image source={images[logo]} />
+        </View>
         {text}
-      </Text>
-    );
-  } else {
-    return (
-      <Text style={{ color: textColor }}>
-        {text}
-        <Image source={images[logo]} />
       </Text>
     );
   }
+  return (
+    <Text style={{ color: colors[textColor] }}>
+      {text}
+      <View>
+        <Image source={images[logo]} />
+      </View>
+    </Text>
+  );
 };
 
 TextWithLogo.propTypes = {
   text: PropTypes.string,
   logo: PropTypes.string,
+  textColor: PropTypes.string,
   isLogoBefore: PropTypes.bool,
 };
 
 TextWithLogo.defaultProps = {
   text: '',
   logo: '',
+  textColor: '',g
   isLogoBefore: false,
 };
 

@@ -3,18 +3,17 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { colors, images } from '../../themes';
 import TextWithLogo from '../layout/TextWithLogo';
+import RecipeMarkFormatter from '../layout/RecipeMarkFormatter';
 import styles from './styles/RecipeItemButtonStyle';
 // import NavigationService from '../../services/navigation';
 
 const RecipeItemButton = ({
   title,
   mark,
-  markLabel,
   cookingTime,
   nbCutleries,
   favByUser,
 }) => {
-  const markInfo = `${mark} ${markLabel}`;
   return (
     <TouchableOpacity>
       <View style={styles.container}>
@@ -25,22 +24,18 @@ const RecipeItemButton = ({
           <Image source={images.defaultRecipe} />
         </View>
         <View style={styles.bottomContainer}>
-          <TextWithLogo
-            text={markInfo}
-            textColor={colors.primary}
-            logo="excellentRatingStar"
-          />
+          <RecipeMarkFormatter mark={mark} />
           <View style={styles.cookingContainer}>
             <Text style={styles.cookingData}>
               <TextWithLogo
                 text={cookingTime}
-                textColor={colors.light_grey}
+                textColor="light_grey"
                 logo="timer"
                 isLogoBefore={false}
               />
               <TextWithLogo
                 text={nbCutleries}
-                textColor={colors.light_grey}
+                textColor="light_grey"
                 logo="cutleries"
                 isLogoBefore={false}
               />
