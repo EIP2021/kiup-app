@@ -35,7 +35,7 @@ TextWithLogo.propTypes = {
 TextWithLogo.defaultProps = {
   text: '',
   logo: '',
-  textColor: '',g
+  textColor: '',
   isLogoBefore: false,
 };
 
