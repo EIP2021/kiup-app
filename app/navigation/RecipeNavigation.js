@@ -2,7 +2,8 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import RecipeScreen from '../containers/Recipe/RecipeScreen';
 import AddRecipeScreen from '../containers/Recipe/AddRecipeScreen';
-import AddRecipeTime from '../containers/Recipe/AddRecipeTimeScreen';
+import AddRecipeTimeScreen from '../containers/Recipe/AddRecipeTimeScreen';
+import AddRecipeStepsScreen from '../containers/Recipe/AddRecipeStepsScreen';
 import defaultNavigationOptions from './defaultNavigationOption';
 
 const RecipeNavigation = createStackNavigator(
@@ -21,7 +22,10 @@ const RecipeNavigation = createStackNavigator(
       },
     },
     AddRecipeTime: {
-      screen: AddRecipeTime,
+      screen: AddRecipeTimeScreen,
+    },
+    AddRecipeSteps: {
+      screen: AddRecipeStepsScreen,
     },
   },
   {
