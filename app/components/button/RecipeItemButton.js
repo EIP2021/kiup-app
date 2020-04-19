@@ -1,12 +1,14 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import PropTypes from 'prop-types';
-import { colors, images } from '../../themes';
+import { images } from '../../themes';
 import TextWithLogo from '../layout/TextWithLogo';
 import RecipeMarkFormatter from '../layout/RecipeMarkFormatter';
 import styles from './styles/RecipeItemButtonStyle';
 import FavRecipeButton from './FavRecipeButton';
 // import NavigationService from '../../services/navigation';
+
+const favOrUnfavRecipe = favByUser => {};
 
 const RecipeItemButton = ({
   title,
@@ -21,7 +23,10 @@ const RecipeItemButton = ({
         <Text style={styles.text} numberOfLines={2}>
           {title}
         </Text>
-        <FavRecipeButton favByUser={favByUser} />
+        <FavRecipeButton
+          defaultStatus={favByUser}
+          onPress={favOrUnfavRecipe()}
+        />
         <Image style={styles.imageContainer} source={images.defaultRecipe} />
         <View style={styles.bottomContainer}>
           <RecipeMarkFormatter mark={mark} />
@@ -49,10 +54,18 @@ const RecipeItemButton = ({
 
 RecipeItemButton.propTypes = {
   title: PropTypes.string,
+  mark: PropTypes.number,
+  cookingTime: PropTypes.string,
+  nbCutleries: PropTypes.string,
+  favByUser: PropTypes.bool,
 };
 
 RecipeItemButton.defaultProps = {
   title: '',
+  mark: 3.5,
+  cookingTime: '1h30min',
+  nbCutleries: '1 à 2',
+  favByUser: false,
 };
 
 export default RecipeItemButton;

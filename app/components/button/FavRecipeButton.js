@@ -1,30 +1,33 @@
-import React from 'react';
+import React, { useState } from "react";
 import { Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { images } from '../../themes';
 import styles from './styles/FavRecipeButtonStyle';
 
-const favOrUnfavRecipe = favByUser => {
-  favByUser = !favByUser;
-};
+const FavRecipeButton = ({ defaultStatus, onPress }) => {
+  const [isFavorite, setIsFavorite] = useState(defaultStatus);
 
-const FavRecipeButton = ({ favByUser }) => {
   return (
     <TouchableOpacity
       style={styles.favorites}
-      onPress={() => favOrUnfavRecipe(favByUser)}
+      onPress={() => {
+        setIsFavorite(!isFavorite);
+        onPress(isFavorite);
+      }}
     >
-      <Image source={favByUser ? images.favByUser : images.notFavByUser} />
+      <Image source={isFavorite ? images.favByUser : images.notFavByUser} />
     </TouchableOpacity>
   );
 };
 
 FavRecipeButton.propTypes = {
-  favByUser: PropTypes.bool,
+  defaultStatus: PropTypes.bool,
+  onPress: PropTypes.func,
 };
 
 FavRecipeButton.defaultProps = {
-  favByUser: false,
+  defaultStatus: false,
+  onPress: /* istanbul ignore next */ () => {},
 };
 
 export default FavRecipeButton;
