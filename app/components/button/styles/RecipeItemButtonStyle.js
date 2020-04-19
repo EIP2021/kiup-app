@@ -11,10 +11,6 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginBottom: 15,
   },
-  favorites: {
-    position: 'absolute',
-    right: 10,
-  },
   text: {
     width: 290,
     color: 'black',

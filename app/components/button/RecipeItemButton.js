@@ -5,6 +5,7 @@ import { colors, images } from '../../themes';
 import TextWithLogo from '../layout/TextWithLogo';
 import RecipeMarkFormatter from '../layout/RecipeMarkFormatter';
 import styles from './styles/RecipeItemButtonStyle';
+import FavRecipeButton from './FavRecipeButton';
 // import NavigationService from '../../services/navigation';
 
 const RecipeItemButton = ({
@@ -20,9 +21,8 @@ const RecipeItemButton = ({
         <Text style={styles.text} numberOfLines={2}>
           {title}
         </Text>
-        <View style={styles.imageContainer}>
-          <Image source={images.defaultRecipe} />
-        </View>
+        <FavRecipeButton favByUser={favByUser} />
+        <Image style={styles.imageContainer} source={images.defaultRecipe} />
         <View style={styles.bottomContainer}>
           <RecipeMarkFormatter mark={mark} />
           <View style={styles.cookingContainer}>
