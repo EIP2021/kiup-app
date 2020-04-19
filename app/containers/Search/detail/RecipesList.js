@@ -6,7 +6,7 @@ const recipesList = {
   recipe0: {
     id: '0',
     title: 'Pommes de terre façon arrabbiata et gambas au basilic',
-    mark: 4.5,
+    mark: 4.67,
     cookingTime: '1h45min',
     nbCutleries: '1 à 2',
     favByUser: true,
@@ -14,7 +14,7 @@ const recipesList = {
   recipe1: {
     id: '1',
     title: 'Pommes de terre façon arrabbiata et gambas au basilic',
-    mark: 3.5,
+    mark: 3.73,
     cookingTime: '1h',
     nbCutleries: '2 à 3',
     favByUser: false,
@@ -22,7 +22,7 @@ const recipesList = {
   recipe2: {
     id: '2',
     title: 'Pommes de terre façon arrabbiata et gambas au basilic',
-    mark: 2.5,
+    mark: 2.52,
     cookingTime: '1h',
     nbCutleries: '2 à 3',
     favByUser: false,
@@ -30,7 +30,7 @@ const recipesList = {
   recipe3: {
     id: '3',
     title: 'Pommes de terre façon arrabbiata et gambas au basilic',
-    mark: 1.5,
+    mark: 1.51,
     cookingTime: '1h',
     nbCutleries: '2 à 3',
     favByUser: false,
@@ -38,7 +38,7 @@ const recipesList = {
   recipe4: {
     id: '4',
     title: 'Pommes de terre façon arrabbiata et gambas au basilic',
-    mark: 0.5,
+    mark: 0.43,
     cookingTime: '1h45min',
     nbCutleries: '1 à 2',
     favByUser: true,

@@ -48,6 +48,8 @@ import veryGoodRatingStar from '../images/recipes/very_good_rating_star.png';
 import goodRatingStar from '../images/recipes/good_rating_star.png';
 import badRatingStar from '../images/recipes/bad_rating_star.png';
 import veryBadRatingStar from '../images/recipes/very_bad_rating_star.png';
+import favByUser from '../images/recipes/fav_recipe.png';
+import notFavByUser from '../images/recipes/empty_heart.png';
 
 const images = {
   redBookmark,
@@ -100,6 +102,8 @@ const images = {
   goodRatingStar,
   badRatingStar,
   veryBadRatingStar,
+  favByUser,
+  notFavByUser,
 };
 
 export default images;

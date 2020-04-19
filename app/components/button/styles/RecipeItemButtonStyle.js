@@ -11,12 +11,22 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginBottom: 15,
   },
+  favorites: {
+    position: 'absolute',
+    right: 10,
+  },
   text: {
+    width: 290,
     color: 'black',
     fontWeight: 'bold',
     fontSize: moderateScale(16),
   },
   imageContainer: {
+    marginTop: 5,
+    borderRadius: 5,
+    width: 335,
+    height: 189,
+    backgroundColor: colors.very_light_grey,
     alignItems: 'center',
     justifyContent: 'center',
   },
