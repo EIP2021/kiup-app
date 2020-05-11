@@ -87,7 +87,6 @@ renderSteps.defaultProps = {
 
 const mapStateToProps = state => {
   const selector = formValueSelector('addRecipe');
-  console.log(state.form.addRecipe);
   return {
     values: selector(state, 'steps'),
   };
@@ -95,7 +94,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   validateForm: values => {
-    console.log(values);
+    // TODO
+    ownProps.navigation.navigate('AddRecipeRecap');
   },
 });
 

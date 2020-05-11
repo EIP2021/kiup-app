@@ -32,7 +32,7 @@ const AddRecipeScreen = ({ validateForm }) => {
         <View style={styles.nextButtonContainers}>
           <FetchButton
             title="Continuer"
-            type=""
+            type="recipe"
             onPress={validateForm}
             variant="secondary"
             containerStyle={styles.button}

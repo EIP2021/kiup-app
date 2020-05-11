@@ -4,6 +4,7 @@ import RecipeScreen from '../containers/Recipe/RecipeScreen';
 import AddRecipeScreen from '../containers/Recipe/AddRecipeScreen';
 import AddRecipeTimeScreen from '../containers/Recipe/AddRecipeTimeScreen';
 import AddRecipeStepsScreen from '../containers/Recipe/AddRecipeStepsScreen';
+import AddRecipeRecapScreen from '../containers/Recipe/AddRecipeRecapScreen';
 import defaultNavigationOptions from './defaultNavigationOption';
 
 const RecipeNavigation = createStackNavigator(
@@ -26,6 +27,9 @@ const RecipeNavigation = createStackNavigator(
     },
     AddRecipeSteps: {
       screen: AddRecipeStepsScreen,
+    },
+    AddRecipeRecap: {
+      screen: AddRecipeRecapScreen,
     },
   },
   {
