@@ -51,6 +51,8 @@ import favByUser from '../images/recipes/fav_recipe.png';
 import notFavByUser from '../images/recipes/empty_heart.png';
 import defaultRecipe from '../images/defaultRecipePicture.png';
 import addPicture from '../images/addPicture.png';
+import cookingTime from '../images/cookingTime.png';
+import preparationTime from '../images/preparationTime.png';
 
 const images = {
   redBookmark,
@@ -106,6 +108,8 @@ const images = {
   favByUser,
   notFavByUser,
   addPicture,
+  preparationTime,
+  cookingTime,
 };
 
 export default images;

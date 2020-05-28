@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
-import { Button } from 'react-native-elements';
+import { View, Text, ScrollView, Image } from 'react-native';
+import { Divider } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { reduxForm, getFormValues } from 'redux-form';
 import { withHandlers } from 'recompose';
@@ -11,7 +11,10 @@ import PropTypes from 'prop-types';
 import { FetchButton } from '../../components';
 import { setError } from '../../actions';
 import styles from './styles/AddRecipeRecapStyle';
-import { colors } from '../../themes';
+import { colors, images } from '../../themes';
+import { handleRequest } from '../../sagas/requestHandler';
+import { TitleField } from '../../components/field';
+import { AddRecipeImageButton } from '../../components/button';
 
 const AddRecipeScreen = ({ handleSubmit, formStates }) => {
   console.log(formStates);
@@ -19,11 +22,49 @@ const AddRecipeScreen = ({ handleSubmit, formStates }) => {
     <View style={styles.container}>
       <ScrollView
         style={{ flex: 1, width: '100%' }}
-        contentContainerStyle={{ alignItems: 'center' }}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
       >
-        <Text style={styles.title}>Récapitulatif de votre recette</Text>
+        <View>
+          <TitleField
+            title="Résumé de votre nouvelle recette"
+            titleStyle={styles.title}
+          />
+        </View>
+        <View style={styles.textInputBarContainerStyle}>
+          <View style={styles.textInputContainerStyle}>
+            <Text style={styles.textInputStyle}>{formStates.name}</Text>
+          </View>
+          <AddRecipeImageButton />
+        </View>
+        <TitleField title="Ingrédients" titleStyle={styles.otherTitle} />
+        <TitleField title="Étapes" titleStyle={styles.otherTitle} />
+        {formStates.steps.map((item, key) => (
+          <View>
+            <Text style={styles.stepTitle}>Étape {key + 1}</Text>
+            <View style={styles.stepInputContainerStyle}>
+              <Text style={styles.stepContainer}>{item.text}</Text>
+            </View>
+            <Divider />
+          </View>
+        ))}
+        <TitleField title="Temps" titleStyle={styles.otherTitle} />
+        <View style={styles.timeContainer}>
+          <View style={styles.timeAndLogoContainer}>
+            <Image
+              source={images.preparationTime}
+              style={styles.preparationTimeImageContainer}
+            />
+            <Text>{formStates.prepTime} min</Text>
+          </View>
+          <View style={styles.timeAndLogoContainer}>
+            <Image
+              source={images.cookingTime}
+              style={styles.cookingTimeImageContainer}
+            />
+            <Text>{formStates.cookTime} min</Text>
+          </View>
+        </View>
         <FetchButton
           title="Valider"
           type="recipe"
@@ -59,7 +100,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 const enhance = compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
   withHandlers({
     validateForm: props => () => {
       props.validateForm(props.values);
