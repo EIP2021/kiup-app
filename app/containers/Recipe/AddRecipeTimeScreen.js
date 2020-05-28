@@ -137,6 +137,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   validateForm: values => {
     if (values.prepTime === 0) {
       dispatch(setError(`Veuillez sélectioner un temps de préparation`));
+      return;
     }
     ownProps.navigation.navigate('AddRecipeSteps');
   },
@@ -150,6 +151,9 @@ const enhance = compose(
     },
   }),
   reduxForm({
+    enableReinitialize: true,
+    keepDirtyOnReinitialize: true,
+    destroyOnUnmount: false,
     form: 'addRecipe',
   })
 );

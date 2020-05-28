@@ -1,7 +1,6 @@
-import React from 'react';
-import { Image, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Image, TouchableOpacity, View } from 'react-native';
 import PropTypes from 'prop-types';
-
 import ImagePicker from 'react-native-image-picker';
 import { images } from '../../themes';
 import styles from './styles/AddRecipeImageButtonStyle';
@@ -14,51 +13,60 @@ const options = {
   },
 };
 
-const AddRecipeImageButton = ({ input: { value, onChange } }) => {
+const AddRecipeImageButton = ({ input: { onChange } }) => {
+  const [image, setImage] = useState('');
   const source = () => {
-    if (value) return { uri: value };
+    if (image) return { uri: image };
     return images.defaultRecipe;
   };
+
+  useEffect(() => {
+    onChange(image);
+  }, [image]);
+
   return (
-    <TouchableOpacity
-      style={styles.pictureInputContainerStyle}
-      onPress={() => {
-        ImagePicker.showImagePicker(options, response => {
-          if (
-            !response.didCancel &&
-            !response.error &&
-            !response.customButton
-          ) {
-            onChange(response.uri);
-          }
-        });
-      }}
-    >
-      <Image
-        source={source()}
-        style={value ? styles.recipePicture : styles.defaultRecipePicture}
-        resizeMode="cover"
-      />
-      {!value && (
-        <Image
-          source={images.addPicture}
-          style={styles.addPictureLogo}
-          resizeMode="cover"
-        />
-      )}
-    </TouchableOpacity>
+    <>
+      <View>
+        <TouchableOpacity
+          style={styles.pictureInputContainerStyle}
+          onPress={() => {
+            ImagePicker.showImagePicker(options, response => {
+              if (
+                !response.didCancel &&
+                !response.error &&
+                !response.customButton
+              ) {
+                setImage(response.uri);
+              }
+            });
+            onChange('coucou');
+          }}
+        >
+          <Image
+            source={source()}
+            style={image ? styles.recipePicture : styles.defaultRecipePicture}
+            resizeMode="cover"
+          />
+          {!image && (
+            <Image
+              source={images.addPicture}
+              style={styles.addPictureLogo}
+              resizeMode="cover"
+            />
+          )}
+        </TouchableOpacity>
+      </View>
+    </>
   );
 };
 
 AddRecipeImageButton.propTypes = {
   input: PropTypes.object,
-  value: PropTypes.string,
   onChange: PropTypes.func,
 };
 
 AddRecipeImageButton.defaultProps = {
   input: {},
-  value: '',
   onChange: /* istanbull ignore next */ () => {},
 };
 

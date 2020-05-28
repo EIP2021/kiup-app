@@ -107,6 +107,9 @@ const enhance = compose(
     },
   }),
   reduxForm({
+    enableReinitialize: true,
+    keepDirtyOnReinitialize: true,
+    destroyOnUnmount: false,
     form: 'addRecipe',
   })
 );

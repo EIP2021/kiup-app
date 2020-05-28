@@ -32,7 +32,7 @@ const AddRecipeScreen = ({ validateForm }) => {
         <View style={styles.nextButtonContainers}>
           <FetchButton
             title="Continuer"
-            type="recipe"
+            type="addRecipe"
             onPress={validateForm}
             variant="secondary"
             containerStyle={styles.button}
@@ -45,10 +45,12 @@ const AddRecipeScreen = ({ validateForm }) => {
 
 AddRecipeScreen.propTypes = {
   validateForm: PropTypes.func,
+  change: PropTypes.func,
 };
 
 AddRecipeScreen.defaultProps = {
   validateForm: /* istanbull ignore next */ () => {},
+  change: /* istanbull ignore next */ () => {},
 };
 
 const mapStateToProps = state => {
@@ -64,6 +66,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
       dispatch(setError(`Vous n'avez pas donné de nom à votre recette`));
       return;
     }
+    if (!values.image) {
+      dispatch(setError(`Vous n'avez pas donné d'image à votre recette`));
+      return;
+    }
     ownProps.navigation.navigate('AddRecipeTime');
   },
 });
@@ -76,6 +82,9 @@ const enhance = compose(
     },
   }),
   reduxForm({
+    enableReinitialize: true,
+    keepDirtyOnReinitialize: true,
+    destroyOnUnmount: false,
     form: 'addRecipe',
   })
 );
