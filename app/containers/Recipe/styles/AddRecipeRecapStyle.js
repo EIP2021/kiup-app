@@ -78,6 +78,22 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
   },
+  recipeImageContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: moderateScale(25),
+    width: moderateScale(350),
+    height: moderateScale(190),
+    backgroundColor: 'grey',
+    borderColor: 'black',
+    borderWidth: 2,
+    borderRadius: 5,
+  },
+  recipeImage: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 5,
+  },
 });
 
 export default styles;

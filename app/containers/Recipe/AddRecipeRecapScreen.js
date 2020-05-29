@@ -35,7 +35,13 @@ const AddRecipeScreen = ({ handleSubmit, formStates }) => {
           <View style={styles.textInputContainerStyle}>
             <Text style={styles.textInputStyle}>{formStates.name}</Text>
           </View>
-          <AddRecipeImageButton />
+          <View style={styles.recipeImageContainer}>
+            <Image
+              source={{ uri: formStates.image }}
+              style={styles.recipeImage}
+              resizeMode="cover"
+            />
+          </View>
         </View>
         <TitleField title="Ingrédients" titleStyle={styles.otherTitle} />
         <TitleField title="Étapes" titleStyle={styles.otherTitle} />
