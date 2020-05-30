@@ -1,13 +1,12 @@
 import React from 'react';
 import { View, Text, ScrollView, Image } from 'react-native';
 import { Divider } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { reduxForm, getFormValues } from 'redux-form';
-import { withHandlers } from 'recompose';
 import compose from 'recompose/compose';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { addRecipe } from '../../requests';
 import { FetchButton } from '../../components';
 import { setError } from '../../actions';
 import styles from './styles/AddRecipeRecapStyle';
@@ -99,22 +98,21 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = dispatch => ({
   onSubmit: values => {
-    console.log(values);
+    const payload = {
+      name: values.name,
+      image: values.image,
+      cookTime: values.cookTime,
+      prepTime: values.prepTime,
+      steps: values.steps,
+    };
+    dispatch(addRecipe(payload));
   },
 });
 
 const enhance = compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
-  withHandlers({
-    validateForm: props => () => {
-      props.validateForm(props.values);
-    },
-  }),
+  connect(mapStateToProps, mapDispatchToProps),
   reduxForm({
     form: 'addRecipe',
     destroyOnUnmount: false,
