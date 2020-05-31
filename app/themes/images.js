@@ -39,7 +39,17 @@ import orange from '../images/orange.png';
 import peach from '../images/peach.png';
 import arrowRight from '../images/arrow-point-to-right.png';
 import alcohol from '../images/alcohol.png';
-import noPhoto from '../images/noPhoto.png'
+import noPhoto from '../images/noPhoto.png';
+import defaultRecipe from '../images/recipes/recipe_image.png';
+import timer from '../images/recipes/timer.png';
+import cutleries from '../images/recipes/cutleries.png';
+import excellentRatingStar from '../images/recipes/excellent_rating_star.png';
+import veryGoodRatingStar from '../images/recipes/very_good_rating_star.png';
+import goodRatingStar from '../images/recipes/good_rating_star.png';
+import badRatingStar from '../images/recipes/bad_rating_star.png';
+import veryBadRatingStar from '../images/recipes/very_bad_rating_star.png';
+import favByUser from '../images/recipes/fav_recipe.png';
+import notFavByUser from '../images/recipes/empty_heart.png';
 
 const images = {
   redBookmark,
@@ -84,6 +94,16 @@ const images = {
   arrowRight,
   alcohol,
   noPhoto,
+  defaultRecipe,
+  excellentRatingStar,
+  timer,
+  cutleries,
+  veryGoodRatingStar,
+  goodRatingStar,
+  badRatingStar,
+  veryBadRatingStar,
+  favByUser,
+  notFavByUser,
 };
 
 export default images;
