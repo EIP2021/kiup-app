@@ -6,11 +6,12 @@ import TextWithLogo from '../layout/TextWithLogo';
 import RecipeMarkFormatter from '../layout/RecipeMarkFormatter';
 import styles from './styles/RecipeItemButtonStyle';
 import FavRecipeButton from './FavRecipeButton';
-// import NavigationService from '../../services/navigation';
+import NavigationService from '../../services/navigation';
 
 const favOrUnfavRecipe = favByUser => {};
 
 const RecipeItemButton = ({
+  id,
   title,
   mark,
   cookingTime,
@@ -18,7 +19,16 @@ const RecipeItemButton = ({
   favByUser,
 }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => {
+        NavigationService.navigate('RecipeScreen', {
+          id,
+          title,
+          nbCutleries,
+          favByUser,
+        });
+      }}
+    >
       <View style={styles.container}>
         <Text style={styles.text} numberOfLines={2}>
           {title}
@@ -53,6 +63,7 @@ const RecipeItemButton = ({
 };
 
 RecipeItemButton.propTypes = {
+  id: PropTypes.number,
   title: PropTypes.string,
   mark: PropTypes.number,
   cookingTime: PropTypes.string,
@@ -61,6 +72,7 @@ RecipeItemButton.propTypes = {
 };
 
 RecipeItemButton.defaultProps = {
+  id: 0,
   title: '',
   mark: 3.5,
   cookingTime: '1h30min',
