@@ -6,10 +6,12 @@ import {
   CLEAR_DATA,
 } from '../actions';
 
-export const updateObjectInArray = (array, action) => {
-  return array.map((item, index) => {
-    if (index === action.index) {
-      return { ...item, ...action.data };
+export const updateObjectInArray = (array, { data, index }) => {
+  // console.log();
+  return array.map((item, arrayIndex) => {
+    if (arrayIndex === index) {
+      console.log('XD');
+      return { ...item, ...data };
     }
     return item;
   });
@@ -21,8 +23,8 @@ export const updateObjectInArray = (array, action) => {
 // }
 
 export const deleteObjectInArray = (array, action) => {
-  array.splice(action.index);
-  return { ...array };
+  array.splice(action.index, 1);
+  return [...array];
 };
 
 export function objectReducer(state = {}, action = {}) {
@@ -71,7 +73,7 @@ export function paginatedListReducer(
     case UPDATE_DATA:
       return { ...state, data: updateObjectInArray(state.data, action) };
     case DELETE_DATA:
-      return { ...state, data: deleteObjectInArray(state, action) };
+      return { ...state, data: deleteObjectInArray(state.data, action) };
     case CLEAR_DATA:
       return {
         page: 0,

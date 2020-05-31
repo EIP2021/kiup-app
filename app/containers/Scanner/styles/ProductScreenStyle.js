@@ -30,6 +30,10 @@ const styles = StyleSheet.create({
   headerRight: {
     marginRight: moderateScale(13),
   },
+  rightText: {
+    fontSize: moderateScale(12),
+    color: 'rgb(120, 120, 120)',
+  },
 });
 
 export default styles;

@@ -1,6 +1,8 @@
 import { StyleSheet } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 
+import { colors } from '../../../themes';
+
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
@@ -10,13 +12,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: moderateScale(12),
     textAlign: 'center',
-    color: 'rgb(20, 20, 20)',
+    color: colors.dark_text,
     marginBottom: moderateScale(5),
   },
   circleAmount: {
     fontSize: moderateScale(11),
     textAlign: 'center',
-    color: 'rgb(100, 100, 100)',
+    color: colors.medium_text,
   },
 });
 

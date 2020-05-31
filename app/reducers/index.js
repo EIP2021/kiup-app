@@ -12,24 +12,26 @@ import createRequestReducer, {
   paginatedListReducer,
 } from './requestReducer';
 
-const authenticationPersistConfig = {
-  key: 'auth',
-  storage: AsyncStorage,
-  stateReconciler: autoMergeLevel1,
-};
-
-const tokenPersistConfig = {
-  key: 'token',
-  storage: AsyncStorage,
-  stateReconciler: autoMergeLevel1,
+const createPersistConfig = name => {
+  return {
+    key: name,
+    storage: AsyncStorage,
+    stateReconciler: autoMergeLevel1,
+  };
 };
 
 const rootReducers = combineReducers({
   auth: persistReducer(
-    authenticationPersistConfig,
+    createPersistConfig('auth'),
     createRequestReducer(objectReducer, 'auth')
   ),
+  profileInformations: createRequestReducer(
+    objectReducer,
+    'profileInformations'
+  ),
   statistics: createRequestReducer(objectReducer, 'stats'),
+  alimentSearched: createRequestReducer(objectReducer, 'alimentSearched'),
+  productScanned: createRequestReducer(objectReducer, 'productScanned'),
   error: errorReducer,
   fetch: fetchReducer,
   form: formReducer,
@@ -38,6 +40,11 @@ const rootReducers = combineReducers({
   searchRecipe: createRequestReducer(objectReducer, 'searchRecipe'),
   searchRecipeQuery: createRequestReducer(objectReducer, 'searchRecipeQuery'),
   token: persistReducer(tokenPersistConfig, tokenReducer),
+  token: persistReducer(createPersistConfig('token'), tokenReducer),
+  consumptionHistory: persistReducer(
+    createPersistConfig('consumptionHistory'),
+    createRequestReducer(paginatedListReducer, 'consumptionHistory')
+  ),
 });
 
 export default rootReducers;

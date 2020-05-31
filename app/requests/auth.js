@@ -8,6 +8,8 @@ import {
   setError,
   navigate,
 } from '../actions';
+import { getConsumption } from './consumption';
+import { getProfileInformations } from './profileInformations';
 import { kiupURL } from '../config/apisURL';
 
 export const login = payload => {
@@ -19,12 +21,14 @@ export const login = payload => {
       method: 'POST',
       payload,
     },
-    'kiup',
+    '',
     [],
     (name, response, subtype) => {
       return [
         updateData(name, { email: response.email, isLogged: true }, subtype),
         addToken('kiup', response.token),
+        getConsumption(),
+        getProfileInformations(),
         navigate('Profile'),
       ];
     },
@@ -53,6 +57,7 @@ export const register = payload => {
       ];
     },
     (name, err) => {
+      console.log(err);
       return [setError(`${err.message}, veuillez réessayer.`)];
     }
   );

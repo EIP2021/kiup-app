@@ -12,7 +12,7 @@ import {
   FavoriteButton,
 } from '../../components';
 import { calculAllNutrimentsQuantity } from '../../helpers';
-import { setError } from '../../actions';
+import { setError, updateData, CREATE_DATA } from '../../actions';
 import { postConsumption } from '../../requests';
 import styles from './styles/ProductScreenStyle';
 import NutrimentsInfo from './detail/NutrimentsInfo';
@@ -80,6 +80,17 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         values.quantity,
         navigation.getParam('nutriments')
       );
+      const history = {
+        id: navigation.getParam('id'),
+        title: navigation.getParam('title'),
+        image: navigation.getParam('image'),
+        brand: navigation.getParam('brand'),
+        date: new Date(),
+        nutriments: navigation.getParam('nutriments'),
+        nutrimentsConsumed: stats,
+        quantity: values.quantity,
+      };
+      dispatch(updateData('consumptionHistory', history, CREATE_DATA));
       dispatch(postConsumption(stats));
     },
   };
@@ -91,7 +102,7 @@ const enhance = compose(
     mapDispatchToProps
   ),
   reduxForm({
-    form: 'login',
+    form: 'product',
   })
 );
 

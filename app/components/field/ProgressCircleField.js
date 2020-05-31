@@ -21,26 +21,28 @@ const ProgressCircleField = ({ title, value, maximum, color, unit }) => {
   const animatedCircularProgressRef = useRef(false);
   const isFocused = useIsFocused();
 
-  useFocusEffect(() => {
-    if (didMountRef.current) {
-      if (isFocused) {
-        animatedCircularProgressRef.current.reAnimate(
-          0,
-          getPercentage(value, maximum)
-        );
+  useFocusEffect(
+    React.useCallback(() => {
+      if (didMountRef.current) {
+        if (isFocused) {
+          animatedCircularProgressRef.current.reAnimate(
+            0,
+            getPercentage(value, maximum)
+          );
+        }
+      } else {
+        didMountRef.current = true;
       }
-    } else {
-      didMountRef.current = true;
-    }
-  });
+    }, [isFocused])
+  );
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <AnimatedCircularProgress
         ref={animatedCircularProgressRef}
-        size={moderateScale(87)}
-        width={moderateScale(9)}
+        size={moderateScale(80)}
+        width={moderateScale(8)}
         fill={getPercentage(value, maximum)}
         lineCap="round"
         rotation={360}

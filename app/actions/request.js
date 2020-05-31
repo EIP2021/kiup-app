@@ -25,7 +25,7 @@ export const fetchError = (name, errorMessage) => ({
   errorMessage,
 });
 
-export const updateData = (name, data, subtype, ...rest) => ({
+export const updateData = (name, data, subtype, rest) => ({
   type: `${subtype}`,
   name,
   data,

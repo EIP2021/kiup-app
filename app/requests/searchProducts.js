@@ -1,7 +1,7 @@
 import { READ_DATA, fetchRequest, updateData } from '../actions';
 import { kiupURL } from '../config/apisURL';
 
-const getSearchedProduct = () => {
+const getSearchedProducts = () => {
   return fetchRequest(
     'searchProduct',
     READ_DATA,
@@ -34,4 +34,4 @@ const getSearchedProduct = () => {
   );
 };
 
-export default getSearchedProduct;
+export default getSearchedProducts;

@@ -1,6 +1,9 @@
 import { createStackNavigator } from 'react-navigation-stack';
 
 import ProfileScreen from '../containers/Profile/ProfileScreen';
+import SettingScreen from '../containers/Profile/SettingScreen';
+import HistoryScreen from '../containers/Profile/HistoryScreen';
+import ConsumptionScreen from '../containers/Profile/ConsumptionScreen';
 import defaultNavigationOptions from './defaultNavigationOption';
 
 const ProfileNavigation = createStackNavigator(
@@ -10,6 +13,21 @@ const ProfileNavigation = createStackNavigator(
       navigationOptions: {
         header: null,
       },
+    },
+    Setting: {
+      screen: SettingScreen,
+      navigationOptions: {
+        header: null,
+      },
+    },
+    History: {
+      screen: HistoryScreen,
+      navigationOptions: {
+        header: null,
+      },
+    },
+    Consumption: {
+      screen: ConsumptionScreen,
     },
   },
   {

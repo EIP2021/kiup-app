@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { moderateScale } from 'react-native-size-matters';
+
+import { colors } from '../../themes';
 
 const FavoriteButton = ({ defaultStatus, onPress, iconStyle }) => {
   const [isFavorite, setIsFavorite] = useState(defaultStatus);
 
   return (
     <Icon
-      name={isFavorite ? 'ios-star' : 'ios-star-outline'}
-      size={moderateScale(20)}
-      color={isFavorite ? '#FFE178' : 'white'}
+      name={isFavorite ? 'favorite' : 'favorite-border'}
+      size={moderateScale(28)}
+      color={isFavorite ? '#E9005B' : colors.disable_text}
       style={iconStyle}
       onPress={() => {
         setIsFavorite(!isFavorite);

@@ -4,24 +4,20 @@ import { colors } from '../../../../themes';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: moderateScale(20),
-    padding: moderateScale(9),
     flexDirection: 'row',
+    alignItems: 'center',
+    alignContent: 'center',
     justifyContent: 'space-between',
-    // backgroundColor: 'rgb(225, 225, 225)',
+    marginTop: moderateScale(16),
   },
-  leftText: {
-    fontSize: moderateScale(20),
-    fontWeight: 'bold',
-    textAlign: 'left',
-    alignSelf: 'center',
-    color: colors.primary,
+  title: {
+    paddingVertical: 0,
   },
   rightText: {
-    fontSize: moderateScale(12),
+    fontSize: moderateScale(14),
     textAlign: 'right',
-    alignSelf: 'center',
-    color: 'rgb(120, 120, 120)',
+    color: colors.disable_text,
+    marginRight: moderateScale(9),
   },
 });
 
