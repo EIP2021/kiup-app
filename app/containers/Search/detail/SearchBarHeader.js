@@ -11,22 +11,24 @@ import { colors } from '../../../themes';
 
 const SearchBarHeader = ({ placeholder, onBack, ...props }) => {
   return (
-    <View>
-      <View style={styles.rowContainer}>
-        <Icon
-          size={moderateScale(16)}
-          name="chevron-left"
-          color={colors.primary}
-          onPress={() => onBack()}
-          style={styles.icon}
-        />
-        <SearchBarInput {...props} placeholder={placeholder} />
+    <>
+      <View>
+        <View style={styles.rowContainer}>
+          <Icon
+            size={moderateScale(16)}
+            name="chevron-left"
+            color={colors.primary}
+            onPress={() => onBack()}
+            style={styles.icon}
+          />
+          <SearchBarInput {...props} placeholder={placeholder} />
+        </View>
       </View>
       <LinearGradient
         colors={['#BBBBBB', '#F2F2F2']}
         style={styles.borderGradient}
       />
-    </View>
+    </>
   );
 };
 

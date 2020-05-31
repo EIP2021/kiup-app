@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { ButtonGroup } from 'react-native-elements';
 
 import styles from './styles/NutrimentsStatsStyle';
-import { ProgressCircleField } from '../../../components';
+import { NutrimentsDiagram } from '../../../components';
 
 const NutrimentsStats = ({ nutriments }) => {
   const [selectedId, setSelectedId] = useState(0);
@@ -25,36 +25,7 @@ const NutrimentsStats = ({ nutriments }) => {
         selectedButtonStyle={styles.selectedButton}
         selectedTextStyle={styles.selectedTextButton}
       />
-      <View style={styles.rowContainer}>
-        <ProgressCircleField
-          title="Protéines"
-          value={nutriments.proteins}
-          maximum={60}
-          color="#FFE178"
-          unit="g"
-        />
-        <ProgressCircleField
-          title="Sel"
-          value={nutriments.salt}
-          maximum={5}
-          color="#EFA2F5"
-          unit="g"
-        />
-        <ProgressCircleField
-          title="Phosphore"
-          value={nutriments.phosphorus}
-          maximum={1000}
-          color="#99FF99"
-          unit="mg"
-        />
-        <ProgressCircleField
-          title="Potassium"
-          value={nutriments.potassium}
-          maximum={600}
-          color="#EF5C5C"
-          unit="mg"
-        />
-      </View>
+      <NutrimentsDiagram nutriments={nutriments} />
     </View>
   );
 };

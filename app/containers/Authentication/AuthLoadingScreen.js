@@ -4,19 +4,19 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import styles from './styles/AuthLoadingScreenStyle';
-import { getConsumption } from '../../requests';
+import { getConsumption, getProfileInformations } from '../../requests';
 import { getAuth } from '../../selectors';
 import { colors } from '../../themes';
 
 const AuthLoading = ({
   navigation: { navigate },
   auth: { isLogged },
-  getStatistics,
+  initiateApp,
 }) => {
   useEffect(() => {
     if (isLogged) {
       navigate('App');
-      getStatistics();
+      initiateApp();
     } else {
       navigate('Auth');
     }
@@ -33,13 +33,13 @@ const AuthLoading = ({
 AuthLoading.propTypes = {
   navigation: PropTypes.object,
   auth: PropTypes.object,
-  getStatistics: PropTypes.func,
+  initiateApp: PropTypes.func,
 };
 
 AuthLoading.defaultProps = {
   navigation: {},
   auth: {},
-  getStatistics: /* istanbul ignore next */ () => {},
+  initiateApp: /* istanbul ignore next */ () => {},
 };
 
 const mapStateToProps = state => ({
@@ -47,8 +47,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getStatistics: () => {
+  initiateApp: () => {
     dispatch(getConsumption());
+    dispatch(getProfileInformations());
   },
 });
 

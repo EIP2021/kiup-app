@@ -17,6 +17,7 @@ const fetcher = async ({
   const isPayload = !isObjectEmpty(payload);
   const isParams = !isObjectEmpty(parameters);
   const uri = isParams ? url + qs.stringify(parameters, true) : url;
+  console.log(uri, method, token, payload, parameters);
   const response = await fetch(uri, {
     headers: {
       Accept: 'application/json',

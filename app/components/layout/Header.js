@@ -7,14 +7,14 @@ import { moderateScale } from 'react-native-size-matters';
 import styles from './styles/HeaderStyle';
 import { colors } from '../../themes';
 
-const Header = ({ title, iconName, onIconPress }) => {
+const Header = ({ title, iconName, onIconPress, iconSize }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       {iconName !== '' && (
         <Icon
           name={iconName}
-          size={moderateScale(28)}
+          size={moderateScale(iconSize)}
           color={colors.primary}
           onPress={onIconPress}
         />
@@ -27,12 +27,14 @@ Header.propTypes = {
   title: PropTypes.string,
   iconName: PropTypes.string,
   onIconPress: PropTypes.func,
+  iconSize: PropTypes.number,
 };
 
 Header.defaultProps = {
   title: '',
   iconName: '',
   onIconPress: /* istanbul ignore next */ () => {},
+  iconSize: 28,
 };
 
 export default Header;

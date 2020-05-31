@@ -5,7 +5,7 @@ import { colors } from '../../../themes';
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: moderateScale(21),
+    fontSize: moderateScale(20),
     color: colors.primary,
     fontWeight: 'bold',
     padding: moderateScale(9),

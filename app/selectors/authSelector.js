@@ -1,3 +1,3 @@
 export const getAuth = state => state.auth;
 
-export default getAuth;
+export const getEmailAddress = state => getAuth(state).email;

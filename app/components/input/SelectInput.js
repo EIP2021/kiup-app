@@ -14,9 +14,12 @@ const SelectInput = ({
   items,
   placeholder,
   showError,
+  defaultValue,
+  inputAndroidStyle,
+  inputIOSStyle,
   ...props
 }) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(defaultValue);
   const [lastValue, setLastValue] = useState('');
   const ref = useRef();
   const InputAccessoryView = () => {
@@ -54,7 +57,11 @@ const SelectInput = ({
           setLastValue(value);
           onChange(value);
         }}
-        style={pickerStyles}
+        style={{
+          ...pickerStyles,
+          inputIOS: inputIOSStyle,
+          inputAndroid: inputAndroidStyle,
+        }}
         onValueChange={newValue => {
           setValue(newValue);
           if (Platform.OS !== 'ios') {
@@ -86,12 +93,18 @@ SelectInput.propTypes = {
   items: PropTypes.array.isRequired,
   placeholder: PropTypes.object.isRequired,
   showError: PropTypes.bool,
+  defaultValue: PropTypes.string,
+  inputIOSStyle: PropTypes.object,
+  inputAndroidStyle: PropTypes.object,
 };
 
 SelectInput.defaultProps = {
   input: {},
   meta: {},
   showError: false,
+  defaultValue: '',
+  inputIOSStyle: pickerStyles.inputIOS,
+  inputAndroidStyle: pickerStyles.inputAndroid,
 };
 
 export default SelectInput;
