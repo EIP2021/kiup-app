@@ -6,15 +6,21 @@ import { Divider } from 'react-native-elements';
 
 import styles from './styles/ProductListStyle';
 import { getPendingStatus } from '../../../selectors';
-import { getSearchedProduct } from '../../../requests';
-import { NavigateIconButton } from '../../../components/button';
+import { getSearchedProducts, getAlimentInformation } from '../../../requests';
+import { ProductSearchCard } from '../../../components';
 
-const ProductList = ({ title, productList, loadMore }) => {
+const ProductList = ({ title, productList, loadMore, getAlimentInfo }) => {
   return (
     <FlatList
       data={productList}
       renderItem={({ item }) => (
-        <NavigateIconButton title={item.name} image="noPhoto" />
+        <ProductSearchCard
+          title={item.name}
+          image={item.alim_image}
+          onPress={() => {
+            getAlimentInfo(item.alim_code, item.name, item.alim_image);
+          }}
+        />
       )}
       ListHeaderComponent={() =>
         productList.length ? (
@@ -39,12 +45,14 @@ ProductList.propTypes = {
   title: PropTypes.string,
   productList: PropTypes.array,
   loadMore: PropTypes.func,
+  getAlimentInfo: PropTypes.func,
 };
 
 ProductList.defaultProps = {
   title: '',
   productList: [],
   loadMore: /* istanbul ignore next */ () => {},
+  getAlimentInfo: /* istanbul ignore next */ () => {},
 };
 
 const mapStateToProps = state => ({
@@ -55,8 +63,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   loadMore: isPending => {
     if (!isPending) {
-      dispatch(getSearchedProduct());
+      dispatch(getSearchedProducts());
     }
+  },
+  getAlimentInfo: (id, alimName, alimImage) => {
+    dispatch(getAlimentInformation(id, alimName, alimImage));
   },
 });
 
@@ -68,6 +79,8 @@ export default connect(
       ...ownProps,
       ...stateProps,
       loadMore: () => dispatchProps.loadMore(stateProps.isPending),
+      getAlimentInfo: (id, alimName, alimImage) =>
+        dispatchProps.getAlimentInfo(id, alimName, alimImage),
     };
   }
 )(ProductList);

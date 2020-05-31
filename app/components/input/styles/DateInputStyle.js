@@ -7,14 +7,8 @@ const styles = StyleSheet.create({
     width: '85%',
   },
   textContainer: {
-    alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: colors.dark_white,
-  },
-  textContainerError: {
-    alignItems: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: colors.error,
   },
   text: {
     width: '100%',

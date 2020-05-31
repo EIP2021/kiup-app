@@ -1,14 +1,15 @@
 import { StyleSheet } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 
+import { colors } from '../../../themes';
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingRight: moderateScale(9),
     paddingVertical: moderateScale(9.5),
-    borderColor: '#C8C8C8',
-    backgroundColor: 'white',
+    backgroundColor: colors.secondary,
   },
   leftContainer: {
     flexDirection: 'row',
@@ -22,13 +23,19 @@ const styles = StyleSheet.create({
   },
   leftText: {
     textAlign: 'left',
+    color: colors.dark_text,
     fontSize: moderateScale(13),
   },
   rightText: {
     textAlign: 'right',
     fontSize: moderateScale(13),
-    color: 'rgb(150, 150, 150)',
+    color: colors.disable_text,
     alignSelf: 'center',
+  },
+  separator: {
+    width: '87.5%',
+    alignSelf: 'flex-end',
+    backgroundColor: colors.separator,
   },
 });
 

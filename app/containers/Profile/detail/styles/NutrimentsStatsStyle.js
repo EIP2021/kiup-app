@@ -6,6 +6,9 @@ import { colors } from '../../../../themes';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
+    marginHorizontal: moderateScale(10),
+    borderRadius: 10,
+    elevation: 3,
   },
   rowContainer: {
     flexDirection: 'row',
@@ -14,7 +17,7 @@ const styles = StyleSheet.create({
   },
   containerButtons: {
     borderRadius: 25,
-    height: moderateScale(25),
+    height: moderateScale(26),
     width: '92%',
     alignSelf: 'center',
     marginTop: moderateScale(10),

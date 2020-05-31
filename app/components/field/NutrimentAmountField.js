@@ -18,15 +18,7 @@ const NutrimentAmountField = ({ name, amount, unit, color, lastItem }) => {
           {amount} {unit}
         </Text>
       </View>
-      {!lastItem && (
-        <Divider
-          style={{
-            width: '87.5%',
-            alignSelf: 'flex-end',
-            backgroundColor: '#C8C8C8',
-          }}
-        />
-      )}
+      {!lastItem && <Divider style={styles.separator} />}
     </>
   );
 };

@@ -14,7 +14,7 @@ const SecureInput = forwardRef(({ iconColor, ...props }, ref) => {
       {...props}
       ref={ref}
       secureTextEntry={show}
-      rightIconContainerStyle={{ marginRight: 10 }}
+      rightIconContainerStyle={{ marginRight: moderateScale(10) }}
       rightIcon={
         <Icon
           name={show ? 'eye' : 'eye-with-line'}

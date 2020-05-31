@@ -5,7 +5,7 @@ import {
   clearData,
   updateData,
 } from '../actions';
-import { getSearchedProduct } from '../requests';
+import { getSearchedProducts } from '../requests';
 
 export function* searchProductHandler({ categoryId, query }) {
   yield put(clearData('searchProduct'));
@@ -22,7 +22,7 @@ export function* searchProductHandler({ categoryId, query }) {
       )
     );
   }
-  yield put(getSearchedProduct());
+  yield put(getSearchedProducts());
 }
 
 export function* searchProduct() {

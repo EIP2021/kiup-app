@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import styles from './styles/DateInputStyle';
+import { colors } from '../../themes';
 
 const openDatePickerAndroid = async (date, setDate) => {
   const { action, year, month, day } = await DatePickerAndroid.open({
@@ -75,13 +76,23 @@ const DateInput = ({
   meta: { error, submitFailed },
   placeholder,
   showError,
+  textContainerStyle,
+  textStyle,
 }) => {
   const [date, setDate] = useState('');
   const [openIOS, setOpenIOS] = useState(false);
-  const textContainerStyle =
+  const textContainerStyleVariant =
     showError && submitFailed && error
-      ? styles.textContainerError
-      : styles.textContainer;
+      ? [
+          styles.textContainer,
+          textContainerStyle,
+          { borderColor: colors.error },
+        ]
+      : [styles.textContainer, textContainerStyle];
+  const textStyleVariant =
+    showError && submitFailed && error
+      ? [styles.text, textStyle, { color: colors.error }]
+      : [styles.text, textStyle];
 
   useEffect(() => {
     onChange(date);
@@ -91,7 +102,7 @@ const DateInput = ({
     <>
       <View style={styles.container}>
         <TouchableOpacity
-          style={textContainerStyle}
+          style={textContainerStyleVariant}
           onPress={() => {
             if (Platform.OS === 'ios') {
               setOpenIOS(true);
@@ -100,7 +111,7 @@ const DateInput = ({
             }
           }}
         >
-          <Text style={styles.text}>
+          <Text style={textStyleVariant}>
             {(date && moment(date).format('DD/MM/YYYY')) || placeholder}
           </Text>
         </TouchableOpacity>
@@ -120,6 +131,8 @@ const DateInput = ({
 
 DateInput.propTypes = {
   input: PropTypes.object,
+  textContainerStyle: PropTypes.object,
+  textStyle: Text.propTypes.style,
   meta: PropTypes.object,
   placeholder: PropTypes.string,
   showError: PropTypes.bool,
@@ -127,6 +140,8 @@ DateInput.propTypes = {
 
 DateInput.defaultProps = {
   input: {},
+  textContainerStyle: {},
+  textStyle: {},
   meta: {},
   placeholder: '',
   showError: false,
