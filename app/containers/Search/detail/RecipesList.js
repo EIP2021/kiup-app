@@ -77,7 +77,8 @@ const recipesList = {
   },
   recipe9: {
     id: '9',
-    title: 'Pommes de terre façon arrabbiata et gambas au basilic avec sa sauce aux choux de brussels',
+    title:
+      'Pommes de terre façon arrabbiata et gambas au basilic avec sa sauce aux choux de brussels',
     mark: 3.5,
     cookingTime: '1h',
     nbCutleries: '2 à 3',
@@ -85,7 +86,7 @@ const recipesList = {
   },
 };
 
-const RecipesList = () => {
+const RecipesList = query => {
   const renderedList = Object.keys(recipesList).map(key => {
     return (
       <RecipeItemButton

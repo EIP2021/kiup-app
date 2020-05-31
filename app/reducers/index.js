@@ -35,6 +35,8 @@ const rootReducers = combineReducers({
   form: formReducer,
   searchProduct: createRequestReducer(paginatedListReducer, 'searchProduct'),
   searchProductQuery: createRequestReducer(objectReducer, 'searchProductQuery'),
+  searchRecipe: createRequestReducer(objectReducer, 'searchRecipe'),
+  searchRecipeQuery: createRequestReducer(objectReducer, 'searchRecipeQuery'),
   token: persistReducer(tokenPersistConfig, tokenReducer),
 });
 
