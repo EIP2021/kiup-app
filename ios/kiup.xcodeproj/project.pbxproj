@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* kiupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* kiupTests.m */; };
 		1142F83FDAADB797603E67D9 /* libPods-kiup.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 516DAA010979B5F8B697B138 /* libPods-kiup.a */; };
@@ -47,6 +48,8 @@
 		04FA72D0ADBC4EA099B00E00 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiBold.ttf"; path = "../assets/fonts/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		05E637BBF8E772C99EEAA28B /* Pods-kiupTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kiupTests.debug.xcconfig"; path = "Target Support Files/Pods-kiupTests/Pods-kiupTests.debug.xcconfig"; sourceTree = "<group>"; };
 		098432187C0C26529519977E /* Pods-kiup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kiup.release.xcconfig"; path = "Target Support Files/Pods-kiup/Pods-kiup.release.xcconfig"; sourceTree = "<group>"; };
+		09DF63F2C22646109CADBDA0 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		0FB1285042704CEBA456406D /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* kiup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kiup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = kiup/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = kiup/AppDelegate.m; sourceTree = "<group>"; };
@@ -55,39 +58,53 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = kiup/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = kiup/main.m; sourceTree = "<group>"; };
 		169B0D26D3A84BF2BDA01CDB /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-LightItalic.ttf"; path = "../assets/fonts/OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		1A01805CC0B84E83A5C9F293 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		1BA6D8EC39BE417D9DE11F22 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		24091BB459164C3E8293CE56 /* Hack-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Hack-BoldItalic.ttf"; path = "../assets/fonts/Hack-BoldItalic.ttf"; sourceTree = "<group>"; };
+		251C1F1A6E04453FA6A3D11F /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		2BB4AAD422EA446EBCE3F9BE /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* kiup-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kiup-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* kiup-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kiup-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36382CCAA55F4EA795607144 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-ExtraBold.ttf"; path = "../assets/fonts/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		381565BA999C4C3F83AC2027 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		403594B0E8E047FE97857273 /* Roboto Mono Thin Italic for Powerline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto Mono Thin Italic for Powerline.ttf"; path = "../assets/fonts/Roboto Mono Thin Italic for Powerline.ttf"; sourceTree = "<group>"; };
 		4857D73B1AA8D93F746C24F8 /* Pods-kiupTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kiupTests.release.xcconfig"; path = "Target Support Files/Pods-kiupTests/Pods-kiupTests.release.xcconfig"; sourceTree = "<group>"; };
 		497D9C6013534B3EAB055373 /* Roboto Mono Bold for Powerline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto Mono Bold for Powerline.ttf"; path = "../assets/fonts/Roboto Mono Bold for Powerline.ttf"; sourceTree = "<group>"; };
 		4E6CF343DF0744FA9833F1AA /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold.ttf"; path = "../assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		516DAA010979B5F8B697B138 /* libPods-kiup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kiup.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54D317D7018A49139C3671DF /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		61DAE4F0C7D2406AA5138C17 /* Roboto Mono for Powerline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto Mono for Powerline.ttf"; path = "../assets/fonts/Roboto Mono for Powerline.ttf"; sourceTree = "<group>"; };
 		6D604E62DE004E608687D1FB /* Roboto Mono Thin for Powerline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto Mono Thin for Powerline.ttf"; path = "../assets/fonts/Roboto Mono Thin for Powerline.ttf"; sourceTree = "<group>"; };
 		6DC1BCED49C44A149872D6DB /* Hack-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Hack-Italic.ttf"; path = "../assets/fonts/Hack-Italic.ttf"; sourceTree = "<group>"; };
+		6DFB06C5A58E494093FA4E6F /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		72ED19D52258E6CF90D53714 /* Pods-kiup-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kiup-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-kiup-tvOSTests/Pods-kiup-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B0E60F0CDBC43ECA0D93CCB /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		7B0F8614BC53D4DE1A510EF1 /* libPods-kiup-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kiup-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B395437594E4684A5FC255F /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		7BA466BD519DC46572470DC5 /* libPods-kiupTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kiupTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D79CD5C9DA64324A7204DA0 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-BoldItalic.ttf"; path = "../assets/fonts/OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		88B44AC01059805421F8499C /* Pods-kiup-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kiup-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-kiup-tvOS/Pods-kiup-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		925101E60D3747CBB494A7D1 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiBoldItalic.ttf"; path = "../assets/fonts/OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		9B300F90E80B4BC7AEAE2814 /* Roboto Mono Italic for Powerline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto Mono Italic for Powerline.ttf"; path = "../assets/fonts/Roboto Mono Italic for Powerline.ttf"; sourceTree = "<group>"; };
+		9F414C97F6C545869F6C5FE2 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		A29AD48D211D423EA1ECD225 /* Roboto Mono Medium Italic for Powerline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto Mono Medium Italic for Powerline.ttf"; path = "../assets/fonts/Roboto Mono Medium Italic for Powerline.ttf"; sourceTree = "<group>"; };
 		A7AED081E6A4F72CFE60D960 /* libPods-kiup-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kiup-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB4B53715D2D437B9897682C /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		AF0D0DF0FE1346C7BF1BDC02 /* Roboto Mono Medium for Powerline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto Mono Medium for Powerline.ttf"; path = "../assets/fonts/Roboto Mono Medium for Powerline.ttf"; sourceTree = "<group>"; };
 		B829ED5589EF44CDBCE31E9F /* Hack-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Hack-Regular.ttf"; path = "../assets/fonts/Hack-Regular.ttf"; sourceTree = "<group>"; };
 		B8FF2B6CD86044A71B38338C /* Pods-kiup-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kiup-tvOS.release.xcconfig"; path = "Target Support Files/Pods-kiup-tvOS/Pods-kiup-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		BB0C4006A0504019A9A6625C /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		BD9CD41B7D1F40ECAD633567 /* Hack-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Hack-Bold.ttf"; path = "../assets/fonts/Hack-Bold.ttf"; sourceTree = "<group>"; };
 		C118BC6EAC4B46F79EA037F2 /* Roboto Mono Light for Powerline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto Mono Light for Powerline.ttf"; path = "../assets/fonts/Roboto Mono Light for Powerline.ttf"; sourceTree = "<group>"; };
 		C79A2C53CC2742B9B75AE060 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-ExtraBoldItalic.ttf"; path = "../assets/fonts/OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		CF033D7063774493AC9FB98D /* Pods-kiup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kiup.debug.xcconfig"; path = "Target Support Files/Pods-kiup/Pods-kiup.debug.xcconfig"; sourceTree = "<group>"; };
+		D4E93E4AA9E94E8987B0A56F /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		D8127023EB044AE9B6E1EF62 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		E0811FBB0254450DB8B23FBD /* Roboto Mono Bold Italic for Powerline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto Mono Bold Italic for Powerline.ttf"; path = "../assets/fonts/Roboto Mono Bold Italic for Powerline.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		ED55EF2E9F03C91DAD892C64 /* Pods-kiup-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kiup-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-kiup-tvOSTests/Pods-kiup-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EEB420F3DE7A4F37BF44B55B /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		FF1D5CD3D093441F99056C27 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Light.ttf"; path = "../assets/fonts/OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		FFEE5FD5E2574194BC099B2F /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Italic.ttf"; path = "../assets/fonts/OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,6 +265,22 @@
 				A29AD48D211D423EA1ECD225 /* Roboto Mono Medium Italic for Powerline.ttf */,
 				6D604E62DE004E608687D1FB /* Roboto Mono Thin for Powerline.ttf */,
 				403594B0E8E047FE97857273 /* Roboto Mono Thin Italic for Powerline.ttf */,
+				D8127023EB044AE9B6E1EF62 /* AntDesign.ttf */,
+				1A01805CC0B84E83A5C9F293 /* Entypo.ttf */,
+				381565BA999C4C3F83AC2027 /* EvilIcons.ttf */,
+				09DF63F2C22646109CADBDA0 /* Feather.ttf */,
+				251C1F1A6E04453FA6A3D11F /* FontAwesome.ttf */,
+				EEB420F3DE7A4F37BF44B55B /* FontAwesome5_Brands.ttf */,
+				54D317D7018A49139C3671DF /* FontAwesome5_Regular.ttf */,
+				D4E93E4AA9E94E8987B0A56F /* FontAwesome5_Solid.ttf */,
+				2BB4AAD422EA446EBCE3F9BE /* Fontisto.ttf */,
+				6DFB06C5A58E494093FA4E6F /* Foundation.ttf */,
+				1BA6D8EC39BE417D9DE11F22 /* Ionicons.ttf */,
+				AB4B53715D2D437B9897682C /* MaterialCommunityIcons.ttf */,
+				0FB1285042704CEBA456406D /* MaterialIcons.ttf */,
+				9F414C97F6C545869F6C5FE2 /* Octicons.ttf */,
+				7B395437594E4684A5FC255F /* SimpleLineIcons.ttf */,
+				BB0C4006A0504019A9A6625C /* Zocial.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
