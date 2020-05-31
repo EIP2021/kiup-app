@@ -42,16 +42,13 @@ const colors = {
   dark_white: palette.dark_white,
   ios_grey: palette.ios_grey,
   ios_white: palette.ios_white,
-<<<<<<< HEAD
   very_good_rating: palette.very_good_rating,
   good_rating: palette.good_rating,
   bad_rating: palette.bad_rating,
   very_bad_rating: palette.very_bad_rating,
-=======
   dark_text: palette.dark_emphasis_text,
   medium_text: palette.medium_emphasis_text,
   disable_text: palette.disable_text,
->>>>>>> 64a0db3310155cf5c57c276fac306204e4960f1a
 };
 
 export default colors;
