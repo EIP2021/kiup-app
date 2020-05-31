@@ -44,6 +44,7 @@ const rootReducers = combineReducers({
     createPersistConfig('consumptionHistory'),
     createRequestReducer(paginatedListReducer, 'consumptionHistory')
   ),
+  addRecipe: createRequestReducer(objectReducer, 'addRecipe'),
 });
 
 export default rootReducers;

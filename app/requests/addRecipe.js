@@ -12,7 +12,7 @@ const addRecipe = payload => {
     },
     'kiup',
     [],
-    () => {
+    (name, response, subtype) => {
       return [navigate('recipe')];
     },
     (name, err) => {
