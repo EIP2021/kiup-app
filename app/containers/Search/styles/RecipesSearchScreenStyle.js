@@ -5,10 +5,6 @@ import { colors } from '../../../themes';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-<<<<<<< HEAD
-    marginTop: 10,
-=======
->>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
     marginLeft: 10,
     marginRight: 10,
   },

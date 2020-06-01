@@ -10,14 +10,11 @@ const RecipesSearchScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-<<<<<<< HEAD
-=======
       <Header
         title="Recettes"
         iconName="ios-add"
         onIconPress={() => navigation.navigate('AddRecipe')}
       />
->>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
       <TextInput
         style={styles.searchBar}
         placeholder="Rechercher une recette"

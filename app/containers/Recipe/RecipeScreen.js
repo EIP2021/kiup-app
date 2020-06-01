@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import {
   View,
   Text,
@@ -378,40 +377,16 @@ const RecipeScreen = ({ navigation }) => {
           })}
         </View>
       </ScrollView>
-=======
-import { View } from 'react-native';
-import PropTypes from 'prop-types';
-
-import styles from './styles/RecipeScreenStyle';
-import { Header, TitleField } from '../../components';
-
-const RecipeScreen = ({ navigation }) => {
-  return (
-    <View style={styles.container}>
-      <Header
-        title="Recettes"
-        iconName="ios-add"
-        onIconPress={() => navigation.navigate('AddRecipe')}
-      />
-      <TitleField
-        title="Recettes favorites"
-        titleStyle={styles.featuredTitle}
-      />
->>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
     </View>
   );
 };
 
 RecipeScreen.propTypes = {
-<<<<<<< HEAD
   navigation: PropTypes.object,
 };
 
 RecipeScreen.defaultProps = {
   navigation: {},
-=======
-  navigation: PropTypes.object.isRequired,
->>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
 };
 
 export default RecipeScreen;

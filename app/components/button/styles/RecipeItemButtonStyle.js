@@ -23,13 +23,8 @@ const styles = StyleSheet.create({
   imageContainer: {
     marginTop: 5,
     borderRadius: 5,
-<<<<<<< HEAD
     width: 350,
     height: windowHeight - ((windowHeight / 100) * 77),
-=======
-    width: moderateScale(335),
-    height: moderateScale(189),
->>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
     backgroundColor: colors.very_light_grey,
     alignItems: 'center',
     justifyContent: 'center',

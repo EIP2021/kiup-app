@@ -18,7 +18,7 @@ const AuthLoading = ({
       navigate('App');
       initiateApp();
     } else {
-      navigate('Auth');
+      navigate('App');
     }
   }, []);
 

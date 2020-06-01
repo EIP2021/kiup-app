@@ -15,14 +15,9 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(26),
   },
   button: {
-<<<<<<< HEAD
-    marginTop: moderateScale(20),
-    width: moderateScale(200),
-=======
     marginTop: moderateScale(50),
     width: moderateScale(200),
     marginBottom: moderateScale(20),
->>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
   },
   textInputBarContainerStyle: {
     flex: 1,
@@ -36,13 +31,10 @@ const styles = StyleSheet.create({
     height: moderateScale(40),
     width: moderateScale(350),
   },
-<<<<<<< HEAD
-=======
   timeTextStyle: {
     marginTop: moderateScale(15),
     fontSize: moderateScale(15),
   },
->>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
   textInputStyle: {
     flex: 1,
     height: moderateScale(40),
