@@ -45,12 +45,10 @@ const AddRecipeScreen = ({ validateForm }) => {
 
 AddRecipeScreen.propTypes = {
   validateForm: PropTypes.func,
-  change: PropTypes.func,
 };
 
 AddRecipeScreen.defaultProps = {
   validateForm: /* istanbull ignore next */ () => {},
-  change: /* istanbull ignore next */ () => {},
 };
 
 const mapStateToProps = state => {

@@ -1,4 +1,10 @@
-import { CREATE_DATA, fetchRequest, navigate, setError } from '../actions';
+import {
+  CREATE_DATA,
+  fetchRequest,
+  navigate,
+  setError,
+  updateData,
+} from '../actions';
 import { kiupURL } from '../config/apisURL';
 
 const addRecipe = payload => {
@@ -12,8 +18,8 @@ const addRecipe = payload => {
     },
     'kiup',
     [],
-    () => {
-      return [navigate('Recipe')];
+    (name, response, subtype) => {
+      return [updateData(name, payload, subtype), navigate('Recipe')];
     },
     (name, err) => {
       return [setError(`${err.message}, veuillez réessayer.`)];
