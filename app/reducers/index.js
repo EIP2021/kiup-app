@@ -30,7 +30,9 @@ const rootReducers = combineReducers({
     objectReducer,
     'profileInformations'
   ),
-  statistics: createRequestReducer(objectReducer, 'stats'),
+  dailyStatistics: createRequestReducer(objectReducer, 'dailyStatistics'),
+  weeklyStatistics: createRequestReducer(objectReducer, 'weeklyStatistics'),
+  monthlyStatistics: createRequestReducer(objectReducer, 'monthlyStatistics'),
   alimentSearched: createRequestReducer(objectReducer, 'alimentSearched'),
   productScanned: createRequestReducer(objectReducer, 'productScanned'),
   error: errorReducer,

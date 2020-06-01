@@ -63,7 +63,7 @@ export function* handleRequest({
     }
     const actions = onFailure(name, err, subtype);
     if (actions && actions.length !== 0) {
-      yield actions.forEach(action => call(applyChanges, action));
+      yield all(actions.map(action => call(applyChanges, action)));
     }
   }
 }

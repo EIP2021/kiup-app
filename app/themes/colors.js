@@ -16,7 +16,7 @@ const palette = {
   dark_grey: 'rgba(31, 51, 61, 0.3)',
   ios_grey: '#d0d2db',
   ios_white: '#f0f0f3',
-  red: '#D8000C',
+  red: '#F24453',
   very_good_rating: '#1D547C',
   good_rating: '#41A2E9',
   bad_rating: '#DB5454',

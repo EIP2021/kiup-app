@@ -6,11 +6,27 @@ import { ButtonGroup } from 'react-native-elements';
 
 import styles from './styles/NutrimentsStatsStyle';
 import { NutrimentsDiagram } from '../../../components';
+import ConsumptionChartSwiper from './ConsumptionChartSwiper';
 
-const NutrimentsStats = ({ nutriments }) => {
+const NutrimentsStats = ({ dailyStats, weeklyStats, monthlyStats }) => {
   const [selectedId, setSelectedId] = useState(0);
+  const [renderedStats, setRenderedStats] = useState(
+    <NutrimentsDiagram nutriments={dailyStats} />
+  );
   const buttons = ["Aujourd'hui", 'Semaine', 'Mois'];
-  // const values = ['day', 'week', 'month'];
+  React.useEffect(() => {
+    if (selectedId === 0) {
+      setRenderedStats(<NutrimentsDiagram nutriments={dailyStats} />);
+    } else if (selectedId === 1) {
+      setRenderedStats(
+        <ConsumptionChartSwiper nutrimentsStats={weeklyStats} type="weekly" />
+      );
+    } else {
+      setRenderedStats(
+        <ConsumptionChartSwiper nutrimentsStats={monthlyStats} type="monthly" />
+      );
+    }
+  }, [selectedId]);
 
   return (
     <View style={styles.container}>
@@ -25,21 +41,27 @@ const NutrimentsStats = ({ nutriments }) => {
         selectedButtonStyle={styles.selectedButton}
         selectedTextStyle={styles.selectedTextButton}
       />
-      <NutrimentsDiagram nutriments={nutriments} />
+      {[renderedStats]}
     </View>
   );
 };
 
 NutrimentsStats.propTypes = {
-  nutriments: PropTypes.object,
+  dailyStats: PropTypes.object,
+  weeklyStats: PropTypes.object,
+  monthlyStats: PropTypes.object,
 };
 
 NutrimentsStats.defaultProps = {
-  nutriments: {},
+  dailyStats: {},
+  weeklyStats: {},
+  monthlyStats: {},
 };
 
 const mapStateToProps = state => ({
-  nutriments: state.statistics,
+  dailyStats: state.dailyStatistics,
+  weeklyStats: state.weeklyStatistics,
+  monthlyStats: state.monthlyStatistics,
 });
 
 export default connect(mapStateToProps)(NutrimentsStats);
