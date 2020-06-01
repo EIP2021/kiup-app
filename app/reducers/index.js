@@ -10,6 +10,7 @@ import tokenReducer from './tokenReducer';
 import createRequestReducer, {
   objectReducer,
   paginatedListReducer,
+  listReducer,
 } from './requestReducer';
 
 const createPersistConfig = name => {
@@ -44,6 +45,7 @@ const rootReducers = combineReducers({
     createPersistConfig('consumptionHistory'),
     createRequestReducer(paginatedListReducer, 'consumptionHistory')
   ),
+  addRecipe: createRequestReducer(listReducer, 'addRecipe'),
 });
 
 export default rootReducers;

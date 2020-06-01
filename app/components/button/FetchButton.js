@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import BasicButton from './BasicButton';
+import RecipeBasicButton from './RecipeBasicButton';
 import { getPendingStatus } from '../../selectors';
 
 const FetchButton = ({ loading, type, ...props }) => {
-  return <BasicButton loading={loading} {...props} />;
+  return <RecipeBasicButton loading={loading} {...props} />;
 };
 
 FetchButton.propTypes = {

@@ -7,21 +7,17 @@ import styles from './styles/TextwithLogoStyle';
 const TextWithLogo = ({ text, textColor, logo, isLogoBefore }) => {
   if (isLogoBefore) {
     return (
-      <Text style={{ color: colors[textColor] }}>
-        <View>
-          <Image source={images[logo]} />
-        </View>
-        {text}
-      </Text>
+      <View style={styles.container}>
+        <Image source={images[logo]} />
+        <Text style={{ color: colors[textColor] }}>{text}</Text>
+      </View>
     );
   }
   return (
-    <Text style={{ color: colors[textColor] }}>
-      {text}
-      <View>
-        <Image source={images[logo]} />
-      </View>
-    </Text>
+    <View style={styles.container}>
+      <Text style={{ color: colors[textColor] }}>{text}</Text>
+      <Image source={images[logo]} />
+    </View>
   );
 };
 
