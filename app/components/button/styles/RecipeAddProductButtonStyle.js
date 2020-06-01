@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: moderateScale(10),
     paddingVertical: moderateScale(14),
     borderBottomWidth: 1,
-    borderBottomColor: 'grey',
+    borderBottomColor: colors.disable_text,
   },
   leftContainer: {
     flexDirection: 'row',
@@ -26,6 +26,15 @@ const styles = StyleSheet.create({
     marginLeft: moderateScale(16),
     color: colors.primary,
     fontWeight: 'bold',
+  },
+  categoryContainer: {
+    flex: 1,
+    backgroundColor: '#00000075',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

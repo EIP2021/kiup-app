@@ -16,7 +16,7 @@ const NavigateProductCategoryRecipeButton = ({
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
-        onPress(false);
+        onPress();
         NavigationService.navigate(screenName);
       }}
     >

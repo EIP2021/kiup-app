@@ -39,37 +39,27 @@ const RecipeAddProductButton = () => {
           transparent
         >
           <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
-            <View
-              style={{
-                flex: 1,
-                backgroundColor: '#00000075',
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                alignContent: 'center',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
+            <View style={styles.categoryContainer}>
               <NavigateProductCategoryRecipeButton
                 image="scanProductRecipeLogo"
                 title="Scan"
-                onPress={setModalVisible}
+                onPress={() => setModalVisible(false)}
               />
               <NavigateProductCategoryRecipeButton
                 image="nonScanProductRecipeLogo"
                 title="Rechercher"
                 screenName="Search"
-                onPress={setModalVisible}
+                onPress={() => setModalVisible(false)}
               />
               <NavigateProductCategoryRecipeButton
                 image="recentProductRecipeLogo"
                 title="Récent"
-                onPress={setModalVisible}
+                onPress={() => setModalVisible(false)}
               />
               <NavigateProductCategoryRecipeButton
                 image="favProductRecipeLogo"
                 title="Favoris"
-                onPress={setModalVisible}
+                onPress={() => setModalVisible(false)}
               />
             </View>
           </TouchableWithoutFeedback>
