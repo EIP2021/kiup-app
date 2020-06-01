@@ -14,7 +14,7 @@ const ProductHeader = ({ title, brand, image, isLiked }) => {
       <View style={styles.rightContainer}>
         <View style={styles.textContainer}>
           <Text style={styles.title}>
-            {title.length > 30 ? `${title.substring(0, 27)}...` : title}
+            {title.length > 30 ? `${title.substring(0, 20)}...` : title}
           </Text>
           <Text style={styles.brand}>{brand}</Text>
         </View>

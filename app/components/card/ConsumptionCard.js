@@ -12,7 +12,11 @@ const ConsumptionCard = ({ image, name, quantity, date, onPress }) => {
       <Image style={styles.image} source={displayedImage} />
       <View style={styles.rightContainer}>
         <View style={styles.verticalContainer}>
-          <Text style={styles.primaryText}>{name}</Text>
+          <Text style={styles.primaryText}>
+            {name.length + date.length < 40
+              ? name
+              : `${name.substring(0, 36 - date.length)}...`}
+          </Text>
           <Text style={styles.secondaryText}>{quantity}</Text>
         </View>
         <Text style={styles.secondaryText}>{date}</Text>
