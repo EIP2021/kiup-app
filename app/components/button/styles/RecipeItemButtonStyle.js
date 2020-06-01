@@ -38,7 +38,9 @@ const styles = StyleSheet.create({
   markData: {
     color: colors.primary,
   },
-  cookingData: {},
+  cookingData: {
+    flexDirection: 'row',
+  },
 });
 
 export default styles;

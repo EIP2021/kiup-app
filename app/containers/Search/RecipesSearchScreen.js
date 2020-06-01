@@ -18,7 +18,7 @@ const RecipesSearchScreen = ({ navigation }) => {
       <TextInput
         style={styles.searchBar}
         placeholder="Rechercher une recette"
-        onChangeText={text => setText(text)}
+        onChangeText={t => setText(t)}
       />
       <ScrollView>
         <RecipesList query={text} />
