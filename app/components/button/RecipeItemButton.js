@@ -40,7 +40,7 @@ const RecipeItemButton = ({
         <View style={styles.bottomContainer}>
           <RecipeMarkFormatter mark={mark} />
           <View style={styles.cookingContainer}>
-            <Text style={styles.cookingData}>
+            <View style={styles.cookingData}>
               <TextWithLogo
                 text={cookingTime}
                 textColor="light_grey"
@@ -53,7 +53,7 @@ const RecipeItemButton = ({
                 logo="cutleries"
                 isLogoBefore={false}
               />
-            </Text>
+            </View>
           </View>
         </View>
       </View>

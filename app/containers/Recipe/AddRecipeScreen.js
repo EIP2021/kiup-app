@@ -45,12 +45,18 @@ const AddRecipeScreen = ({ validateForm }) => {
 
 AddRecipeScreen.propTypes = {
   validateForm: PropTypes.func,
+<<<<<<< HEAD
   change: PropTypes.func,
+=======
+>>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
 };
 
 AddRecipeScreen.defaultProps = {
   validateForm: /* istanbull ignore next */ () => {},
+<<<<<<< HEAD
   change: /* istanbull ignore next */ () => {},
+=======
+>>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
 };
 
 const mapStateToProps = state => {
@@ -70,12 +76,23 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
       dispatch(setError(`Vous n'avez pas donné d'image à votre recette`));
       return;
     }
+<<<<<<< HEAD
     ownProps.navigation.navigate('AddRecipeTime');
+=======
+    ownProps.navigation.navigate('AddRecipeProducts');
+>>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
   },
 });
 
 const enhance = compose(
+<<<<<<< HEAD
   connect(mapStateToProps, mapDispatchToProps),
+=======
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
+>>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
   withHandlers({
     validateForm: props => () => {
       props.validateForm(props.values);

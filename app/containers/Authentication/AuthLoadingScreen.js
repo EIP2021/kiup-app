@@ -48,7 +48,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   initiateApp: () => {
-    dispatch(getConsumption());
+    dispatch(getConsumption('dailyStatistics', 'day'));
+    dispatch(getConsumption('weeklyStatistics', 'year'));
+    dispatch(getConsumption('monthlyStatistics', 'month'));
     dispatch(getProfileInformations());
   },
 });

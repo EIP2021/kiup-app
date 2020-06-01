@@ -10,6 +10,7 @@ import tokenReducer from './tokenReducer';
 import createRequestReducer, {
   objectReducer,
   paginatedListReducer,
+  listReducer,
 } from './requestReducer';
 
 const createPersistConfig = name => {
@@ -29,7 +30,9 @@ const rootReducers = combineReducers({
     objectReducer,
     'profileInformations'
   ),
-  statistics: createRequestReducer(objectReducer, 'stats'),
+  dailyStatistics: createRequestReducer(objectReducer, 'dailyStatistics'),
+  weeklyStatistics: createRequestReducer(objectReducer, 'weeklyStatistics'),
+  monthlyStatistics: createRequestReducer(objectReducer, 'monthlyStatistics'),
   alimentSearched: createRequestReducer(objectReducer, 'alimentSearched'),
   productScanned: createRequestReducer(objectReducer, 'productScanned'),
   error: errorReducer,
@@ -44,7 +47,11 @@ const rootReducers = combineReducers({
     createPersistConfig('consumptionHistory'),
     createRequestReducer(paginatedListReducer, 'consumptionHistory')
   ),
+<<<<<<< HEAD
   addRecipe: createRequestReducer(objectReducer, 'addRecipe'),
+=======
+  addRecipe: createRequestReducer(listReducer, 'addRecipe'),
+>>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
 });
 
 export default rootReducers;

@@ -9,6 +9,7 @@ import AuthLoadingScreen from '../containers/Authentication/AuthLoadingScreen';
 import ScannerNavigation from './ScannerNavigation';
 import SearchNavigation from './SearchNavigation';
 import ProfileNavigation from './ProfileNavigation';
+import RecipeNavigation from './RecipeNavigation';
 import { colors } from '../themes';
 import RecipeNavigation from './RecipeNavigation';
 

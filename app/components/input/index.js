@@ -6,3 +6,4 @@ export { default as SecureInput } from './SecureInput';
 export { default as SearchBarInput } from './SearchBarInput';
 export { default as SliderInput } from './SliderInput';
 export { default as UnitInput } from './UnitInput';
+export { default as SliderInput } from './SliderInput';

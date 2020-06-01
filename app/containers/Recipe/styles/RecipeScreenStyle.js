@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 
+<<<<<<< HEAD
 import { colors } from '../../../themes';
 
 const styles = StyleSheet.create({
@@ -28,6 +29,15 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     paddingLeft: 7,
+=======
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f2f2f2',
+  },
+  featuredTitle: {
+    marginTop: moderateScale(16),
+>>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
   },
 });
 

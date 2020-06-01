@@ -16,3 +16,8 @@ export { default as IconInformationButton } from './IconInformationButton';
 export {
   default as AlimentInformationButton,
 } from './AlimentInformationButton';
+export { default as AddRecipeImageButton } from './AddRecipeImageButton';
+export {
+  default as NavigateRecipeNextButton,
+} from './TemporaryNavigateButton';
+export { default as RecipeAddProductButton } from './RecipeAddProductButton';

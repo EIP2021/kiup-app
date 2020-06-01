@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 
 import styles from './styles/ProfileScreenStyle';
@@ -9,7 +9,7 @@ import HistoryList from './detail/HistoryList';
 
 const ProfileScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <ScrollView nestedScrollEnabled style={styles.container}>
       <Header
         title="Profil"
         iconName="ios-settings"
@@ -22,7 +22,7 @@ const ProfileScreen = ({ navigation }) => {
         titleStyle={styles.consumeTitle}
       />
       <HistoryList />
-    </View>
+    </ScrollView>
   );
 };
 

@@ -27,7 +27,9 @@ export const login = payload => {
       return [
         updateData(name, { email: response.email, isLogged: true }, subtype),
         addToken('kiup', response.token),
-        getConsumption(),
+        getConsumption('dailyStatistics', 'day'),
+        getConsumption('weeklyStatistics', 'year'),
+        getConsumption('monthlyStatistics', 'month'),
         getProfileInformations(),
         navigate('Profile'),
       ];
@@ -57,7 +59,6 @@ export const register = payload => {
       ];
     },
     (name, err) => {
-      console.log(err);
       return [setError(`${err.message}, veuillez réessayer.`)];
     }
   );

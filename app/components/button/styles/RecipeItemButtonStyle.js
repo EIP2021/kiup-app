@@ -12,9 +12,10 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
     marginBottom: 15,
+    paddingBottom: 5,
   },
   text: {
-    width: 290,
+    width: moderateScale(290),
     color: 'black',
     fontWeight: 'bold',
     fontSize: moderateScale(16),
@@ -22,8 +23,13 @@ const styles = StyleSheet.create({
   imageContainer: {
     marginTop: 5,
     borderRadius: 5,
+<<<<<<< HEAD
     width: 350,
     height: windowHeight - ((windowHeight / 100) * 77),
+=======
+    width: moderateScale(335),
+    height: moderateScale(189),
+>>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
     backgroundColor: colors.very_light_grey,
     alignItems: 'center',
     justifyContent: 'center',
@@ -40,7 +46,9 @@ const styles = StyleSheet.create({
   markData: {
     color: colors.primary,
   },
-  cookingData: {},
+  cookingData: {
+    flexDirection: 'row',
+  },
 });
 
 export default styles;

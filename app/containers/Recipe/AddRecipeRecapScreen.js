@@ -13,7 +13,10 @@ import { images } from '../../themes';
 import { TitleField } from '../../components/field';
 
 const AddRecipeScreen = ({ handleSubmit, formStates }) => {
+<<<<<<< HEAD
   console.log(formStates);
+=======
+>>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
   return (
     <View style={styles.container}>
       <ScrollView
@@ -57,14 +60,22 @@ const AddRecipeScreen = ({ handleSubmit, formStates }) => {
               source={images.preparationTime}
               style={styles.preparationTimeImageContainer}
             />
+<<<<<<< HEAD
             <Text>{formStates.prepTime} min</Text>
+=======
+            <Text style={styles.timeTextStyle}>{formStates.prepTime} min</Text>
+>>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
           </View>
           <View style={styles.timeAndLogoContainer}>
             <Image
               source={images.cookingTime}
               style={styles.cookingTimeImageContainer}
             />
+<<<<<<< HEAD
             <Text>{formStates.cookTime} min</Text>
+=======
+            <Text style={styles.timeTextStyle}>{formStates.cookTime} min</Text>
+>>>>>>> 37257c23125520817140a5fc21d52decda9e3c0b
           </View>
         </View>
         <FetchButton
