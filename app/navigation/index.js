@@ -62,8 +62,8 @@ const BottomTabNavigator = createBottomTabNavigator(
 );
 
 const AppSwitch = createSwitchNavigator({
-  AuthLoading: AuthLoadingScreen,
-  Auth: AuthenticationNavigation,
+  /*AuthLoading: AuthLoadingScreen,
+  Auth: AuthenticationNavigation,*/
   App: BottomTabNavigator,
 });
 

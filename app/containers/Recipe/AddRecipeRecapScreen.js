@@ -56,14 +56,14 @@ const AddRecipeScreen = ({ handleSubmit, formStates }) => {
               source={images.preparationTime}
               style={styles.preparationTimeImageContainer}
             />
-            <Text>{formStates.prepTime} min</Text>
+            <Text style={styles.timeTextStyle}>{formStates.prepTime} min</Text>
           </View>
           <View style={styles.timeAndLogoContainer}>
             <Image
               source={images.cookingTime}
               style={styles.cookingTimeImageContainer}
             />
-            <Text>{formStates.cookTime} min</Text>
+            <Text style={styles.timeTextStyle}>{formStates.cookTime} min</Text>
           </View>
         </View>
         <FetchButton
@@ -110,7 +110,10 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const enhance = compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
   reduxForm({
     form: 'addRecipe',
     destroyOnUnmount: false,
