@@ -5,3 +5,4 @@ export {
   default as parseOpenFoodFactNutriments,
 } from './parseOpenFoodFactNutriments';
 export { default as isObjectEmpty } from './isObjectEmpty';
+export { default as getFirstWeekOfMonth } from './getFirstWeekOfMonth';
