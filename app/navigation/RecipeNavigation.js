@@ -1,6 +1,6 @@
 import { createStackNavigator } from 'react-navigation-stack';
 
-import RecipeScreen from '../containers/Recipe/RecipeScreen';
+import AddRecipeProductScreen from '../containers/Recipe/AddRecipeProductScreen';
 import RecipeSearchScreen from '../containers/Search/RecipesSearchScreen';
 import AddRecipeScreen from '../containers/Recipe/AddRecipeScreen';
 import AddRecipeTimeScreen from '../containers/Recipe/AddRecipeTimeScreen';
@@ -22,6 +22,9 @@ const RecipeNavigation = createStackNavigator(
       navigationOptions: {
         title: 'Nouvelle Recette',
       },
+    },
+    AddRecipeProducts: {
+      screen: AddRecipeProductScreen,
     },
     AddRecipeTime: {
       screen: AddRecipeTimeScreen,

@@ -53,6 +53,11 @@ import defaultRecipe from '../images/defaultRecipePicture.png';
 import addPicture from '../images/addPicture.png';
 import cookingTime from '../images/cookingTime.png';
 import preparationTime from '../images/preparationTime.png';
+import addProductRecipeLogo from '../images/AddProductRecipeLogo.png';
+import scanProductRecipeLogo from '../images/scanProductRecipeLogo.png';
+import nonScanProductRecipeLogo from '../images/nonScanProductRecipeLogo.png';
+import favProductRecipeLogo from '../images/favProductRecipeLogo.png';
+import recentProductRecipeLogo from '../images/recentProductRecipeLogo.png';
 
 const images = {
   redBookmark,
@@ -110,6 +115,11 @@ const images = {
   addPicture,
   preparationTime,
   cookingTime,
+  addProductRecipeLogo,
+  scanProductRecipeLogo,
+  nonScanProductRecipeLogo,
+  favProductRecipeLogo,
+  recentProductRecipeLogo,
 };
 
 export default images;

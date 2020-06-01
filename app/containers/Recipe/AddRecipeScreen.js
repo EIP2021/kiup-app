@@ -70,12 +70,15 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
       dispatch(setError(`Vous n'avez pas donné d'image à votre recette`));
       return;
     }
-    ownProps.navigation.navigate('AddRecipeTime');
+    ownProps.navigation.navigate('AddRecipeProducts');
   },
 });
 
 const enhance = compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
   withHandlers({
     validateForm: props => () => {
       props.validateForm(props.values);
