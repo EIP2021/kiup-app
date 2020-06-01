@@ -8,15 +8,11 @@ import PropTypes from 'prop-types';
 
 import { addRecipe } from '../../requests';
 import { FetchButton } from '../../components';
-import { setError } from '../../actions';
 import styles from './styles/AddRecipeRecapStyle';
-import { colors, images } from '../../themes';
-import { handleRequest } from '../../sagas/requestHandler';
+import { images } from '../../themes';
 import { TitleField } from '../../components/field';
-import { AddRecipeImageButton } from '../../components/button';
 
 const AddRecipeScreen = ({ handleSubmit, formStates }) => {
-  console.log(formStates);
   return (
     <View style={styles.container}>
       <ScrollView
@@ -106,6 +102,8 @@ const mapDispatchToProps = dispatch => ({
       cookTime: values.cookTime,
       prepTime: values.prepTime,
       steps: values.steps,
+      ingredients: [],
+      description: 'New Recipe',
     };
     dispatch(addRecipe(payload));
   },

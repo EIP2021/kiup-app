@@ -13,7 +13,7 @@ const addRecipe = payload => {
     'kiup',
     [],
     (name, response, subtype) => {
-      return [navigate('recipe')];
+      return [navigate('Recipe')];
     },
     (name, err) => {
       return [setError(`${err.message}, veuillez réessayer.`)];
