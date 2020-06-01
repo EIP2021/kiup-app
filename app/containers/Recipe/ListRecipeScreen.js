@@ -525,7 +525,7 @@ const ListRecipeScreen = ({ navigation: { navigate } }) => {
           backgroundColor: '#FFFFFF',
           borderRadius: 30,
           borderWidth: 5,
-          marginTop: (windowHeight / 100) * 47,
+          top: windowHeight - 390,
           borderColor: expanded ? 'transparent' : colors.primary,
         }}
       >

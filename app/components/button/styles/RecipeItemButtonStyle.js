@@ -1,6 +1,8 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import { colors } from '../../../themes';
+
+const windowHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +23,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     borderRadius: 5,
     width: 350,
-    height: 189,
+    height: windowHeight - ((windowHeight / 100) * 77),
     backgroundColor: colors.very_light_grey,
     alignItems: 'center',
     justifyContent: 'center',
