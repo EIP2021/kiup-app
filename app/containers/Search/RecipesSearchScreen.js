@@ -9,7 +9,6 @@ const RecipesSearchScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.pageTitle}>Recettes</Text>
       <TextInput
         style={styles.searchBar}
         placeholder="Rechercher une recette"
