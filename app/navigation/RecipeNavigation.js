@@ -1,6 +1,7 @@
 import { createStackNavigator } from 'react-navigation-stack';
 
 import RecipeScreen from '../containers/Recipe/RecipeScreen';
+import RecipeSearchScreen from '../containers/Search/RecipesSearchScreen';
 import AddRecipeScreen from '../containers/Recipe/AddRecipeScreen';
 import AddRecipeTimeScreen from '../containers/Recipe/AddRecipeTimeScreen';
 import AddRecipeStepsScreen from '../containers/Recipe/AddRecipeStepsScreen';
@@ -10,7 +11,7 @@ import defaultNavigationOptions from './defaultNavigationOption';
 const RecipeNavigation = createStackNavigator(
   {
     Recipe: {
-      screen: RecipeScreen,
+      screen: RecipeSearchScreen,
       navigationOptions: {
         header: null,
         title: 'Recipe',

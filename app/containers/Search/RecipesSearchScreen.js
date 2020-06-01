@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { View, ScrollView, Text, TextInput } from 'react-native';
+import { View, ScrollView, TextInput } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles/RecipesSearchScreenStyle';
 import RecipesList from './detail/RecipesList';
+import { Header } from '../../components';
 
 const RecipesSearchScreen = ({ navigation }) => {
   const [text, setText] = useState('');
 
   return (
     <View style={styles.container}>
-      <Text style={styles.pageTitle}>Recettes</Text>
+      <Header
+        title="Recettes"
+        iconName="ios-add"
+        onIconPress={() => navigation.navigate('AddRecipe')}
+      />
       <TextInput
         style={styles.searchBar}
         placeholder="Rechercher une recette"
