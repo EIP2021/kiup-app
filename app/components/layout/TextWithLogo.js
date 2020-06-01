@@ -8,14 +8,16 @@ const TextWithLogo = ({ text, textColor, logo, isLogoBefore }) => {
   if (isLogoBefore) {
     return (
       <View style={styles.container}>
-        <Image source={images[logo]} />
+        <Image source={images[logo]} style={{ paddingHorizontal: 5 }} />
         <Text style={{ color: colors[textColor] }}>{text}</Text>
       </View>
     );
   }
   return (
     <View style={styles.container}>
-      <Text style={{ color: colors[textColor] }}>{text}</Text>
+      <Text style={{ color: colors[textColor], paddingHorizontal: 5 }}>
+        {text}
+      </Text>
       <Image source={images[logo]} />
     </View>
   );
