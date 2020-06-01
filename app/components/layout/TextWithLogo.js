@@ -1,16 +1,13 @@
 import React from 'react';
-import { Text, Image, View } from 'react-native';
+import { Text, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { colors, images } from '../../themes';
-import styles from './styles/TextwithLogoStyle';
 
 const TextWithLogo = ({ text, textColor, logo, isLogoBefore }) => {
   if (isLogoBefore) {
     return (
       <Text style={{ color: colors[textColor] }}>
-        <View>
-          <Image source={images[logo]} />
-        </View>
+        <Image source={images[logo]} />
         {text}
       </Text>
     );
@@ -18,9 +15,7 @@ const TextWithLogo = ({ text, textColor, logo, isLogoBefore }) => {
   return (
     <Text style={{ color: colors[textColor] }}>
       {text}
-      <View>
-        <Image source={images[logo]} />
-      </View>
+      <Image source={images[logo]} />
     </Text>
   );
 };

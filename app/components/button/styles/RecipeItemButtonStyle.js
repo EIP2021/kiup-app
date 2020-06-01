@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   imageContainer: {
     marginTop: 5,
     borderRadius: 5,
-    width: 335,
+    width: 350,
     height: 189,
     backgroundColor: colors.very_light_grey,
     alignItems: 'center',

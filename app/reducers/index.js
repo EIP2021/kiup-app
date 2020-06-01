@@ -39,12 +39,12 @@ const rootReducers = combineReducers({
   searchProductQuery: createRequestReducer(objectReducer, 'searchProductQuery'),
   searchRecipe: createRequestReducer(objectReducer, 'searchRecipe'),
   searchRecipeQuery: createRequestReducer(objectReducer, 'searchRecipeQuery'),
-  token: persistReducer(tokenPersistConfig, tokenReducer),
   token: persistReducer(createPersistConfig('token'), tokenReducer),
   consumptionHistory: persistReducer(
     createPersistConfig('consumptionHistory'),
     createRequestReducer(paginatedListReducer, 'consumptionHistory')
   ),
+  addRecipe: createRequestReducer(objectReducer, 'addRecipe'),
 });
 
 export default rootReducers;

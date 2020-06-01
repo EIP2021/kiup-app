@@ -8,6 +8,7 @@ export { default as FullWidthButton } from './FullWidthButton';
 export { default as NavigateTextButton } from './NavigateTextButton';
 export { default as NavigateImageButton } from './NavigateImageButton';
 export { default as NavigateIconButton } from './NavigateIconButton';
+export { default as AddRecipeImageButton } from './AddRecipeImageButton';
 export {
   default as NavigateInformationButton,
 } from './NavigateInformationButton';

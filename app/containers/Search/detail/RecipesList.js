@@ -1,5 +1,5 @@
-import React from "react";
-import RecipeItemButton from "../../../components/button/RecipeItemButton";
+import React from 'react';
+import RecipeItemButton from '../../../components/button/RecipeItemButton';
 
 // TODO : Fetch search with criterias from API instead of defining recipes
 const recipesList = {
