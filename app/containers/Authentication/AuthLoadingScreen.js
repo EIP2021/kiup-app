@@ -4,10 +4,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import styles from './styles/AuthLoadingScreenStyle';
-import { getConsumption, getProfileInformations, getBestRecipes } from '../../requests';
+import { getConsumption, getProfileInformations, getBestRecipes, getRecommendedRecipes } from '../../requests';
 import { getAuth } from '../../selectors';
 import { colors } from '../../themes';
-
 
 const AuthLoading = ({
   navigation: { navigate },
@@ -53,6 +52,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(getConsumption('weeklyStatistics', 'year'));
     dispatch(getConsumption('monthlyStatistics', 'month'));
     dispatch(getProfileInformations());
+    dispatch(getRecommendedRecipes());
     dispatch(getBestRecipes());
   },
 });

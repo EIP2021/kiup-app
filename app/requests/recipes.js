@@ -6,7 +6,24 @@ export const getBestRecipes = () => {
     'bestRecipes',
     READ_DATA,
     {
-      url: `${kiupURL}/recipe/`,
+      url: `${kiupURL}/recipe`,
+      method: 'GET',
+    },
+    'kiup',
+    [],
+    (name, response, subtype) => {
+      const recipes = response.body;
+      return [updateData(name, recipes, subtype)];
+    }
+  );
+};
+
+export const getRecommendedRecipes = () => {
+  return fetchRequest(
+    'recommendedRecipes',
+    READ_DATA,
+    {
+      url: `${kiupURL}/recipeRecommendation`,
       method: 'GET',
     },
     'kiup',

@@ -19,7 +19,7 @@ import SearchBarButton from '../Search/detail/SearchBarButton';
 import styles from './styles/ListRecipeScreenStyle';
 import { colors } from '../../themes';
 
-const ListRecipeScreen = ({ navigation: { navigate }, bestRecipes }) => {
+const ListRecipeScreen = ({ navigation: { navigate }, bestRecipes, recommendedRecipes }) => {
   const windowHeight = Dimensions.get('window').height;
 
   const [expanded, setExpanded] = React.useState(true);
@@ -64,7 +64,7 @@ const ListRecipeScreen = ({ navigation: { navigate }, bestRecipes }) => {
       <SafeAreaView style={styles.containerList}>
         <Text style={styles.subTitle}>Recettes recommandées</Text>
         <FlatList
-          data={bestRecipes}
+          data={recommendedRecipes}
           horizontal
           renderItem={({ item }) => (
             <RecipeItemButton
@@ -130,16 +130,19 @@ const ListRecipeScreen = ({ navigation: { navigate }, bestRecipes }) => {
 const mapStateToProps = state => ({
   pending: getPendingStatus(state, 'bestRecipes'),
   bestRecipes: state.bestRecipes,
+  recommendedRecipes: state.recommendedRecipes,
 });
 
 ListRecipeScreen.propTypes = {
   navigation: PropTypes.object,
   bestRecipes: PropTypes.array,
+  recommendedRecipes: PropTypes.array,
 };
 
 ListRecipeScreen.defaultProps = {
   navigation: {},
   bestRecipes: [],
+  recommendedRecipes: [],
 };
 
 export default connect(

@@ -39,6 +39,7 @@ const rootReducers = combineReducers({
   fetch: fetchReducer,
   form: formReducer,
   bestRecipes: createRequestReducer(listReducer, 'bestRecipes'),
+  recommendedRecipes: createRequestReducer(listReducer, 'recommendedRecipes'),
   searchProduct: createRequestReducer(paginatedListReducer, 'searchProduct'),
   searchProductQuery: createRequestReducer(objectReducer, 'searchProductQuery'),
   searchRecipe: createRequestReducer(objectReducer, 'searchRecipe'),
