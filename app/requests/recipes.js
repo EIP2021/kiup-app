@@ -29,7 +29,7 @@ export const getRecommendedRecipes = () => {
     'kiup',
     [],
     (name, response, subtype) => {
-      const recipes = response.body;
+      const recipes = response.recipe;
       return [updateData(name, recipes, subtype)];
     }
   );
