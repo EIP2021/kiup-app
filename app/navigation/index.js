@@ -11,8 +11,6 @@ import SearchNavigation from './SearchNavigation';
 import ProfileNavigation from './ProfileNavigation';
 import RecipeNavigation from './RecipeNavigation';
 import { colors } from '../themes';
-import SearchScreen from '../containers/Search/SearchScreen';
-import RecipesSearchScreen from '../containers/Search/RecipesSearchScreen';
 
 const BottomTabNavigator = createBottomTabNavigator(
   {

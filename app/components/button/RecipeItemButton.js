@@ -17,15 +17,14 @@ const RecipeItemButton = ({
   cookingTime,
   nbCutleries,
   favByUser,
+  item,
 }) => {
   return (
     <TouchableOpacity
       onPress={() => {
-        NavigationService.navigate('RecipeScreen', {
+        NavigationService.navigate('Recipe', {
           id,
-          title,
-          nbCutleries,
-          favByUser,
+          item,
         });
       }}
     >

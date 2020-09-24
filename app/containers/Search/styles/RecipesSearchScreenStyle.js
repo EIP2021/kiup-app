@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   searchBar: {
-    marginTop: 10,
     marginBottom: 20,
     borderColor: colors.very_light_grey,
     borderWidth: 1,

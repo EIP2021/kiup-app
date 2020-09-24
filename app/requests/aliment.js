@@ -36,25 +36,14 @@ const getAlimentInformation = (id, alimName, alimImage) => {
     'kiup',
     [],
     (name, response, subtype) => {
-      if (!response.nutriments) {
-        return [
-          updateData(
-            name,
-            { nutriments: mockNutriments, title: alimName, image: alimImage },
-            subtype
-          ),
-        ];
-      }
-      const nutriments = response.nutriments.map(item => {
-        if (!item) {
-          return noValue;
-        }
-        return item;
-      });
       return [
         updateData(
           name,
-          { nutriments, title: alimName, image: alimImage },
+          {
+            nutriments: response.nutriments,
+            title: alimName,
+            image: alimImage,
+          },
           subtype
         ),
       ];

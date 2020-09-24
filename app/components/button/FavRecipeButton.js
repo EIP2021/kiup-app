@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { images } from '../../themes';

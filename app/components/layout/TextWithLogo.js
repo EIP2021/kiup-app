@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, Image, View } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { colors, images } from '../../themes';
+
 import styles from './styles/TextwithLogoStyle';
 
 const TextWithLogo = ({ text, textColor, logo, isLogoBefore }) => {

@@ -1,13 +1,33 @@
 import { StyleSheet } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 
+import { colors } from '../../../themes';
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f2f2f2',
+  ratingRecipe: {
+    fontSize: moderateScale(30),
+    fontWeight: 'bold',
   },
-  featuredTitle: {
-    marginTop: moderateScale(16),
+  ratingsRecipe: {
+    fontSize: moderateScale(15),
+    fontWeight: 'bold',
+  },
+  title: {
+    fontSize: moderateScale(30),
+    backgroundColor: colors.primary,
+    color: '#FFFFFF',
+  },
+  ratingButton: {
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    borderColor: 'grey',
+    borderWidth: 2,
+    borderRadius: 10,
+    marginLeft: '10%',
+    marginRight: '10%',
+    marginTop: 10,
+    marginBottom: 10,
+    paddingLeft: 7,
   },
 });
 

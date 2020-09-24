@@ -90,7 +90,4 @@ const mapStateToProps = state => {
     pending: getPendingStatus(state, 'alimentSearched'),
   };
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SearchListScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchListScreen);
