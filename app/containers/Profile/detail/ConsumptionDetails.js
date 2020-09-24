@@ -120,7 +120,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(ConsumptionDetails);
+export default connect(null, mapDispatchToProps)(ConsumptionDetails);

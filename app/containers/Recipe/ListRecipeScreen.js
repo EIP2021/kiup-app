@@ -19,7 +19,11 @@ import SearchBarButton from '../Search/detail/SearchBarButton';
 import styles from './styles/ListRecipeScreenStyle';
 import { colors } from '../../themes';
 
-const ListRecipeScreen = ({ navigation: { navigate }, bestRecipes, recommendedRecipes }) => {
+const ListRecipeScreen = ({
+  navigation: { navigate },
+  bestRecipes,
+  recommendedRecipes,
+}) => {
   const windowHeight = Dimensions.get('window').height;
 
   const [expanded, setExpanded] = React.useState(true);
@@ -145,6 +149,4 @@ ListRecipeScreen.defaultProps = {
   recommendedRecipes: [],
 };
 
-export default connect(
-  mapStateToProps,
-)(ListRecipeScreen);
+export default connect(mapStateToProps)(ListRecipeScreen);
