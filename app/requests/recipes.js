@@ -1,9 +1,9 @@
-import { READ_DATA, fetchRequest } from '../actions';
+import { READ_DATA, fetchRequest, updateData } from '../actions';
 import { kiupURL } from '../config/apisURL';
 
-export const getAllRecipes = () => {
+export const getBestRecipes = () => {
   return fetchRequest(
-    'recipe',
+    'bestRecipes',
     READ_DATA,
     {
       url: `${kiupURL}/recipe/`,
@@ -12,7 +12,8 @@ export const getAllRecipes = () => {
     'kiup',
     [],
     (name, response, subtype) => {
-      console.log(name, response, subtype);
+      const recipes = response.body;
+      return [updateData(name, recipes, subtype)];
     }
   );
 };
@@ -28,7 +29,7 @@ export const getRecipeByID = id => {
     'kiup',
     [],
     (name, response, subtype) => {
-      console.log(name, response, subtype);
+      return [updateData(name, response, subtype)];
     }
   );
 };

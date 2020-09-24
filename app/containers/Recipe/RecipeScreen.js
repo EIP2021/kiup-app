@@ -19,7 +19,7 @@ import { colors } from '../../themes';
 
 const RecipeScreen = ({ navigation }) => {
   const { state } = navigation;
-  const { id, item } = state.params;
+  const { item } = state.params;
   const [modalVisible, setModal] = React.useState(false);
   const [selected, setSelected] = React.useState('instructions');
   const windowHeight = Dimensions.get('window').height;
@@ -70,9 +70,10 @@ const RecipeScreen = ({ navigation }) => {
         <RecipeItemButton
           key={item.id}
           id={item.id}
-          mark={item.Rating}
-          cookingTime={item.Time}
-          nbCutleries={item.People}
+          title={item.name}
+          mark={item.rating}
+          cookingTime={item.cookTime}
+          nbCutleries={item.people}
           favByUser={item.isFav}
           item={item}
         />
@@ -165,7 +166,7 @@ const RecipeScreen = ({ navigation }) => {
             display: selected === 'instructions' ? 'flex' : 'none',
           }}
         >
-          {item.Instructions.map(prop => {
+          {item.steps.map(prop => {
             return (
               <View
                 key={prop.step}
@@ -202,7 +203,7 @@ const RecipeScreen = ({ navigation }) => {
             display: selected === 'ingredients' ? 'flex' : 'none',
           }}
         >
-          {item.Ingredients.map(prop => {
+          {item.ingredients.map(prop => {
             return (
               <View
                 key={prop.id}
@@ -239,7 +240,7 @@ const RecipeScreen = ({ navigation }) => {
             display: selected === 'nutriments' ? 'flex' : 'none',
           }}
         >
-          {item.Ingredients.map(prop => {
+          {item.ingredients.map(prop => {
             return (
               <View
                 key={prop.id}
@@ -344,7 +345,7 @@ const RecipeScreen = ({ navigation }) => {
               borderBottomWidth: 1,
             }}
           />
-          {item.Notes.map(prop => {
+          {item.comments.map(prop => {
             return (
               <View
                 key={prop.id}

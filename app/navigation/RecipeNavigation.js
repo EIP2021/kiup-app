@@ -40,18 +40,7 @@ const RecipeNavigation = createStackNavigator(
     RecipeSearch: {
       screen: RecipesSearchScreen,
       navigationOptions: {
-        title: 'Rechercher une recette',
-        headerTitleStyle: {
-          color: colors.primary,
-          fontSize: moderateScale(25),
-          fontWeight: 'bold',
-          marginLeft: 0,
-        },
-        headerTintColor: colors.primary,
-        headerStyle: {
-          borderBottomWidth: 0,
-          backgroundColor: '#FFFFFF',
-        },
+        header: null,
       },
     },
     AddRecipe: {
