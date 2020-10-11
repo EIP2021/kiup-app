@@ -7,12 +7,13 @@ import {
   Modal,
   TouchableWithoutFeedback,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import { images } from '../../themes';
 import styles from './styles/RecipeAddProductButtonStyle';
 import NavigateProductCategoryRecipeButton from './NavigateProductCategoryRecipeButton';
 
-const RecipeAddProductButton = () => {
+const RecipeAddProductButton = ({ fields }) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View>
@@ -43,6 +44,8 @@ const RecipeAddProductButton = () => {
               <NavigateProductCategoryRecipeButton
                 image="scanProductRecipeLogo"
                 title="Scan"
+                screenName="AddRecipeScanner"
+                params={fields}
                 onPress={() => setModalVisible(false)}
               />
               <NavigateProductCategoryRecipeButton
@@ -67,6 +70,14 @@ const RecipeAddProductButton = () => {
       </View>
     </View>
   );
+};
+
+RecipeAddProductButton.propTypes = {
+  fields: PropTypes.object,
+};
+
+RecipeAddProductButton.defaultProps = {
+  fields: {},
 };
 
 export default RecipeAddProductButton;

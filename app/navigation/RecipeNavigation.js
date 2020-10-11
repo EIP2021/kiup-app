@@ -6,6 +6,7 @@ import RecipeScreen from '../containers/Recipe/RecipeScreen';
 import { colors } from '../themes';
 import AddRecipeProductScreen from '../containers/Recipe/AddRecipeProductScreen';
 import RecipesSearchScreen from '../containers/Search/RecipesSearchScreen';
+import AddRecipeScannerScreen from '../containers/Recipe/AddRecipeScannerScreen';
 import AddRecipeScreen from '../containers/Recipe/AddRecipeScreen';
 import AddRecipeTimeScreen from '../containers/Recipe/AddRecipeTimeScreen';
 import AddRecipeStepsScreen from '../containers/Recipe/AddRecipeStepsScreen';
@@ -51,6 +52,9 @@ const RecipeNavigation = createStackNavigator(
     },
     AddRecipeProducts: {
       screen: AddRecipeProductScreen,
+    },
+    AddRecipeScanner: {
+      screen: AddRecipeScannerScreen,
     },
     AddRecipeTime: {
       screen: AddRecipeTimeScreen,

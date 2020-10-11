@@ -11,13 +11,14 @@ const NavigateProductCategoryRecipeButton = ({
   screenName,
   image,
   onPress,
+  params,
 }) => {
   return (
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
         onPress();
-        NavigationService.navigate(screenName);
+        NavigationService.navigate(screenName, params);
       }}
     >
       <View style={styles.imageContainer}>
@@ -35,11 +36,13 @@ NavigateProductCategoryRecipeButton.propTypes = {
   screenName: PropTypes.string,
   title: PropTypes.string,
   onPress: PropTypes.func.isRequired,
+  params: PropTypes.object,
 };
 
 NavigateProductCategoryRecipeButton.defaultProps = {
   screenName: '',
   title: '',
+  params: {},
 };
 
 export default NavigateProductCategoryRecipeButton;

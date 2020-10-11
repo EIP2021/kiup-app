@@ -39,7 +39,6 @@ const AddRecipeImageButton = ({ input: { onChange } }) => {
                 setImage(response.uri);
               }
             });
-            onChange('coucou');
           }}
         >
           <Image

@@ -9,7 +9,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { BasicInput, FetchButton } from '../../components';
-import { setError } from '../../actions';
 import styles from './styles/AddRecipeStepsStyle';
 import { colors } from '../../themes';
 

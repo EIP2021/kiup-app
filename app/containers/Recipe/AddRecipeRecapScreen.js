@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { addRecipe } from '../../requests';
-import { FetchButton } from '../../components';
+import { FetchButton, ConsumptionCard } from '../../components';
 import styles from './styles/AddRecipeRecapStyle';
 import { images } from '../../themes';
 import { TitleField } from '../../components/field';
@@ -39,6 +39,15 @@ const AddRecipeScreen = ({ handleSubmit, formStates }) => {
           </View>
         </View>
         <TitleField title="Ingrédients" titleStyle={styles.otherTitle} />
+        {formStates.products.map(product => (
+          <ConsumptionCard
+            key={product.id}
+            name={product.title}
+            brand={product.brand}
+            image={product.image}
+            quantity={`${product.quantity} g`}
+          />
+        ))}
         <TitleField title="Étapes" titleStyle={styles.otherTitle} />
         {formStates.steps.map((item, key) => (
           <View>
