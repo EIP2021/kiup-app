@@ -25,13 +25,14 @@ const NutrimentAmountField = ({ name, amount, unit, color, lastItem }) => {
 
 NutrimentAmountField.propTypes = {
   name: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired,
+  amount: PropTypes.number,
   unit: PropTypes.string.isRequired,
   color: PropTypes.oneOf(['green', 'red', 'yellow', 'pink']).isRequired,
   lastItem: PropTypes.bool,
 };
 
 NutrimentAmountField.defaultProps = {
+  amount: 0,
   lastItem: false,
 };
 

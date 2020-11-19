@@ -25,7 +25,8 @@ const SearchListScreen = ({
     if (pending === false && isObjectEmpty(alimentSearched) === false) {
       setIsModalOpen(true);
     }
-  }, [pending]);
+  }, [pending, alimentSearched]);
+
   const placeholder = navigation.getParam('placeholder');
   const categoryId = navigation.getParam('id');
   const title = navigation.getParam('title');

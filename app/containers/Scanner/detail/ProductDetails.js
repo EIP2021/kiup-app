@@ -13,7 +13,7 @@ import NutrimentsHeaderBar from './NutrimentsHeaderBar';
 import NutrimentsInfo from './NutrimentsInfo';
 
 const ProductDetails = ({ onSubmit, nutriments, title, brand, image }) => {
-  const [inputQuantity, setInputQuantity] = React.useState(0);
+  const [inputQuantity, setInputQuantity] = React.useState('0');
   return (
     <View style={styles.container}>
       <ProductHeader title={title} brand={brand} image={image} />
@@ -65,10 +65,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { closeModal, nutriments, id, title, image, brand } = ownProps;
   return {
     onSubmit: inputQuantity => {
-      if (!inputQuantity) {
+      const quantity = Number(inputQuantity);
+      if (!quantity) {
         return;
       }
-      const stats = calculAllNutrimentsQuantity(inputQuantity, nutriments);
+      const stats = calculAllNutrimentsQuantity(quantity, nutriments);
       const history = {
         id,
         title,
@@ -77,7 +78,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         date: new Date(),
         nutriments,
         nutrimentsConsumed: stats,
-        quantity: inputQuantity,
+        quantity,
       };
       dispatch(updateData('consumptionHistory', history, CREATE_DATA));
       dispatch(postConsumption(stats));

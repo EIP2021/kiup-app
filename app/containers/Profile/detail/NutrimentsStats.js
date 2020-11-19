@@ -26,7 +26,7 @@ const NutrimentsStats = ({ dailyStats, weeklyStats, monthlyStats }) => {
         <ConsumptionChartSwiper nutrimentsStats={monthlyStats} type="monthly" />
       );
     }
-  }, [selectedId]);
+  }, [selectedId, dailyStats, weeklyStats, monthlyStats]);
 
   return (
     <View style={styles.container}>
