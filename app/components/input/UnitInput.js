@@ -29,7 +29,7 @@ const UnitInput = ({ value, onChange, placeholder, unit, error }) => {
 };
 
 UnitInput.propTypes = {
-  value: PropTypes.number,
+  value: PropTypes.string,
   onChange: PropTypes.func,
   unit: PropTypes.string,
   placeholder: PropTypes.string,
@@ -37,7 +37,7 @@ UnitInput.propTypes = {
 };
 
 UnitInput.defaultProps = {
-  value: 0,
+  value: '0',
   onChange: /* istanbul ignore next */ () => {},
   unit: '',
   placeholder: '',

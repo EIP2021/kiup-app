@@ -18,7 +18,7 @@ const ProfileScreen = ({ navigation }) => {
       <TitleField title="Statistiques" titleStyle={styles.statsTitle} />
       <NutrimentsStats />
       <TitleField
-        title="Consomations récentes"
+        title="Consommations récentes"
         titleStyle={styles.consumeTitle}
       />
       <HistoryList />

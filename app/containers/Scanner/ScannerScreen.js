@@ -12,11 +12,13 @@ import styles from './styles/ScannerScreenStyle';
 
 const ScannerScreen = ({ navigation, scanProduct, pending, product }) => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
+
   React.useEffect(() => {
     if (pending === false && isObjectEmpty(product) === false) {
       setIsModalOpen(true);
     }
-  }, [pending]);
+  }, [pending, product]);
+
   return (
     <View style={{ flex: 1 }}>
       <Camera
@@ -70,7 +72,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ScannerScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(ScannerScreen);

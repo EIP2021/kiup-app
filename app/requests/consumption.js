@@ -140,7 +140,7 @@ const monthlyStatsMock = {
 
 export const postConsumption = stats => {
   return fetchRequest(
-    'stats',
+    'dailyStatistics',
     CREATE_DATA,
     {
       url: `${kiupURL}/user/stats`,

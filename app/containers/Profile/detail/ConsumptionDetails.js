@@ -26,7 +26,7 @@ const ConsumptionDetails = ({
   brand,
   image,
 }) => {
-  const [inputQuantity, setInputQuantity] = useState(quantity);
+  const [inputQuantity, setInputQuantity] = useState(quantity.toString());
 
   return (
     <View style={styles.container}>
@@ -96,19 +96,17 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       closeModal();
     },
     onSubmit: (inputQuantity, defaultQuantity) => {
-      if (inputQuantity === defaultQuantity) {
+      const quantity = Number(inputQuantity);
+      if (quantity === defaultQuantity) {
         closeModal();
         return;
       }
-      const stats = calculAllNutrimentsQuantity(
-        inputQuantity,
-        ownProps.nutriments
-      );
+      const stats = calculAllNutrimentsQuantity(quantity, ownProps.nutriments);
       dispatch(
         updateData(
           'consumptionHistory',
           {
-            quantity: inputQuantity,
+            quantity,
             nutrimentsConsumed: stats,
           },
           UPDATE_DATA,
