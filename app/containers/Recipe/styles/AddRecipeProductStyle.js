@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   flatListContainer: {
-    height: '45%',
     width: '100%',
     borderTopColor: 'grey',
     borderTopWidth: 1,

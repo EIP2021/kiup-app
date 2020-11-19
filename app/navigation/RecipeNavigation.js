@@ -11,6 +11,7 @@ import AddRecipeScreen from '../containers/Recipe/AddRecipeScreen';
 import AddRecipeTimeScreen from '../containers/Recipe/AddRecipeTimeScreen';
 import AddRecipeStepsScreen from '../containers/Recipe/AddRecipeStepsScreen';
 import AddRecipeRecapScreen from '../containers/Recipe/AddRecipeRecapScreen';
+import AddRecipeProductTypeScreen from '../containers/Recipe/AddRecipeProductTypeScreen';
 import defaultNavigationOptions from './defaultNavigationOption';
 
 const RecipeNavigation = createStackNavigator(
@@ -64,6 +65,9 @@ const RecipeNavigation = createStackNavigator(
     },
     AddRecipeRecap: {
       screen: AddRecipeRecapScreen,
+    },
+    AddRecipeProductType: {
+      screen: AddRecipeProductTypeScreen,
     },
   },
   {

@@ -48,22 +48,23 @@ const RecipeAddProductButton = ({ fields }) => {
                 params={fields}
                 onPress={() => setModalVisible(false)}
               />
-              <NavigateProductCategoryRecipeButton
+              {/* <NavigateProductCategoryRecipeButton
                 image="nonScanProductRecipeLogo"
                 title="Rechercher"
-                screenName="Search"
+                onPress={() => setModalVisible(false)}
+              /> */}
+              <NavigateProductCategoryRecipeButton
+                image="typeRecipeProductLogo"
+                title="Écrire"
+                screenName="AddRecipeProductType"
+                params={fields}
                 onPress={() => setModalVisible(false)}
               />
-              <NavigateProductCategoryRecipeButton
-                image="recentProductRecipeLogo"
-                title="Récent"
-                onPress={() => setModalVisible(false)}
-              />
-              <NavigateProductCategoryRecipeButton
+              {/* <NavigateProductCategoryRecipeButton
                 image="favProductRecipeLogo"
                 title="Favoris"
                 onPress={() => setModalVisible(false)}
-              />
+              /> */}
             </View>
           </TouchableWithoutFeedback>
         </Modal>

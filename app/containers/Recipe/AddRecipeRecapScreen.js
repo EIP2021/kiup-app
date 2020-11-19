@@ -22,7 +22,7 @@ const AddRecipeScreen = ({ handleSubmit, formStates }) => {
       >
         <View>
           <TitleField
-            title="Résumé de votre nouvelle recette"
+            title="Résumé de votre nouvelle recette"
             titleStyle={styles.title}
           />
         </View>
@@ -107,12 +107,17 @@ const mapDispatchToProps = dispatch => ({
   onSubmit: values => {
     const payload = {
       name: values.name,
-      image: values.image,
+      //image: values.image,
       cookTime: values.cookTime,
       prepTime: values.prepTime,
-      steps: values.steps,
-      ingredients: [],
-      description: 'New Recipe',
+      steps: values.steps.map((step, id) => ({ step: id, text: step.text })),
+      ingredients: values.products.map((product, id) => ({
+        id,
+        text: product.quantity
+          ? `${product.quantity}g de ${product.title}`
+          : product.title,
+      })),
+      description: values.description,
     };
     dispatch(addRecipe(payload));
   },

@@ -8,6 +8,7 @@ import compose from 'recompose/compose';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { setError } from '../../actions';
 import { BasicInput, FetchButton } from '../../components';
 import styles from './styles/AddRecipeStepsStyle';
 import { colors } from '../../themes';
@@ -87,13 +88,19 @@ renderSteps.defaultProps = {
 const mapStateToProps = state => {
   const selector = formValueSelector('addRecipe');
   return {
+    initialValues: {
+      steps: [],
+    },
     values: selector(state, 'steps'),
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   validateForm: values => {
-    // TODO
+    if (!values || !values.length) {
+      dispatch(setError('Veuillez ajouter au moins une étape a votre recette'));
+      return;
+    }
     ownProps.navigation.navigate('AddRecipeRecap');
   },
 });

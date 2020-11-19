@@ -6,7 +6,6 @@ import compose from 'recompose/compose';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { calculAllNutrimentsQuantity, addAllNutrimentsQuantity } from '../../helpers';
 import { FetchButton, ConsumptionCard } from '../../components';
 import { TitleField } from '../../components/field';
 import styles from './styles/AddRecipeProductStyle';
@@ -23,10 +22,12 @@ const renderProducts = ({ fields, setNutriments }) => {
   };
   if (products) {
     products.forEach(product => {
-      totalNutriments.potassium += product.nutrimentsConsumed.potassium;
-      totalNutriments.phosphorus += product.nutrimentsConsumed.phosphorus;
-      totalNutriments.proteins += product.nutrimentsConsumed.proteins;
-      totalNutriments.salt += product.nutrimentsConsumed.salt;
+      if (product.nutrimentsConsumed) {
+        totalNutriments.potassium += product.nutrimentsConsumed.potassium;
+        totalNutriments.phosphorus += product.nutrimentsConsumed.phosphorus;
+        totalNutriments.proteins += product.nutrimentsConsumed.proteins;
+        totalNutriments.salt += product.nutrimentsConsumed.salt;
+      }
     });
     setNutriments(totalNutriments);
   }
@@ -34,26 +35,17 @@ const renderProducts = ({ fields, setNutriments }) => {
     <View style={{ width: '100%' }}>
       {products &&
         products.map(product => {
-          //:addNutriments(product.nutrimentsConsumed);
           return (
             <ConsumptionCard
               key={product.id}
               name={product.title}
               brand={product.brand}
               image={product.image}
-              quantity={`${product.quantity} g`}
+              quantity={product.quantity ? `${product.quantity} g` : ''}
             />
           );
         })}
       <RecipeAddProductButton fields={fields} />
-      {/* <View style={styles.secondContainer}>
-        <View style={styles.bottomTitleInfoNutrimentsContainers}>
-          <View style={styles.titleContainer}>
-            <Text style={styles.textStyle}>Apports nutritionnels</Text>
-          </View>
-          <RecipeNutrimentsStats nutriments={totalNutriments} />
-        </View>
-      </View> */}
     </View>
   );
 };
@@ -66,14 +58,6 @@ const AddRecipeScreen = ({ validateForm }) => {
     proteins: 0,
   });
 
-  // const addNutriments = nutrimentsConsumed => {
-  //   setNutriments({
-  //     potassium: nutriments.potassium + nutrimentsConsumed.potassium,
-  //     phosphorus: nutriments.phosphorus + nutrimentsConsumed.phosphorus,
-  //     proteins: nutriments.proteins + nutrimentsConsumed.proteins,
-  //     salt: nutriments.salt + nutrimentsConsumed.salt,
-  //   });
-  // };
   return (
     <View style={styles.firstContainer}>
       <ScrollView
@@ -124,10 +108,12 @@ AddRecipeScreen.defaultProps = {
 
 renderProducts.propTypes = {
   fields: PropTypes.object,
+  setNutriments: PropTypes.func,
 };
 
 renderProducts.defaultProps = {
   fields: {},
+  setNutriments: /* istanbul ignore next */ () => {},
 };
 
 const mapStateToProps = state => {

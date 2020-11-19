@@ -4,6 +4,7 @@ import {
   navigate,
   setError,
   updateData,
+  UPDATE_DATA,
 } from '../actions';
 import { kiupURL } from '../config/apisURL';
 
@@ -19,7 +20,10 @@ const addRecipe = payload => {
     'kiup',
     [],
     (name, response, subtype) => {
-      return [updateData(name, payload, subtype), navigate('Recipe')];
+      return [
+        updateData('bestRecipes', payload, subtype),
+        navigate('ListRecipe'),
+      ];
     },
     (name, err) => {
       return [setError(`${err.message}, veuillez réessayer.`)];
