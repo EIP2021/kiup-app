@@ -12,6 +12,9 @@ export const getBestRecipes = () => {
     'kiup',
     [],
     (name, response, subtype) => {
+      console.log('______')
+      console.log(name)
+      console.log(subtype)
       const recipes = response.body;
       return [updateData(name, recipes, subtype)];
     }

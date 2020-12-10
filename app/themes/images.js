@@ -58,6 +58,7 @@ import scanProductRecipeLogo from '../images/scanProductRecipeLogo.png';
 import nonScanProductRecipeLogo from '../images/nonScanProductRecipeLogo.png';
 import favProductRecipeLogo from '../images/favProductRecipeLogo.png';
 import recentProductRecipeLogo from '../images/recentProductRecipeLogo.png';
+import typeRecipeProductLogo from '../images/typeRecipeProductLogo.png';
 
 const images = {
   redBookmark,
@@ -120,6 +121,7 @@ const images = {
   nonScanProductRecipeLogo,
   favProductRecipeLogo,
   recentProductRecipeLogo,
+  typeRecipeProductLogo,
 };
 
 export default images;

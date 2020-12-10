@@ -28,6 +28,14 @@ const AddRecipeScreen = ({ validateForm }) => {
           placeholder="Nom de la recette"
           component={BasicInput}
         />
+        <Field
+          name="description"
+          multiline
+          numberOfLines={2}
+          variant="primary"
+          placeholder="Description de la recette"
+          component={BasicInput}
+        />
         <Field name="image" component={AddRecipeImageButton} />
         <View style={styles.nextButtonContainers}>
           <FetchButton
@@ -54,7 +62,7 @@ AddRecipeScreen.defaultProps = {
 const mapStateToProps = state => {
   const selector = formValueSelector('addRecipe');
   return {
-    values: selector(state, 'name', 'image'),
+    values: selector(state, 'name', 'image', 'description'),
   };
 };
 
@@ -68,15 +76,16 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
       dispatch(setError(`Vous n'avez pas donné d'image à votre recette`));
       return;
     }
+    if (!values.description) {
+      dispatch(setError(`Vous n'avez pas donné d'image à votre recette`));
+      return;
+    }
     ownProps.navigation.navigate('AddRecipeProducts');
   },
 });
 
 const enhance = compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   withHandlers({
     validateForm: props => () => {
       props.validateForm(props.values);

@@ -35,6 +35,10 @@ const rootReducers = combineReducers({
   monthlyStatistics: createRequestReducer(objectReducer, 'monthlyStatistics'),
   alimentSearched: createRequestReducer(objectReducer, 'alimentSearched'),
   productScanned: createRequestReducer(objectReducer, 'productScanned'),
+  recipeProductScanned: createRequestReducer(
+    objectReducer,
+    'recipeProductScanned'
+  ),
   error: errorReducer,
   fetch: fetchReducer,
   form: formReducer,

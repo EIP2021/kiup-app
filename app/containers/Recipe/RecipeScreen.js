@@ -35,7 +35,6 @@ const RecipeScreen = ({ navigation }) => {
   const sendRate = () => {
     setModal(false);
   };
-
   return (
     <View>
       <Header
@@ -46,7 +45,7 @@ const RecipeScreen = ({ navigation }) => {
           onPress: () => navigation.navigate('ListRecipe'),
         }}
         centerComponent={{
-          text: item.Name,
+          text: item.name,
           style: {
             color: colors.primary,
             fontSize: moderateScale(20),
@@ -345,37 +344,38 @@ const RecipeScreen = ({ navigation }) => {
               borderBottomWidth: 1,
             }}
           />
-          {item.comments.map(prop => {
-            return (
-              <View
-                key={prop.id}
-                style={{
-                  borderBottomColor: 'grey',
-                  borderBottomWidth: 1,
-                  marginBottom: 10,
-                  marginTop: 10,
-                }}
-              >
+          {item.comments &&
+            item.comments.map(prop => {
+              return (
                 <View
+                  key={prop.id}
                   style={{
-                    flexDirection: 'row',
+                    borderBottomColor: 'grey',
+                    borderBottomWidth: 1,
+                    marginBottom: 10,
+                    marginTop: 10,
                   }}
                 >
-                  <Text
+                  <View
                     style={{
-                      fontSize: 24,
-                      fontWeight: 'bold',
+                      flexDirection: 'row',
                     }}
                   >
-                    {prop.Auteur}
-                  </Text>
-                  <Text style={styles.ratingsRecipe}> {prop.Note} </Text>
-                  <Icon size={20} name="star" color="yellow" />
+                    <Text
+                      style={{
+                        fontSize: 24,
+                        fontWeight: 'bold',
+                      }}
+                    >
+                      {prop.Auteur}
+                    </Text>
+                    <Text style={styles.ratingsRecipe}> {prop.Note} </Text>
+                    <Icon size={20} name="star" color="yellow" />
+                  </View>
+                  <Text>{prop.Commentaire}</Text>
                 </View>
-                <Text>{prop.Commentaire}</Text>
-              </View>
-            );
-          })}
+              );
+            })}
         </View>
       </ScrollView>
     </View>

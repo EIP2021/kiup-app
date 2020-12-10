@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { addRecipe } from '../../requests';
-import { FetchButton } from '../../components';
+import { FetchButton, ConsumptionCard } from '../../components';
 import styles from './styles/AddRecipeRecapStyle';
 import { images } from '../../themes';
 import { TitleField } from '../../components/field';
@@ -22,7 +22,7 @@ const AddRecipeScreen = ({ handleSubmit, formStates }) => {
       >
         <View>
           <TitleField
-            title="Résumé de votre nouvelle recette"
+            title="Résumé de votre nouvelle recette"
             titleStyle={styles.title}
           />
         </View>
@@ -39,6 +39,15 @@ const AddRecipeScreen = ({ handleSubmit, formStates }) => {
           </View>
         </View>
         <TitleField title="Ingrédients" titleStyle={styles.otherTitle} />
+        {formStates.products.map(product => (
+          <ConsumptionCard
+            key={product.id}
+            name={product.title}
+            brand={product.brand}
+            image={product.image}
+            quantity={`${product.quantity} g`}
+          />
+        ))}
         <TitleField title="Étapes" titleStyle={styles.otherTitle} />
         {formStates.steps.map((item, key) => (
           <View>
@@ -98,12 +107,17 @@ const mapDispatchToProps = dispatch => ({
   onSubmit: values => {
     const payload = {
       name: values.name,
-      image: values.image,
+      //image: values.image,
       cookTime: values.cookTime,
       prepTime: values.prepTime,
-      steps: values.steps,
-      ingredients: [],
-      description: 'New Recipe',
+      steps: values.steps.map((step, id) => ({ step: id, text: step.text })),
+      ingredients: values.products.map((product, id) => ({
+        id,
+        text: product.quantity
+          ? `${product.quantity}g de ${product.title}`
+          : product.title,
+      })),
+      description: values.description,
     };
     dispatch(addRecipe(payload));
   },

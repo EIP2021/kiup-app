@@ -51,8 +51,4 @@ RecipeNutrimentsStats.defaultProps = {
   nutriments: {},
 };
 
-const mapStateToProps = state => ({
-  nutriments: state.statistics,
-});
-
-export default connect(mapStateToProps)(RecipeNutrimentsStats);
+export default RecipeNutrimentsStats;
