@@ -10,7 +10,7 @@ const NutrimentsInfo = ({ nutriments }) => {
     <View style={{ marginVertical: moderateScale(8) }}>
       <NutrimentAmountField
         name="Potassium"
-        amount={nutriments.potassium.amount || nutriments.potassium.quantity}
+        amount={nutriments.potassium.quantity}
         unit={
           nutriments.potassium.unit.substr(
             0,
@@ -21,7 +21,7 @@ const NutrimentsInfo = ({ nutriments }) => {
       />
       <NutrimentAmountField
         name="Sel"
-        amount={nutriments.salt.amount || nutriments.salt.quantity}
+        amount={nutriments.salt.quantity}
         unit={
           nutriments.salt.unit.substr(0, nutriments.salt.unit.indexOf('/')) ||
           'g'
@@ -30,7 +30,7 @@ const NutrimentsInfo = ({ nutriments }) => {
       />
       <NutrimentAmountField
         name="Protéines"
-        amount={nutriments.proteins.amount || nutriments.proteins.quantity}
+        amount={nutriments.proteins.quantity}
         unit={
           nutriments.proteins.unit.substr(
             0,
@@ -42,7 +42,7 @@ const NutrimentsInfo = ({ nutriments }) => {
       <NutrimentAmountField
         lastItem
         name="Phosphore"
-        amount={nutriments.phosphorus.amount || nutriments.phosphorus.quantity}
+        amount={nutriments.phosphorus.quantity}
         unit={
           nutriments.phosphorus.unit.substr(
             0,

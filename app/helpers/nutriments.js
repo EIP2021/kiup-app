@@ -5,10 +5,10 @@ export const calculNutrimentsQuantity = (quantity, amount) => {
 export const calculAllNutrimentsQuantity = (quantity, nutriments) => {
   const { potassium, phosphorus, salt, proteins } = nutriments;
   return {
-    potassium: calculNutrimentsQuantity(quantity, potassium.amount),
-    phosphorus: calculNutrimentsQuantity(quantity, phosphorus.amount),
-    salt: calculNutrimentsQuantity(quantity, salt.amount),
-    proteins: calculNutrimentsQuantity(quantity, proteins.amount),
+    potassium: calculNutrimentsQuantity(quantity, potassium.quantity),
+    phosphorus: calculNutrimentsQuantity(quantity, phosphorus.quantity),
+    salt: calculNutrimentsQuantity(quantity, salt.quantity),
+    proteins: calculNutrimentsQuantity(quantity, proteins.quantity),
   };
 };
 
@@ -16,19 +16,21 @@ export const addAllNutrimentsQuantity = (nutriments, addNutriments) => {
   return {
     potassium: {
       ...nutriments.potassium,
-      amount: nutriments.potassium.amount + addNutriments.potassium.amount,
+      quantity:
+        nutriments.potassium.quantity + addNutriments.potassium.quantity,
     },
     phosphorus: {
       ...nutriments.phosphorus,
-      amount: nutriments.phosphorus.amount + addNutriments.phosphorus.amount,
+      quantity:
+        nutriments.phosphorus.quantity + addNutriments.phosphorus.quantity,
     },
     salt: {
       ...nutriments.salt,
-      amount: nutriments.salt.amount + addNutriments.salt.amount,
+      quantity: nutriments.salt.quantity + addNutriments.salt.quantity,
     },
     proteins: {
       ...nutriments.potassium,
-      amount: nutriments.proteins.amount + addNutriments.proteins.amount,
+      quantity: nutriments.proteins.quantity + addNutriments.proteins.quantity,
     },
   };
 };

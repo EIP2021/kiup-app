@@ -12,8 +12,10 @@ const ProfileScreen = ({ navigation }) => {
     <ScrollView nestedScrollEnabled style={styles.container}>
       <Header
         title="Profil"
-        iconName="ios-settings"
-        onIconPress={() => navigation.navigate('Setting')}
+        iconName="bell-alert-outline"
+        onIconPress={() => navigation.navigate('Tips')}
+        secondaryIconName="cog"
+        onSecondaryIconPress={() => navigation.navigate('Setting')}
       />
       <TitleField title="Statistiques" titleStyle={styles.statsTitle} />
       <NutrimentsStats />

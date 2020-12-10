@@ -14,6 +14,7 @@ import NutrimentsInfo from './NutrimentsInfo';
 
 const ProductDetails = ({ onSubmit, nutriments, title, brand, image }) => {
   const [inputQuantity, setInputQuantity] = React.useState('0');
+  console.log(nutriments);
   return (
     <View style={styles.container}>
       <ProductHeader title={title} brand={brand} image={image} />
@@ -70,6 +71,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         return;
       }
       const stats = calculAllNutrimentsQuantity(quantity, nutriments);
+      console.log('STATS', stats);
       const history = {
         id,
         title,

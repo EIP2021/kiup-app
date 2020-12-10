@@ -32,8 +32,7 @@ const SettingScreen = ({ navigation, logout, email }) => {
       <ScrollView>
         <Header
           title="Paramètres"
-          iconName="ios-close"
-          iconSize={45}
+          iconName="close"
           onIconPress={() => navigation.goBack()}
         />
         <TitleField
@@ -110,7 +109,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SettingScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(SettingScreen);

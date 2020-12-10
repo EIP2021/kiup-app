@@ -80,6 +80,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         values.quantity,
         navigation.getParam('nutriments')
       );
+      console.log('STATs', stats);
       const history = {
         id: navigation.getParam('id'),
         title: navigation.getParam('title'),
@@ -97,10 +98,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 const enhance = compose(
-  connect(
-    null,
-    mapDispatchToProps
-  ),
+  connect(null, mapDispatchToProps),
   reduxForm({
     form: 'product',
   })
