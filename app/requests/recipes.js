@@ -38,6 +38,40 @@ export const getRecommendedRecipes = () => {
   );
 };
 
+export const getMyRecipes = () => {
+  return fetchRequest(
+    'myRecipes',
+    READ_DATA,
+    {
+      url: `${kiupURL}/my`,
+      method: 'GET',
+    },
+    'kiup',
+    [],
+    (name, response, subtype) => {
+      const recipes = response.recipe;
+      return [updateData(name, recipes, subtype)];
+    }
+  );
+};
+
+export const getFavRecipes = () => {
+  return fetchRequest(
+    'favRecipes',
+    READ_DATA,
+    {
+      url: `${kiupURL}/fav`,
+      method: 'GET',
+    },
+    'kiup',
+    [],
+    (name, response, subtype) => {
+      const recipes = response.recipe;
+      return [updateData(name, recipes, subtype)];
+    }
+  );
+};
+
 export const getRecipeByID = id => {
   return fetchRequest(
     'recipe',

@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { ScrollView } from 'react-native-gesture-handler';
-import { getRecommendedRecipes, getBestRecipes } from '../../requests';
+import { getRecommendedRecipes, getBestRecipes, getMyRecipes, getFavRecipes } from '../../requests';
 import { getPendingStatus } from '../../selectors';
 import { RecipeItemButton, Header } from '../../components';
 import SearchBarButton from '../Search/detail/SearchBarButton';
@@ -140,14 +140,18 @@ const ListRecipeScreen = ({
           ) : (
             <Icon type="MaterialIcons" name="keyboard-arrow-up" />
           )}
-          <Button style={{ backgroundColor: 'white' }}>
+          <Button 
+            style={{ backgroundColor: 'white' }}
+            onPressIn={() => navigate('FavRecipe')}>
             <Icon
               type="Ionicons"
               name="heart"
               style={{ fontSize: 25, color: 'red' }}
             />
           </Button>
-          <Button style={{ backgroundColor: 'white' }}>
+          <Button 
+            style={{ backgroundColor: 'white' }}
+            onPressIn={() => navigate('MyRecipe')}>
             <Icon
               type="Ionicons"
               name="book"
@@ -181,6 +185,8 @@ const mapDispatchToProps = dispatch => {
     refreshData: () => {
       dispatch(getBestRecipes());
       dispatch(getRecommendedRecipes());
+      dispatch(getFavRecipes());
+      dispatch(getMyRecipes());
     },
   };
 };

@@ -9,6 +9,8 @@ import {
   getProfileInformations,
   getBestRecipes,
   getRecommendedRecipes,
+  getMyRecipes,
+  getFavRecipes
 } from '../../requests';
 import { getAuth } from '../../selectors';
 import { colors } from '../../themes';
@@ -59,6 +61,9 @@ const mapDispatchToProps = dispatch => ({
     dispatch(getProfileInformations());
     dispatch(getRecommendedRecipes());
     dispatch(getBestRecipes());
+    dispatch(getMyRecipes());
+    dispatch(getFavRecipes());
+    
   },
 });
 
