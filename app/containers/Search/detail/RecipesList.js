@@ -14,13 +14,15 @@ const RecipesList = ({ query, bestRecipes }) => {
     let numberRecipes = 0;
     let average = 0;
 
-    item.comments.forEach(comment => {
-      ratingRecipe += comment.Note;
-      numberRecipes += 1;
-    });
+    if (item.comments) {
+      item.comments.forEach(comment => {
+        ratingRecipe += comment.Note;
+        numberRecipes += 1;
+      });
+    }
 
     if (ratingRecipe === 0) {
-      average = item.rating.toFixed(1);
+      average = item.rating ? item.rating.toFixed(1) : 0;
     } else {
       average = (ratingRecipe / numberRecipes).toFixed(1);
     }
