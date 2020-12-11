@@ -12,28 +12,28 @@ const NutrimentsDiagram = ({ nutriments }) => {
         title="Protéines"
         value={nutriments.proteins}
         maximum={60}
-        color="#FFE178"
+        color="#FFA339"
         unit="g"
       />
       <ProgressCircleField
         title="Sel"
         value={nutriments.salt}
         maximum={5}
-        color="#EFA2F5"
+        color="#3290BE"
         unit="g"
       />
       <ProgressCircleField
         title="Phosphore"
         value={nutriments.phosphorus}
         maximum={1000}
-        color="#99FF99"
+        color="#2ECC73"
         unit="mg"
       />
       <ProgressCircleField
         title="Potassium"
         value={nutriments.potassium}
         maximum={600}
-        color="#EF5C5C"
+        color="#FF6339"
         unit="mg"
       />
     </View>

@@ -53,7 +53,7 @@ import goodRatingStarRecipe from '../images/recipes/good_rating_star_recipe.png'
 import badRatingStarRecipe from '../images/recipes/bad_rating_star_recipe.png';
 import veryBadRatingStarRecipe from '../images/recipes/very_bad_rating_star_recipe.png';
 import favByUser from '../images/recipes/fav_recipe.png';
-import notFavByUser from '../images/recipes/empty_heart.png';
+import notFavByUser from '../images/recipes/favProductRecipeLogo.png';
 import defaultRecipe from '../images/defaultRecipePicture.png';
 import addPicture from '../images/addPicture.png';
 import cookingTime from '../images/cookingTime.png';
