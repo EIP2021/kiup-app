@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     borderRadius: 5,
     width: 350,
-    height: windowHeight - ((windowHeight / 100) * 77),
+    height: windowHeight - ((windowHeight / 100) * 78),
     backgroundColor: colors.very_light_grey,
     alignItems: 'center',
     justifyContent: 'center',

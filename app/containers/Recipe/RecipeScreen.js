@@ -8,21 +8,29 @@ import {
   Button,
   Modal,
   TextInput,
+  Image
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { Icon, Header, AirbnbRating } from 'react-native-elements';
 import { moderateScale } from 'react-native-size-matters';
 
 import styles from './styles/RecipeScreenStyle';
-import RecipeItemButton from '../../components/button/RecipeItemButton';
-import { colors } from '../../themes';
+import { colors, images } from '../../themes';
+import { FavoriteButton } from '../../components';
+import RecipeMarkFormatter from '../../components/layout/RecipeMarkFormatter';
+import TextWithLogo from '../../components/layout/TextWithLogo';
+import { connect } from 'react-redux';
+import { updateRecipe } from '../../requests';
 
-const RecipeScreen = ({ navigation }) => {
+const RecipeScreen = ({ navigation, informations, updateComments }) => {
   const { state } = navigation;
-  const { item } = state.params;
+  const { item, index, mark } = state.params;
   const [modalVisible, setModal] = React.useState(false);
+  const [commentaire, onChangeCommentaire] = React.useState("");
+  const [rating, onChangeRating] = React.useState(3);
   const [selected, setSelected] = React.useState('instructions');
   const windowHeight = Dimensions.get('window').height;
+  let image = "";
 
   const openModal = () => {
     setModal(true);
@@ -33,8 +41,22 @@ const RecipeScreen = ({ navigation }) => {
   };
 
   const sendRate = () => {
+    if (item.comments === null){
+      item.comments = [{id: 0, Note: rating, Commentaire: commentaire, Auteur: informations.firstName + ' ' + informations.lastName}]
+    }
+    else {
+      item.comments.push({id: 0, Note: rating, Commentaire: commentaire, Auteur: informations.firstName + ' ' + informations.lastName})
+    }
+    updateComments(item.id, { name: item.name, description: item.description, prepTime: item.prepTime, cookTime: item.cookTime, ingredients: item.ingredients, steps: item.steps, comments: item.comments }, index);
     setModal(false);
   };
+
+  if (image === null) {
+    image = 'https://i.kiup.tech/tksbb.jpg';
+  }
+  else {
+    image = 'https://i.kiup.tech/' + item.image;
+  } 
   return (
     <View>
       <Header
@@ -53,6 +75,7 @@ const RecipeScreen = ({ navigation }) => {
             width: '120%',
           },
         }}
+        rightComponent={<FavoriteButton/>}
         containerStyle={{
           backgroundColor: '#fff',
           paddingTop: -15,
@@ -66,98 +89,37 @@ const RecipeScreen = ({ navigation }) => {
         }}
       />
       <ScrollView style={{ height: windowHeight - 127 }}>
-        <RecipeItemButton
-          key={item.id}
-          id={item.id}
-          title={item.name}
-          mark={item.rating}
-          cookingTime={item.cookTime}
-          nbCutleries={item.people}
-          favByUser={item.isFav}
-          item={item}
-        />
+      <Image style={{ width: '100%', height: windowHeight - ((windowHeight / 100) * 70), backgroundColor: colors.very_light_grey, alignItems: 'center',justifyContent: 'center'}}source={{uri: image}} />
+        <View style={{ paddingTop: 10, borderTopWidth: 3, borderTopColor: colors.primary,marginBottom: 10, flexDirection: 'row', marginBottom: 10 }}>
+          <TouchableOpacity style={{width: '33%'}} onPress={() => {setSelected('instructions');}}>
+            <Text style={{ alignSelf: 'center', fontSize: 15, color: selected === 'instructions' ? colors.primary : 'grey' }}>{'  '}Instructions</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={{width: '33%'}} onPress={() => {setSelected('ingredients');}}>
+            <Text style={{ alignSelf: 'center', fontSize: 15, color: selected === 'ingredients' ? colors.primary : 'grey' }}>{'  '}Ingredients</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={{width: '33%'}} onPress={() => {setSelected('notes');}}>
+            <Text style={{ alignSelf: 'center',fontSize: 15, color: selected === 'notes' ? colors.primary : 'grey' }}>{'  '}Notes</Text>
+          </TouchableOpacity>
+        </View>
         <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity
-            style={{
-              width: '25%',
-              borderBottomColor:
-                selected === 'instructions' ? 'transparent' : 'grey',
-              borderBottomWidth: 1,
-              borderTopWidth: 1,
-              borderTopColor: 'grey',
-            }}
-            onPress={() => {
-              setSelected('instructions');
-            }}
-          >
-            <Icon name="book" size={40} color="brown" />
-            <Text style={{ alignSelf: 'center' }}>{'  '}Instructions</Text>
-          </TouchableOpacity>
-          <View
-            style={{
-              borderRightColor: 'grey',
-              borderRightWidth: 1,
-            }}
+        <RecipeMarkFormatter mark={mark} position="inside" />
+        <View style={{marginLeft: 10}}>
+        <Text style={{fontSize: moderateScale(20), fontWeight: 'bold', color: 'grey'}}>{item.name}</Text>
+          <View style={{ flexDirection: 'row' }}>
+          <TextWithLogo
+                text={item.prepTime}
+                textColor="light_grey"
+                logo="timer"
+                position="after"
+            />
+          <TextWithLogo
+                text={item.people}
+                textColor="light_grey"
+                logo="cutleries"
+                position="after"
           />
-          <TouchableOpacity
-            style={{
-              width: '25%',
-              borderBottomColor:
-                selected === 'ingredients' ? 'transparent' : 'grey',
-              borderBottomWidth: 1,
-              borderTopWidth: 1,
-              borderTopColor: 'grey',
-            }}
-            onPress={() => {
-              setSelected('ingredients');
-            }}
-          >
-            <Icon name="list" size={40} color="black" />
-            <Text style={{ alignSelf: 'center' }}>{'  '}Ingredients</Text>
-          </TouchableOpacity>
-          <View
-            style={{
-              borderRightColor: 'grey',
-              borderRightWidth: 1,
-            }}
-          />
-          <TouchableOpacity
-            style={{
-              width: '25%',
-              borderBottomColor:
-                selected === 'nutriments' ? 'transparent' : 'grey',
-              borderBottomWidth: 1,
-              borderTopWidth: 1,
-              borderTopColor: 'grey',
-            }}
-            onPress={() => {
-              setSelected('nutriments');
-            }}
-          >
-            <Icon name="pie-chart-outlined" size={40} color="grey" />
-            <Text style={{ alignSelf: 'center' }}>{'  '}Nutriments</Text>
-          </TouchableOpacity>
-          <View
-            style={{
-              borderRightColor: 'grey',
-              borderRightWidth: 1,
-            }}
-          />
-          <TouchableOpacity
-            style={{
-              width: '25%',
-              borderBottomColor: selected === 'notes' ? 'transparent' : 'grey',
-              borderBottomWidth: 1,
-              borderTopWidth: 1,
-              borderTopColor: 'grey',
-            }}
-            onPress={() => {
-              setSelected('notes');
-            }}
-          >
-            <Icon name="star" size={40} color="yellow" />
-            <Text style={{ alignSelf: 'center' }}>{'  '}Notes</Text>
-          </TouchableOpacity>
+          </View>
+        </View>
         </View>
         <View
           style={{
@@ -165,33 +127,38 @@ const RecipeScreen = ({ navigation }) => {
             display: selected === 'instructions' ? 'flex' : 'none',
           }}
         >
+          <View style={{
+            marginTop: '3%',
+            borderWidth: 1,
+            borderColor: '#cccccc',
+            backgroundColor: '#cccccc'
+          }}>
+            <Text style={{
+              marginLeft: 10,
+              color: 'black'
+            }}>Etapes</Text>
+          </View>
           {item.steps.map(prop => {
             return (
               <View
                 key={prop.step}
                 style={{
-                  borderBottomColor: 'grey',
+                  borderBottomColor: '#cccccc',
                   borderBottomWidth: 1,
-                  marginBottom: 10,
-                  marginTop: 10,
+                  marginTop: 5,
                 }}
               >
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'flex-end',
-                  }}
-                >
+                <View style={{ flexDirection: 'row'}}>
                   <Text
                     style={{
-                      fontSize: 24,
-                      fontWeight: 'bold',
+                      fontSize: 18,
+                      color: '#cccccc'
                     }}
                   >
-                    {prop.step}.
+                    {prop.step}.{'  '}
                   </Text>
-                  <Text> {prop.text} </Text>
-                </View>
+                  <Text style={{fontSize: 15, color: 'black'}}>{prop.text} </Text>
+                  </View>
               </View>
             );
           })}
@@ -202,75 +169,57 @@ const RecipeScreen = ({ navigation }) => {
             display: selected === 'ingredients' ? 'flex' : 'none',
           }}
         >
+          <View style={{
+            marginTop: '3%',
+            borderWidth: 1,
+            borderColor: '#cccccc',
+            backgroundColor: '#cccccc'
+          }}>
+            <Text style={{
+              marginLeft: 10,
+              color: 'black'
+            }}>Ingredients</Text>
+          </View>
           {item.ingredients.map(prop => {
             return (
               <View
                 key={prop.id}
                 style={{
-                  borderBottomColor: 'grey',
+                  borderBottomColor: '#cccccc',
                   borderBottomWidth: 1,
-                  marginBottom: 10,
-                  marginTop: 10,
+                  marginTop: 5,
                 }}
               >
                 <View
                   style={{
                     flexDirection: 'row',
-                    alignItems: 'flex-end',
                   }}
                 >
                   <Text
                     style={{
-                      fontSize: 24,
-                      fontWeight: 'bold',
+                      fontSize: 18,
+                      color: '#cccccc'
                     }}
                   >
-                    {prop.id}.
                   </Text>
-                  <Text> {prop.text} </Text>
-                </View>
-              </View>
-            );
-          })}
-        </View>
-        <View
-          style={{
-            marginBottom: '1%',
-            display: selected === 'nutriments' ? 'flex' : 'none',
-          }}
-        >
-          {item.ingredients.map(prop => {
-            return (
-              <View
-                key={prop.id}
-                style={{
-                  borderBottomColor: 'grey',
-                  borderBottomWidth: 1,
-                  marginBottom: 10,
-                  marginTop: 10,
-                }}
-              >
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'flex-end',
-                  }}
-                >
-                  <Text
-                    style={{
-                      fontSize: 24,
-                      fontWeight: 'bold',
-                    }}
-                  >
-                    {prop.id}.
-                  </Text>
-                  <Text> {prop.text} </Text>
+                  <Text style={{fontSize: 17, color: 'black'}}> {prop.text} </Text>
                 </View>
               </View>
             );
           })}
         </View>
         <View style={{ display: selected === 'notes' ? 'flex' : 'none' }}>
+        <View style={{
+            marginTop: '3%',
+            borderWidth: 1,
+            borderColor: '#cccccc',
+            backgroundColor: '#cccccc'
+          }}>
+            <Text style={{
+              marginLeft: 10,
+              color: 'black'
+            }}>Notes</Text>
+          </View>
           <Modal
             visible={modalVisible}
             animationType="fade"
@@ -297,13 +246,15 @@ const RecipeScreen = ({ navigation }) => {
                 <Text style={{ fontSize: 25 }}>Noter la recette !</Text>
                 <AirbnbRating
                   count={5}
-                  reviews={['Deguelasse sah', 'Meh', 'OK', 'Bon', 'Parfait']}
+                  reviews={['Mauvais', 'Pas bon', 'Moyen', 'Bon', 'Parfait']}
+                  onFinishRating={rating => onChangeRating(rating)}
                   defaultRating={3}
                   size={40}
                 />
                 <Text style={{ fontSize: 25 }}>Commentaire:</Text>
                 <TextInput
                   multiline
+                  onChangeText={commentaire => onChangeCommentaire(commentaire)}
                   numberOfLines={5}
                   textAlignVertical="top"
                   maxLength={256}
@@ -361,21 +312,20 @@ const RecipeScreen = ({ navigation }) => {
                       flexDirection: 'row',
                     }}
                   >
-                    <Text
+                  <Text
                       style={{
                         fontSize: 24,
                         fontWeight: 'bold',
                       }}
                     >
-                      {prop.Auteur}
-                    </Text>
-                    <Text style={styles.ratingsRecipe}> {prop.Note} </Text>
-                    <Icon size={20} name="star" color="yellow" />
-                  </View>
-                  <Text>{prop.Commentaire}</Text>
+                    {prop.Auteur}
+                  </Text>
                 </View>
-              );
-            })}
+                <RecipeMarkFormatter mark={prop.Note} position="after" />
+                <Text>{prop.Commentaire}</Text>
+              </View>
+            );
+          })}
         </View>
       </ScrollView>
     </View>
@@ -384,10 +334,26 @@ const RecipeScreen = ({ navigation }) => {
 
 RecipeScreen.propTypes = {
   navigation: PropTypes.object,
+  informations: PropTypes.object,
 };
 
 RecipeScreen.defaultProps = {
   navigation: {},
+  informations: {},
 };
 
-export default RecipeScreen;
+const mapDispatchToProps = dispatch => {
+  return {
+    updateComments: (id, payload) => {
+      dispatch(updateRecipe(id, payload));
+    },
+  };
+};
+
+const mapStateToProps = state => {
+  return {
+    informations: state.profileInformations,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps) (RecipeScreen);

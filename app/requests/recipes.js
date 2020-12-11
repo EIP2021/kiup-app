@@ -1,4 +1,4 @@
-import { READ_DATA, fetchRequest, updateData } from '../actions';
+import { UPDATE_DATA, READ_DATA, fetchRequest, updateData } from '../actions';
 import { kiupURL } from '../config/apisURL';
 
 export const getBestRecipes = () => {
@@ -53,3 +53,22 @@ export const getRecipeByID = id => {
     }
   );
 };
+
+export const updateRecipe = (id, payload, index) => {
+  return fetchRequest(
+    'recipe',
+    UPDATE_DATA,
+    {
+      url: `${kiupURL}/recipe/edit/${id}`,
+      method: 'POST',
+      payload,
+    },
+    'kiup',
+    [],
+    (name, response, subtype) => {
+      const info = parseProfileInformations(response.info);
+      return [updateData(name, payload, subtype, {index})];
+    }
+  );
+};
+

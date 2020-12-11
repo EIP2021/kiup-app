@@ -4,7 +4,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import styles from './styles/AuthLoadingScreenStyle';
-import { getConsumption, getProfileInformations, getBestRecipes, getRecommendedRecipes } from '../../requests';
+import {
+  getConsumption,
+  getProfileInformations,
+  getBestRecipes,
+  getRecommendedRecipes,
+} from '../../requests';
 import { getAuth } from '../../selectors';
 import { colors } from '../../themes';
 
@@ -57,7 +62,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AuthLoading);
+export default connect(mapStateToProps, mapDispatchToProps)(AuthLoading);

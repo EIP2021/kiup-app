@@ -5,8 +5,8 @@ import { colors, images } from '../../themes';
 
 import styles from './styles/TextwithLogoStyle';
 
-const TextWithLogo = ({ text, textColor, logo, isLogoBefore }) => {
-  if (isLogoBefore) {
+const TextWithLogo = ({ text, textColor, logo, position }) => {
+  if (position === 'before') {
     return (
       <View style={styles.container}>
         <Image source={images[logo]} style={{ paddingHorizontal: 5 }} />
@@ -14,14 +14,26 @@ const TextWithLogo = ({ text, textColor, logo, isLogoBefore }) => {
       </View>
     );
   }
-  return (
-    <View style={styles.container}>
-      <Text style={{ color: colors[textColor], paddingHorizontal: 5 }}>
-        {text}
-      </Text>
-      <Image source={images[logo]} />
-    </View>
-  );
+  if (position === 'after') {
+    return (
+      <View style={styles.container}>
+        <Text style={{ color: colors[textColor], paddingHorizontal: 5 }}>
+          {text}
+        </Text>
+        <Image source={images[logo]} />
+      </View>
+    );
+  }
+  if (position === 'inside') {
+    return (
+      <View style={{justifyContent: 'center',alignItems: 'center'}}>
+        <Text style={{ fontSize: 10,color: colors[textColor], position: "absolute" }}>
+          {text}
+        </Text>
+        <Image style={{width: 50, height: 50}} source={images[logo]} />
+      </View>
+    );
+  }
 };
 
 TextWithLogo.propTypes = {
