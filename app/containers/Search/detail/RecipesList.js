@@ -1,15 +1,15 @@
 import React from 'react';
-import PropTypes, { func } from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { FlatList } from 'react-native';
 import RecipeItemButton from '../../../components/button/RecipeItemButton';
 import { getPendingStatus } from '../../../selectors';
-import {
-  FlatList
-} from 'react-native';
 
-const RecipesList = ({query, bestRecipes}) => {
-  const filteredData = bestRecipes.filter(recipe => recipe.name.includes(query));
-  getRating = (item) => {
+const RecipesList = ({ query, bestRecipes }) => {
+  const filteredData = bestRecipes.filter(recipe =>
+    recipe.name.includes(query)
+  );
+  const getRating = item => {
     let ratingRecipe = 0;
     let numberRecipes = 0;
     let average = 0;
@@ -21,30 +21,31 @@ const RecipesList = ({query, bestRecipes}) => {
 
     if (ratingRecipe === 0) {
       average = item.rating.toFixed(1);
-    }
-    else {
+    } else {
       average = (ratingRecipe / numberRecipes).toFixed(1);
     }
 
-    return(average);
-  } 
-  return (<FlatList
-  data={filteredData}
-  renderItem={({ item }) => (
-    <RecipeItemButton
-      key={item.id}
-      id={item.id}
-      title={item.name}
-      mark={getRating(item)}
-      cookingTime={item.cookTime}
-      nbCutleries={item.people}
-      favByUser={item.isFav}
-      image={item.image}
-      item={item}
+    return average;
+  };
+  return (
+    <FlatList
+      data={filteredData}
+      renderItem={({ item }) => (
+        <RecipeItemButton
+          key={item.id}
+          id={item.id}
+          title={item.name}
+          mark={getRating(item)}
+          cookingTime={item.cookTime}
+          nbCutleries={item.people}
+          favByUser={item.isFav}
+          image={item.image}
+          item={item}
+        />
+      )}
+      keyExtractor={item => item.id}
     />
-  )}
-  keyExtractor={item => item.id}
-/>)
+  );
 };
 
 const mapStateToProps = state => ({

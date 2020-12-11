@@ -19,18 +19,7 @@ const RecipeNavigation = createStackNavigator(
     ListRecipe: {
       screen: ListRecipeScreen,
       navigationOptions: {
-        title: 'Recettes',
-        headerTitleStyle: {
-          color: colors.primary,
-          fontSize: moderateScale(30),
-          fontWeight: 'bold',
-          marginLeft: 0,
-        },
-        headerTintColor: colors.primary,
-        headerStyle: {
-          borderBottomWidth: 0,
-          backgroundColor: '#FFFFFF',
-        },
+        header: null,
       },
     },
     Recipe: {

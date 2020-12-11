@@ -8,15 +8,10 @@ export { default as FullWidthButton } from './FullWidthButton';
 export { default as NavigateTextButton } from './NavigateTextButton';
 export { default as NavigateImageButton } from './NavigateImageButton';
 export { default as NavigateIconButton } from './NavigateIconButton';
-export {
-  default as NavigateInformationButton,
-} from './NavigateInformationButton';
+export { default as RecipeItemButton } from './RecipeItemButton';
+export { default as NavigateInformationButton } from './NavigateInformationButton';
 export { default as IconInformationButton } from './IconInformationButton';
-export {
-  default as AlimentInformationButton,
-} from './AlimentInformationButton';
+export { default as AlimentInformationButton } from './AlimentInformationButton';
 export { default as AddRecipeImageButton } from './AddRecipeImageButton';
-export {
-  default as NavigateRecipeNextButton,
-} from './TemporaryNavigateButton';
+export { default as NavigateRecipeNextButton } from './TemporaryNavigateButton';
 export { default as RecipeAddProductButton } from './RecipeAddProductButton';

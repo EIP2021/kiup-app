@@ -1,21 +1,23 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import styles from './styles/ProfileScreenStyle';
 import { Header, TitleField } from '../../components';
 import NutrimentsStats from './detail/NutrimentsStats';
 import HistoryList from './detail/HistoryList';
 
-const ProfileScreen = ({ navigation }) => {
+const ProfileScreen = ({ navigation, alertCount }) => {
   return (
     <ScrollView nestedScrollEnabled style={styles.container}>
       <Header
+        avatarName="bell-outline"
         title="Profil"
-        iconName="bell-alert-outline"
-        onIconPress={() => navigation.navigate('Tips')}
-        secondaryIconName="cog"
-        onSecondaryIconPress={() => navigation.navigate('Setting')}
+        iconName="cog"
+        avatarNotification={alertCount}
+        onAvatarPress={() => navigation.navigate('Tips')}
+        onIconPress={() => navigation.navigate('Setting')}
       />
       <TitleField title="Statistiques" titleStyle={styles.statsTitle} />
       <NutrimentsStats />
@@ -30,10 +32,18 @@ const ProfileScreen = ({ navigation }) => {
 
 ProfileScreen.propTypes = {
   navigation: PropTypes.object,
+  alertCount: PropTypes.number,
 };
 
 ProfileScreen.defaultProps = {
   navigation: {},
+  alertCount: 0,
 };
 
-export default ProfileScreen;
+const mapStateToProps = state => {
+  return {
+    alertCount: state.tipsAlert.alertCount,
+  };
+};
+
+export default connect(mapStateToProps)(ProfileScreen);

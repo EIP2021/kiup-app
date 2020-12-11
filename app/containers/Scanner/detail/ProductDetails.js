@@ -6,7 +6,7 @@ import { moderateScale } from 'react-native-size-matters';
 
 import { updateData, CREATE_DATA, clearData } from '../../../actions';
 import { postConsumption } from '../../../requests';
-import { calculAllNutrimentsQuantity } from '../../../helpers';
+import { calculAllNutrimentsQuantity, generateID } from '../../../helpers';
 import { ProductHeader, Separator, RowInputButton } from '../../../components';
 import styles from './styles/ProductDetailsStyle';
 import NutrimentsHeaderBar from './NutrimentsHeaderBar';
@@ -63,7 +63,7 @@ ProductDetails.defaultProps = {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const { closeModal, nutriments, id, title, image, brand } = ownProps;
+  const { closeModal, nutriments, title, image, brand } = ownProps;
   return {
     onSubmit: inputQuantity => {
       const quantity = Number(inputQuantity);
@@ -71,9 +71,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         return;
       }
       const stats = calculAllNutrimentsQuantity(quantity, nutriments);
-      console.log('STATS', stats);
       const history = {
-        id,
+        id: generateID(),
         title,
         image,
         brand,

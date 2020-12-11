@@ -10,7 +10,6 @@ export const updateObjectInArray = (array, { data, index }) => {
   // console.log();
   return array.map((item, arrayIndex) => {
     if (arrayIndex === index) {
-      console.log('XD');
       return { ...item, ...data };
     }
     return item;
