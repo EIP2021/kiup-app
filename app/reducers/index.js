@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import errorReducer from './errorReducer';
 import fetchReducer from './fetchReducer';
 import tokenReducer from './tokenReducer';
+import tipsAlertReducer from './tipsAlertReducer';
 import createRequestReducer, {
   objectReducer,
   paginatedListReducer,
@@ -42,6 +43,7 @@ const rootReducers = combineReducers({
   error: errorReducer,
   fetch: fetchReducer,
   form: formReducer,
+  tipsAlert: tipsAlertReducer,
   bestRecipes: createRequestReducer(listReducer, 'bestRecipes'),
   recommendedRecipes: createRequestReducer(listReducer, 'recommendedRecipes'),
   searchProduct: createRequestReducer(paginatedListReducer, 'searchProduct'),

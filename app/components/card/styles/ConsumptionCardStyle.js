@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
   },
   verticalContainer: {
     flexGrow: 1,
+    flex: 1,
     justifyContent: 'space-between',
   },
   primaryText: {
@@ -36,6 +37,7 @@ const styles = StyleSheet.create({
   secondaryText: {
     fontSize: moderateScale(14),
     color: colors.disable_text,
+    flexShrink: 1,
   },
 });
 

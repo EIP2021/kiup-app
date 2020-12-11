@@ -8,12 +8,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    // backgroundColor: 'red',
     padding: moderateScale(9),
   },
   title: {
     fontSize: moderateScale(30),
     color: colors.primary,
     fontWeight: 'bold',
+  },
+  iconContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: moderateScale(7),
   },
 });
 

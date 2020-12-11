@@ -4,6 +4,7 @@ import ProfileScreen from '../containers/Profile/ProfileScreen';
 import SettingScreen from '../containers/Profile/SettingScreen';
 import HistoryScreen from '../containers/Profile/HistoryScreen';
 import ConsumptionScreen from '../containers/Profile/ConsumptionScreen';
+import TipsScreen from '../containers/Profile/TipsScreen';
 import defaultNavigationOptions from './defaultNavigationOption';
 
 const ProfileNavigation = createStackNavigator(
@@ -16,6 +17,12 @@ const ProfileNavigation = createStackNavigator(
     },
     Setting: {
       screen: SettingScreen,
+      navigationOptions: {
+        header: null,
+      },
+    },
+    Tips: {
+      screen: TipsScreen,
       navigationOptions: {
         header: null,
       },

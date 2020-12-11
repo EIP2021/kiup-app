@@ -21,12 +21,10 @@ const RecipeItemButton = ({
   index,
   item,
 }) => {
-  if (image === null) {
-    image = 'https://i.kiup.tech/tksbb.jpg';
-  }
-  else {
-    image = 'https://i.kiup.tech/' + image;
-  }
+  const imageURL = image
+    ? `https://i.kiup.tech/${image}`
+    : 'https://i.kiup.tech/tksbb.jpg';
+
   return (
     <TouchableOpacity
       onPress={() => {
@@ -34,7 +32,7 @@ const RecipeItemButton = ({
           id,
           item,
           index,
-          mark
+          mark,
         });
       }}
     >
@@ -46,7 +44,7 @@ const RecipeItemButton = ({
           defaultStatus={favByUser}
           onPress={favOrUnfavRecipe()}
         />
-        <Image style={styles.imageContainer} source={{uri: image}} />
+        <Image style={styles.imageContainer} source={{ uri: imageURL }} />
         <View style={styles.bottomContainer}>
           <RecipeMarkFormatter mark={mark} position="before" />
           <View style={styles.cookingContainer}>

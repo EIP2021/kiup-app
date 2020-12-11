@@ -173,12 +173,6 @@ export const getConsumption = (key, scope) => {
     'kiup',
     [],
     (name, response, subtype) => {
-      if (scope === 'year') {
-        return [updateData(name, weeklyStatsMock, subtype)];
-      }
-      if (scope === 'month') {
-        return [updateData(name, monthlyStatsMock, subtype)];
-      }
       return [updateData(name, response.stats, subtype)];
     }
   );
