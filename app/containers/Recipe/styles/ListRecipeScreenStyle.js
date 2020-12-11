@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   containerList: {
     backgroundColor: '#FFFFFF',
     justifyContent: 'space-around',
-    height: '57%',
+    height: '52%',
   },
   timeRecipe: {
     color: '#FFFFFF',

@@ -17,41 +17,51 @@ const RecipeItemButton = ({
   cookingTime,
   nbCutleries,
   favByUser,
+  image,
+  index,
   item,
 }) => {
+  if (image === null) {
+    image = 'https://i.kiup.tech/tksbb.jpg';
+  }
+  else {
+    image = 'https://i.kiup.tech/' + image;
+  }
   return (
     <TouchableOpacity
       onPress={() => {
         NavigationService.navigate('Recipe', {
           id,
           item,
+          index,
+          mark
         });
       }}
     >
       <View style={styles.container}>
-        <Text style={styles.text} numberOfLines={2}>
+        <Text style={styles.text} numberOfLines={1}>
           {title}
         </Text>
         <FavRecipeButton
           defaultStatus={favByUser}
           onPress={favOrUnfavRecipe()}
         />
-        <Image style={styles.imageContainer} source={images.defaultRecipe} />
+        <Image style={styles.imageContainer} source={{uri: image}} />
         <View style={styles.bottomContainer}>
-          <RecipeMarkFormatter mark={mark} />
+          <RecipeMarkFormatter mark={mark} position="before" />
           <View style={styles.cookingContainer}>
             <View style={styles.cookingData}>
               <TextWithLogo
-                text={cookingTime}
+                text={cookingTime + item.prepTime}
                 textColor="light_grey"
                 logo="timer"
-                isLogoBefore={false}
+                position="after"
               />
               <TextWithLogo
                 text={nbCutleries}
                 textColor="light_grey"
                 logo="cutleries"
-                isLogoBefore={false}
+                position="after"
               />
             </View>
           </View>

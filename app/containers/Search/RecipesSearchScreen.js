@@ -5,13 +5,16 @@ import styles from './styles/RecipesSearchScreenStyle';
 import RecipesList from './detail/RecipesList';
 import { Header } from '../../components';
 
-const RecipesSearchScreen = ({ navigation }) => {
+
+const RecipesSearchScreen = ({ 
+  navigation,
+ }) => {
   const [text, setText] = useState('');
 
   return (
     <View style={styles.container}>
       <Header
-        title="Recettes"
+        title="Recherche"
         iconName="ios-add"
         onIconPress={() => navigation.navigate('AddRecipe')}
       />

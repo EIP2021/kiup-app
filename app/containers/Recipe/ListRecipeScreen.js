@@ -1,133 +1,137 @@
 import React from 'react';
 import {
   View,
-  Text,
   FlatList,
   SafeAreaView,
-  TouchableOpacity,
-  Platform,
-  UIManager,
-  Dimensions,
+  RefreshControl,
+  // Dimensions,
 } from 'react-native';
-import PropTypes from 'prop-types';
-import { Icon } from 'react-native-elements';
+import { Container, Button, Fab, Text, Icon } from 'native-base';
+import PropTypes, { func } from 'prop-types';
 import { connect } from 'react-redux';
 
+import { getRecommendedRecipes, getBestRecipes } from '../../requests';
 import { getPendingStatus } from '../../selectors';
 import RecipeItemButton from '../../components/button/RecipeItemButton';
 import SearchBarButton from '../Search/detail/SearchBarButton';
 import styles from './styles/ListRecipeScreenStyle';
 import { colors } from '../../themes';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const ListRecipeScreen = ({
   navigation: { navigate },
   bestRecipes,
   recommendedRecipes,
+  refreshData,
 }) => {
-  const windowHeight = Dimensions.get('window').height;
 
-  const [expanded, setExpanded] = React.useState(true);
+  const [expanded, setExpanded] = React.useState(false);
+  const [refreshing, setRefreshing] = React.useState(false);
 
-  const changeLayout = () => {
-    // LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-    setExpanded(!expanded);
-  };
-
-  if (Platform.OS === 'android') {
-    UIManager.setLayoutAnimationEnabledExperimental(true);
+  onRefreshRecipe = async () => {
+    setRefreshing(true);
+    await refreshData();
+    setRefreshing(false)
   }
 
+  getRating = (item) => {
+    let ratingRecipe = 0;
+    let numberRecipes = 0;
+    let average = 0;
+
+    item.comments.forEach(comment => {
+      ratingRecipe += comment.Note;
+      numberRecipes += 1;
+    });
+    if (ratingRecipe === 0) {
+      average = item.rating.toFixed(1);
+    }
+    else {
+      average = (ratingRecipe / numberRecipes).toFixed(1);
+    }
+    return(average);
+  } 
+
   return (
-    <View style={styles.container}>
-      <View style={styles.containerSearch}>
-        <SearchBarButton
-          placeholder="Rechercher une recette"
-          onPress={() => navigate('RecipeSearch')}
-        />
+    <Container>
+      <ScrollView refreshControl={<RefreshControl onRefresh={onRefreshRecipe} refreshing={refreshing} ></RefreshControl>}>
+      <View style={styles.container}>
+        <View style={styles.containerSearch}>
+          <SearchBarButton
+            placeholder="Rechercher une recette"
+            onPress={() => navigate('RecipeSearch')}
+          />
+        </View>
+        <SafeAreaView style={styles.containerList}>
+          <Text style={styles.subTitle}>Meilleurs Recettes</Text>
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            data={bestRecipes}
+            horizontal
+            renderItem={({ item, index }) => (
+              <RecipeItemButton
+                key={item.id}
+                id={item.id}
+                title={item.name}
+                mark={getRating(item)}
+                cookingTime={item.cookTime}
+                nbCutleries={item.people}
+                favByUser={item.isFav}
+                image={item.image}
+                index={index}
+                item={item}
+              />
+            )}
+            keyExtractor={item => item.id}
+          />
+        </SafeAreaView>
+        <SafeAreaView style={styles.containerList}>
+          <Text style={styles.subTitle}>Recettes recommandées</Text>
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            data={recommendedRecipes}
+            horizontal
+            renderItem={({ item, index }) => (
+              <RecipeItemButton
+                key={item.id}
+                id={item.id}
+                title={item.name}
+                mark={getRating(item)}
+                cookingTime={item.cookTime}
+                nbCutleries={item.people}
+                favByUser={item.isFav}
+                image={item.image}
+                index={index}
+                item={item}
+              />
+            )}
+            keyExtractor={item => item.id}
+          />
+        </SafeAreaView>
       </View>
-      <SafeAreaView style={styles.containerList}>
-        <Text style={styles.subTitle}>Meilleurs Recettes</Text>
-        <FlatList
-          data={bestRecipes}
-          horizontal
-          renderItem={({ item }) => (
-            <RecipeItemButton
-              key={item.id}
-              id={item.id}
-              title={item.name}
-              mark={item.rating}
-              cookingTime={item.cookTime}
-              nbCutleries={item.people}
-              favByUser={item.isFav}
-              item={item}
-            />
-          )}
-          keyExtractor={item => item.id}
-        />
-      </SafeAreaView>
-      <SafeAreaView style={styles.containerList}>
-        <Text style={styles.subTitle}>Recettes recommandées</Text>
-        <FlatList
-          data={recommendedRecipes}
-          horizontal
-          renderItem={({ item }) => (
-            <RecipeItemButton
-              key={item.id}
-              id={item.id}
-              title={item.name}
-              mark={item.rating}
-              cookingTime={item.cookTime}
-              nbCutleries={item.people}
-              favByUser={item.isFav}
-              item={item}
-            />
-          )}
-          keyExtractor={item => item.id}
-        />
-      </SafeAreaView>
-      <View
-        style={{
-          height: expanded ? 0 : 240,
-          overflow: 'hidden',
-          right: 32,
-          marginRight: '1%',
-          position: 'absolute',
-          backgroundColor: '#FFFFFF',
-          borderRadius: 30,
-          borderWidth: 5,
-          top: windowHeight - 390,
-          borderColor: expanded ? 'transparent' : colors.primary,
-        }}
-      >
-        <TouchableOpacity
-          style={{ zIndex: 20 }}
-          onPressIn={() => navigate('Welcome')}
+      </ScrollView>
+      <View style={{ flex: 1}}>
+        <Fab
+          active={expanded}
+          direction="up"
+          containerStyle={{ backgroundColor: colors.primary, borderRadius: 30, height: expanded ? 220 : 50, borderColor: 'white', borderWidth: 1 }}
+          style={{ backgroundColor: colors.primary, borderColor: 'white', borderWidth: 1 }}
+          position="bottomRight"
+          onPress={() => setExpanded(!expanded)}
         >
-          <Icon name="favorite" size={40} color="red" />
-          <Text>{'  '}Favoris</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPressIn={() => navigate('Welcome')}>
-          <Icon name="book" size={40} color="brown" />
-          <Text> Recettes</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPressIn={() => navigate('AddRecipe')}>
-          <Icon name="add" size={40} color="#2ecc71" />
-          <Text>{'  '}Ajouter</Text>
-        </TouchableOpacity>
+          { expanded ? <Icon type="MaterialIcons" name="keyboard-arrow-down" /> : <Icon type="MaterialIcons" name="keyboard-arrow-up" />}
+          <Button style={{ backgroundColor: 'white' }}>
+            <Icon type="Ionicons" name="heart" style={{fontSize: 25, color: 'red' }} />
+          </Button>
+          <Button style={{ backgroundColor: 'white' }}>
+            <Icon type="Ionicons" name="book" style={{ fontSize: 25, color: 'brown' }} />
+          </Button>
+          <Button style={{ backgroundColor: 'white'}} onPressIn={() => navigate('AddRecipe')}>
+            <Icon type="Ionicons" name="add" style={{ fontSize: 25, color: colors.primary }}  />
+          </Button>
+        </Fab>
       </View>
-      <TouchableOpacity
-        style={styles.buttonMenu}
-        activeOpacity={0.8}
-        onPress={() => changeLayout()}
-      >
-        <Icon
-          name="keyboard-arrow-up"
-          size={40}
-          color="white"
-          style={styles.iconRight}
-        />
-      </TouchableOpacity>
-    </View>
+    </Container>
   );
 };
 
@@ -137,16 +141,27 @@ const mapStateToProps = state => ({
   recommendedRecipes: state.recommendedRecipes,
 });
 
+const mapDispatchToProps = dispatch => {
+  return {
+    refreshData: () => {
+      dispatch(getBestRecipes());
+      dispatch(getRecommendedRecipes());
+    },
+  };
+};
+
 ListRecipeScreen.propTypes = {
   navigation: PropTypes.object,
   bestRecipes: PropTypes.array,
   recommendedRecipes: PropTypes.array,
+  refreshData: PropTypes.func,
 };
 
 ListRecipeScreen.defaultProps = {
   navigation: {},
   bestRecipes: [],
   recommendedRecipes: [],
+  refreshData: () => {},
 };
 
-export default connect(mapStateToProps)(ListRecipeScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(ListRecipeScreen);

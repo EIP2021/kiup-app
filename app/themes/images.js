@@ -47,6 +47,11 @@ import veryGoodRatingStar from '../images/recipes/very_good_rating_star.png';
 import goodRatingStar from '../images/recipes/good_rating_star.png';
 import badRatingStar from '../images/recipes/bad_rating_star.png';
 import veryBadRatingStar from '../images/recipes/very_bad_rating_star.png';
+import excellentRatingStarRecipe from '../images/recipes/excellent_rating_star_recipe.png';
+import veryGoodRatingStarRecipe from '../images/recipes/very_good_rating_star_recipe.png';
+import goodRatingStarRecipe from '../images/recipes/good_rating_star_recipe.png';
+import badRatingStarRecipe from '../images/recipes/bad_rating_star_recipe.png';
+import veryBadRatingStarRecipe from '../images/recipes/very_bad_rating_star_recipe.png';
 import favByUser from '../images/recipes/fav_recipe.png';
 import notFavByUser from '../images/recipes/empty_heart.png';
 import defaultRecipe from '../images/defaultRecipePicture.png';
@@ -111,6 +116,11 @@ const images = {
   goodRatingStar,
   badRatingStar,
   veryBadRatingStar,
+  excellentRatingStarRecipe,
+  veryGoodRatingStarRecipe,
+  goodRatingStarRecipe,
+  badRatingStarRecipe,
+  veryBadRatingStarRecipe,
   favByUser,
   notFavByUser,
   addPicture,

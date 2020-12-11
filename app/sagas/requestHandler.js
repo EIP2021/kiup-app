@@ -56,6 +56,7 @@ export function* handleRequest({
       yield put(updateData(name, response, subtype));
     }
   } catch (err) {
+    console.log(err);
     yield put(fetchError(name, err));
     if (err.status > 500) {
       // TO BE IMPLEMENTED
