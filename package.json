@@ -12,7 +12,7 @@
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.2",
     "lodash.debounce": "^4.0.8",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "native-base": "^2.13.14",
     "prop-types": "^15.7.2",
     "querystringify": "^2.1.1",
